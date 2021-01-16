@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Hash;
 class UserController extends Controller
 {
     /**
@@ -14,7 +14,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $users=User::all();
+
+        return view("admin.all_users",["users"=>$users]);
     }
 
     /**
@@ -25,6 +27,8 @@ class UserController extends Controller
     public function create()
     {
         //
+        return view("admin.add_user");
+         //dump($request);
     }
 
     /**
@@ -36,6 +40,55 @@ class UserController extends Controller
     public function store(Request $request)
     {
         //
+        //return view("admin.all_users");
+         //dd($request);
+         $request->validate([
+            "name"=>"required|min:3", 
+            
+            "email"=>"required",
+            "password"=>"required",
+            "role"=>"required",
+            "gender"=>"required",
+            "address"=>"required",
+            "phone"=>"required",
+            "university"=>"required",
+            "password_confirmation"=>"required",
+             "profile_photo_path"=>"required|image|mimes:jpeg,png,jpg,gif,svg|max:2048"
+
+
+
+            ]);
+            if($request->hasFile('profile_photo_path')) {
+                $image = $request->file('profile_photo_path');
+                $filename =rand() . '.' . $image->getClientOriginalExtension();
+                $image->move(public_path('userimg/'), $filename);
+                $filename='userimg/'.$filename;
+               
+            }
+         User::create([
+            "name"=>$request["name"],
+            "email"=>$request["email"],
+            "password"=>Hash::make ($request["password"]),
+            "role"=>$request["role"],
+            "gender"=>$request["gender"],
+            "address"=>$request["address"],
+            "phone"=>$request["phone"],
+            "university"=>$request["university"],
+            "university"=>$request["university"],
+            "profile_photo_path"=>$filename
+        ]);
+        // if ($request->hasFile('profile_photo_path')){
+        //     $file=$request->file('profile_photo_path');
+        //     $extension=$file->getClientOriginalExtension();
+        //     $filename= time() . '.' . $extension;
+        //     //->storeAs('avatars',$user.'/'.$profile_photo_path);
+        //     //$user->update(['profile_photo_path'=>$profile_photo_path]);
+        //     $file->move('usersimg', $filename);
+
+        // } 
+        
+
+        return redirect(route("users.index")); 
     }
 
     /**
@@ -46,7 +99,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        //
+        return view("admin.viewuser",["user"=>$user]);
     }
 
     /**
@@ -57,7 +110,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        return view("admin.edit_user",["user"=>$user]);
     }
 
     /**
@@ -70,6 +123,27 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         //
+        if($request->hasFile('profile_photo_path')) {
+            $image = $request->file('profile_photo_path');
+            $filename =rand() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('userimg/'), $filename);
+            $filename='userimg/'.$filename;
+           
+        }
+        $user->update([
+            "name"=>$request["name"],
+            "email"=>$request["email"],
+            "avater"=>$request["avater"],
+            "password"=>Hash::make ($request["password"]),
+            "role"=>$request["role"],
+            "gender"=>$request["gender"],
+            "address"=>$request["address"],
+            "phone"=>$request["phone"],
+            "university"=>$request["university"],
+            "password_confirmation"=>$request["password_confirmation"],
+            "profile_photo_path"=>$filename
+            ]);
+            return redirect(route("users.index"));
     }
 
     /**
@@ -81,5 +155,7 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         //
+        $user->delete();
+        return redirect(route("users.index"));
     }
 }

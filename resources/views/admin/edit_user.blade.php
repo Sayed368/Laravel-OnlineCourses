@@ -287,22 +287,31 @@
         <div class="row">
             <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-3">
                 <div style="width: 200px;" class="row">
-                    <form>
-                        <div style="width: 600px;" class="form-group">
+                <form method="POST" action="{{route('users.update',$user)}}" enctype="multipart/form-data">
+                @csrf
+                     @method("put")                        <div style="width: 600px;" class="form-group">
                             <label for="first_name">Name</label>
-                            <input type="text" class="form-control" name="name" placeholder="Enter  Name" required>
+                            <input type="text" class="form-control" name="name" placeholder="Enter Name" required
+                            value="{{$user['name']}}">
+                            
                         </div>
 
                      
 
                         <div class="form-group">
                             <label for="email">Email address</label>
-                            <input type="email" class="form-control" id="email" placeholder="Enter email" required>
+                            <input type="email" class="form-control" id="email" placeholder="Enter email"  name="email" required
+                            value="{{$user['email']}}"
+                            >
                         </div>
 
                         <div class="form-group">
                             <label for="password">Password</label>
-                            <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Password" 
+                            
+                          required
+                          value="{{$user['password']}}"
+                          >
                         </div>
 
                         <div class="form-group">
@@ -312,21 +321,25 @@
 
                         <div class="form-group">
                             <label for="role">User Role</label>
-                            <select class="form-control" id="role" required>
-                                <option value="admin">Admin</option>
-                                <option value="student">Instructor</option>
-                                <option value="student">Student</option>
+                            <select class="form-control" id="role"  name="role" required >
+                                <option value="admin">admin</option>
+                                <option value="student">instructor</option>
+                                <option value="student">student</option>
                             </select>
                         </div>
 
                         <div class="form-group">
                             <label for="address">Address</label>
-                            <input type="text" class="form-control" id="address" name="address" placeholder="User Address ..." required>
+                            <input type="text" class="form-control" id="address" name="address" placeholder="User Address ..." required
+                            value="{{$user['address']}}"
+                            >
                         </div>
 
                         <div class="form-group">
                             <label for="phone">Phone Number</label>
-                            <input type="text" class="form-control" id="phone" name="phone" placeholder="User Phone Number ...">
+                            <input type="text" class="form-control" id="phone" name="phone" placeholder="User Phone Number ..." require
+                            value="{{$user['phone']}}" 
+                            >
                         </div>
 
                         <div class="form-group">
@@ -335,13 +348,14 @@
                             <label class="radio-inline"><input type="radio" name="gender" value="female">Female</label>
                         </div>
                         <div class="form-group">
-                            <label for="biography">Biography</label>
-                            <textarea class="form-control" rows="4" name="biography" id="biography" placeholder="User Biography ..."></textarea>
+                        <label for="university">university</label>
+                            <input type="text" class="form-control" id="university" name="university" placeholder="user university ..."
+                            value="{{$user['university']}}" >
                         </div>
 
                         <div class="form-group">
                             <label for="note">image</label>
-                            <input type="file" class="form-control" id="dob" name="img" required>
+                            <input type="file" class="form-control" id="dob" name="profile_photo_path" required>
                         </div>
 
                         <button type="submit" class="btn btn-primary pull-right">Submit</button>

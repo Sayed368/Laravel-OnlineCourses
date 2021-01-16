@@ -182,7 +182,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="{{url('admin/allusers')}}" class="nav-link active">
+            <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 all users
@@ -213,7 +213,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="{{url('admin/adduser')}}" class="nav-link">
+            <a href="/users/create" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Add user
@@ -286,7 +286,7 @@
                 <div class="col-xs-12 sub">
                     <div class="row">
                         <div class="col-xs-12">
-                            <h3><span class="fa fa-users"></span> Users <button class="btn btn-success m-l-15"><span class="fa fa-plus"></span> <a style="text-decoration: none ; color: white;" href="{{url('admin/adduser')}}">Add User</a></button></h3>
+                            <h3><span class="fa fa-users"></span> Users <button class="btn btn-success m-l-15"><span class="fa fa-plus"></span> <a style="text-decoration: none ; color: white;" href="/users/create">Add User</a></button></h3>
                             
                         </div>
                         <div class="col-xs-12 col-sm-6 ">
@@ -307,39 +307,54 @@
                             <table class="table table-responsive table-hover table-condensed">
                                 <thead>
                                     <tr>
-                                        <th>#</th>
+                                        <!-- <th>#</th> -->
                                         <th>Name</th>
-                                        <th>image</th>
+                                        
                                         <th>email</th>
+                                        <th>image</th>
                                         <th>role</th>
                                         <th>gender</th>
-                                        <th>experience</th>
-                                        <th>website</th>
+                                        <!-- <th>experience</th> -->
+                                        <!-- <th>website</th> -->
                                         <th>Address</th>
                                         <th>phone number</th>
-                                     
-                                        <th>Options</th>
+                                        <th>university</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>1</td>
-                                        <td>sarah</td>
-                                        <td>image.jpg</td>
-                                        <td>sarah@gmail.com</td>
-                                        <td>student</td>
-                                        <td>female</td>
-                                        <td>expert</td>
-                                        <td>www.sarah.com</td>
-                                        <td>egypy</td>
-                                        <td>0129302029</td>
-                                   
+                                      @foreach($users as $user)
+                                        <!-- <td>1</td> -->
+                                        <td> {{$user["name"]}}</td>
+                                        
+                                        <td> {{$user["email"]}}</td>
+                                       
                                         <td>
-                                            <a href="{{url('admin/edituser')}}"><span class="fa fa-edit"></span></a>
-                                            <a class="text-success m-l-5" href="{{url('admin/viewuser')}}"><span class="fa fa-eye"></span></a>
-                                            <a href="#"><span class="fa fa-trash-alt"></span></a>
+                                    
+                    <img src="{{ $user['profile_photo_path'] }}" class="rounded-circle" width="60" height="50" /></td>
+                                        <td>{{$user["role"]}}</td>
+                                        <td>{{$user["gender"]}}</td>
+                                        <!-- <td>expert</td> -->
+                                        <!-- <td>www.sarah.com</td> -->
+                                        <td>{{$user["address"]}}</td>
+                                        <td>{{$user["phone"]}}</td>
+                                        <td> {{$user["university"]}}</td>
+                                        <td>
+                                            <a class="text-success m-l-5" href="{{route('users.show',$user)}}"><span class="fa fa-eye"></span></a>
+                                            <a href="{{route('users.edit',$user)}}"><span class="fa fa-edit"></span></a>
+                                            <form action="{{route('users.destroy',$user)}}" method="Post" style="display:inline-block;">
+                      @csrf
+                      @method("delete")
+                      <input type="submit"  value="Delete"
+                              class="btn btn-danger"
+                              > 
+                              <!-- <a ><input type="submit" class="fa fa-trash-alt"><span class="fa fa-trash-alt"></span></a> -->
+</form>
                                         </td>
-                                    </tr>
+</tr>
+                                        @endforeach
+                                    
                                 </tbody>
                             </table>
                         </div>

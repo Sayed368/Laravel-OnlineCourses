@@ -185,7 +185,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="{{url('admin/allusers')}}" class="nav-link ">
+            <a href="/users" class="nav-link ">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 all users
@@ -216,7 +216,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="{{url('admin/adduser')}}" class="nav-link active">
+            <a href="/users/create" class="nav-link active">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Add user
@@ -283,65 +283,75 @@
       </div><!-- /.container-fluid -->
     </section>
 
-    <div style="padding-top:10px; padding-left:400px ;" class="container-fluid">
+    <div style="padding-top:10px; padding-left:208px ;" class="container-fluid">
         <div class="row">
             <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-3">
                 <div style="width: 200px;" class="row">
-                    <form>
+                <form method="POST" action="{{route('users.store')}}" enctype="multipart/form-data">
+                    @csrf
                         <div style="width: 600px;" class="form-group">
                             <label for="first_name">Name</label>
-                            <input type="text" class="form-control" name="name" placeholder="Enter  Name" required>
+                            <input type="text" class="form-control" name="name" placeholder="Enter Name" required>
+                            <label class="text-danger"> {{$errors->first("name")}}</label>
                         </div>
 
                      
 
                         <div class="form-group">
                             <label for="email">Email address</label>
-                            <input type="email" class="form-control" id="email" placeholder="Enter email" required>
+                            <input type="email" class="form-control" id="email" placeholder="Enter email"  name="email" required>
+                            <label class="text-danger"> {{$errors->first("email")}}</label>
                         </div>
 
                         <div class="form-group">
                             <label for="password">Password</label>
-                            <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Password" >
+                            <label class="text-danger"> {{$errors->first("password")}}</label>
                         </div>
 
                         <div class="form-group">
                             <label for="password_confirm">Password Confirmation</label>
                             <input type="password" class="form-control" id="password_confirm" name="password_confirmation" placeholder="Password Confirmation" required>
+                            <label class="text-danger"> {{$errors->first("password_confirmation")}}</label>
                         </div>
 
                         <div class="form-group">
                             <label for="role">User Role</label>
-                            <select class="form-control" id="role" required>
-                                <option value="admin">Admin</option>
-                                <option value="student">Instructor</option>
-                                <option value="student">Student</option>
+                            <select class="form-control" id="role"  name="role"  >
+                                <option value="admin">admin</option>
+                                <option value="student">instructor</option>
+                                <option value="student">student</option>
                             </select>
+                            <label class="text-danger"> {{$errors->first("role")}}</label>
                         </div>
 
                         <div class="form-group">
                             <label for="address">Address</label>
                             <input type="text" class="form-control" id="address" name="address" placeholder="User Address ..." required>
+                            <label class="text-danger"> {{$errors->first("address")}}</label>
                         </div>
 
                         <div class="form-group">
                             <label for="phone">Phone Number</label>
                             <input type="text" class="form-control" id="phone" name="phone" placeholder="User Phone Number ...">
+                            <label class="text-danger"> {{$errors->first("phone")}}</label>
                         </div>
 
                         <div class="form-group">
                             <label>Gender</label>
                             <label class="radio-inline m-l-15"><input type="radio" name="gender" value="male" checked>Male</label>
                             <label class="radio-inline"><input type="radio" name="gender" value="female">Female</label>
+                            <label class="text-danger"> {{$errors->first("gender")}}</label>
                         </div>
                         <div class="form-group">
-                            <label for="biography">Biography</label>
-                            <textarea class="form-control" rows="4" name="biography" id="biography" placeholder="User Biography ..."></textarea>
+                            <label for="university">university</label>
+                            <input type="text" class="form-control" id="university" name="university" placeholder="user university ...">
+                            <label class="text-danger"> {{$errors->first("university")}}</label>
                         </div>
 
                         <div class="form-group">
                             <label for="note">image</label>
-                            <input type="file" class="form-control" id="dob" name="img" required>
+                            <input type="file" class="form-control" id="profile_photo_path" name="profile_photo_path" required >
                         </div>
 
                         <button type="submit" class="btn btn-primary pull-right">Submit</button>
