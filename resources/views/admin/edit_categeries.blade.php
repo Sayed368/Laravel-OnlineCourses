@@ -281,10 +281,12 @@
         <div class="row">
             <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-3">
                 <div style="width: 200px;"" class="row">
-                    <form>
+                <form method="post" action="{{route('categories.update',$category)}}">
+                    @csrf
+                     @method("put")
                         <div  style="width: 600px;"  class="form-group">
                             <label for="first_name">Categery name</label>
-                            <input type="text" class="form-control"  name="cate_name" placeholder="Enter Categery Name" required>
+                            <input type="text" class="form-control" value="{{$category['name']}}" name="name" placeholder="Enter Categery Name" required>
                           </div>
                         <button type="submit" class="btn btn-primary pull-right">Submit</button>
 <br><br><br><br>

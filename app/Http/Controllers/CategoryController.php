@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
-use Illuminate\Http\Request;
+use Illuminate\Http\Request;   
 
 class CategoryController extends Controller
 {
@@ -14,7 +14,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories= Category::all();
+        return view('admin.all_categeries',["categories"=>$categories]);
     }
 
     /**
@@ -23,8 +24,10 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
+    {   
         //
+        return view('admin.add_categeries');
+
     }
 
     /**
@@ -36,6 +39,18 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            "name"=>"required"
+            
+            
+            ]);
+           
+       Category::create([
+        "name"=>$request["name"],
+        
+       ]);
+    
+       return redirect(route("categories.index"));
     }
 
     /**
@@ -47,6 +62,8 @@ class CategoryController extends Controller
     public function show(Category $category)
     {
         //
+        return view("admin.viewcateg",["category"=>$category]);
+
     }
 
     /**
@@ -58,6 +75,7 @@ class CategoryController extends Controller
     public function edit(Category $category)
     {
         //
+        return view("admin.edit_categeries",["category"=>$category]);
     }
 
     /**
@@ -70,6 +88,11 @@ class CategoryController extends Controller
     public function update(Request $request, Category $category)
     {
         //
+        $category->update([
+            "name"=>$request["name"],
+            
+        ]);
+        return redirect(route("categories.show",["category"=>$category]));
     }
 
     /**
@@ -81,5 +104,7 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         //
+        $category->delete();
+        return redirect(route("categories.index"));
     }
 }

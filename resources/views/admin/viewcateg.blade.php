@@ -301,7 +301,7 @@
                         
                             <tr>
                                 <th>categery name:</th>
-                                <td>full stack</td>
+                                <td>{{$category["name"]}}</td>
                             </tr>
                         </tbody>
                     </table>
