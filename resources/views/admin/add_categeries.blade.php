@@ -192,7 +192,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="{{url('admin/allcategeries')}}" class="nav-link">
+            <a href="/categories" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 All categeries
@@ -224,7 +224,7 @@
           
           
           <li class="nav-item">
-            <a href="{{url('admin/addcategery')}}" class="nav-link active">
+            <a href="/categories/create" class="nav-link active">
               <i class="nav-icon fas fa-th"></i>
               <p>
                  Add categery
@@ -280,11 +280,13 @@
     <div style="padding-top:10px; padding-left:400px ;" class="container-fluid">
         <div class="row">
             <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-3">
-                <div style="width: 200px;"" class="row">
-                    <form>
+                <div style="width: 200px;" class="row">
+                <form method="POST" action="{{route('categories.store')}}" enctype="multipart/form-data">
+                    @csrf
+
                         <div  style="width: 600px;"  class="form-group">
                             <label for="first_name">Categery name</label>
-                            <input type="text" class="form-control"  name="cate_name" placeholder="Enter Categery Name" required>
+                            <input type="text" class="form-control"  name="name" placeholder="Enter Categery Name" required>
                           </div>
                         <button type="submit" class="btn btn-primary pull-right">Submit</button>
 <br><br><br><br>

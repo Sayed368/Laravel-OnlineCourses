@@ -139,14 +139,11 @@ Route::get('/player', function () {
 // });
 
 
+Route::resource("categories",CategoryController::class);
 
-// resource routes
 
          Route::resource('users', Usercontroller::class);
 
-        // Route::resource('user', CourseController::class);
-
-        // Route::resource('user', CategoryController::class);
 
 
 
@@ -157,6 +154,7 @@ Route::get('/player', function () {
 
 
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+
+// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+//     return view('dashboard');
+// })->name('dashboard');
