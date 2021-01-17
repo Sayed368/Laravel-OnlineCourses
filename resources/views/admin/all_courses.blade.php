@@ -335,7 +335,11 @@
                                     <td><a href="#"><b>{{$course["name"]}}</b></a></td>
                                     <td>{{$course["description"]}}</td>
                                     <td>{{$course["duration"]}}</td>
-                                    <td>full stack</td>
+                                    <td>
+                                      @foreach ($course["Category"] as $item)
+                                      {{$item["name"].','}}
+                                      @endforeach
+                                    </td>
                                     <td>{{$course["instructor"]["name"]}}</td>
                                     <td>
                                     

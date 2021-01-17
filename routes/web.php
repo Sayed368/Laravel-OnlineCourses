@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ViewCourseController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,9 +33,9 @@ Route::get('/course', function () {
 });
 
 
-Route::get('/course-details', function () {
-    return view('courses.course-details');
-});
+// Route::get('/course-details', function () {
+//     return view('courses.course-details');
+// });
 
 // Route::get('/courses', function () {
 //     return view('courses.about');
@@ -84,7 +86,7 @@ Route::get('/player', function () {
 // end test routs
 Route::resource("courses",CourseController::class);
 
-
+Route::resource("Viewcourses",ViewCourseController::class);
 // Route::get('/admin', function () {
 //     return view('admin.all_users');
 // });
@@ -176,6 +178,7 @@ Route::resource("courses",CourseController::class);
 
 Route::resource("categories",CategoryController::class);
 
+
 // // resource routes
 
 //         // Route::resource('user', Usercontroller::class);
@@ -184,7 +187,7 @@ Route::resource("categories",CategoryController::class);
 
 //         // Route::resource('user', CategoryController::class);
 
-         Route::resource('users', Usercontroller::class);
+Route::resource('users', Usercontroller::class);
 
 
 
