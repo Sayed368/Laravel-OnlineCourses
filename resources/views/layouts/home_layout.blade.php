@@ -51,8 +51,8 @@
 					<div class="info_wrapper">
 						<div class="contact_info">                   
 							<ul class="list-unstyled">
-                                <li><i class="flaticon-phone-receiver"></i>+000-2356-222</li>
-        						<li><i class="flaticon-mail-black-envelope-symbol"></i>contact@yourdomain.com</li>
+                                <li><i class="flaticon-phone-receiver"></i>+02-01010-75270</li>
+        						<li><i class="flaticon-mail-black-envelope-symbol"></i>Info@Eduwise.com</li>
         					</ul>                
 						</div>
 						<div class="login_info">
@@ -78,7 +78,8 @@
                             
                         
                         </li>
-                        <li class="nav-item"><a href="/about" class="nav-link">About</a></li>
+                        <li class="nav-item"><a href="/about" class="nav-link">About us</a></li>
+                        <li class="nav-item"><a href="/team" class="nav-link">Instractors</a></li>
                         <li class="nav-item"><a href="/course" class="nav-link">Courses</a>
                             <ul class="navbar-nav nav mx-auto">
                                 <li class="nav-item"><a href="/course" class="nav-link">Courses</a></li>
@@ -103,7 +104,7 @@
                                
                             </ul>  -->
                         </li>
-                        <li class="nav-item"><a href="#" class="nav-link">Pages</a>
+                        <!-- <li class="nav-item"><a href="#" class="nav-link">Pages</a>
                             <ul class="navbar-nav nav mx-auto">
                                 <li class="nav-item"><a href="#" class="nav-link dropdown_icon">Courses</a>
                                     <ul class="navbar-nav nav mx-auto">
@@ -123,13 +124,12 @@
                                         <li class="nav-item"><a href="blog.html" class="nav-link">Blog Grid One</a></li> 
                                         
                                     </ul>     -->
-                                </li> 
+                                <!-- </li> 
                                 <li class="nav-item"><a href="/become-a-teacher" class="nav-link">Become A Teacher</a></li>
-                                <li class="nav-item"><a href="/teacher-profile" class="nav-link">Teachers Profile</a></li>
-                                <li class="nav-item"><a href="/team" class="nav-link">Teachers Page</a></li>
+
                                 <li class="nav-item"><a href="/forgot-password" class="nav-link">Forgot Password</a></li>
                             </ul>                            
-                        </li>     
+                        </li>      --> 
                         <li class="nav-item"><a href="/contact" class="nav-link">Contact</a></li>
                     </ul>
                 </div>
@@ -143,7 +143,7 @@
                                  </form>
                             </div>
                         </li>
-                        <li class="nav-item cart_icon"><i class="flaticon-shopping-bag"><p>2</p></i> 
+                        <!-- <li class="nav-item cart_icon"><i class="flaticon-shopping-bag"><p>2</p></i> 
                     	 	<div class="cart_list">
                                 <div class="single_cart d-flex justify-content-between">
                                     <div class="cart_banner">
@@ -180,7 +180,7 @@
                                     <a class="checkout" href="#">checkout</a>
                                 </div>
                             </div>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </nav><!-- END NAVBAR -->
@@ -329,23 +329,23 @@
 @yield('main')
 
 
-
+<br><br>
 <!-- Footer -->  
 <footer class="footer_3">
 	<div class="container">
-		<div class="row">
+		<!-- <div class="row">
 			<div class="col-12 col-sm-12 col-md-12 col-lg-12">
 				<div class="become_instractor">  
 					<div class="sub_title">
 						<h2>Become A Instractor</h2>
 						<p>Lorem ipsum dolor sit amet mollis felis dapibus arcu donec viverra. Pede phasellus eget. Etiam maecenas vel vici quis dictum rutrum nec nisi et.</p>  
 					</div><!-- ends: .section-header -->
-					<div class="envent_all_view">
+					<!-- <div class="envent_all_view">
 						<a href="#" title="">Start my free month</a>
 					</div>
 				</div> 
 			</div>
-		</div>  
+		</div>   --> 
 		<div class="footer_top">
 			<div class="row">
 				<div class="col-12 col-md-6 col-lg-4">
@@ -383,8 +383,8 @@
 						<h3>Contact Us</h3>
 						<p>Ante amet vitae vulputate odio nulla vel pretium aenean.</p>
 						<div class="contact_info">
-							<span>+000 124 325</span> 
-							<span class="email">info@yourdomain.com</span>
+							<span>+02-01010-752703</span> 
+							<span class="email">Info@Eduwise.com</span>
 						</div>
 						<ul class="social_items d-flex list-unstyled">
 							<li><a href="#"><i class="fab fa-facebook-f fb-icon"></i></a></li>

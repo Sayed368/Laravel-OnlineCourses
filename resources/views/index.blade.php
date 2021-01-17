@@ -2,7 +2,11 @@
 
 @section('main')
 
-
+<?php
+use App\Models\user;
+$user=new user ;
+$users=$user->all();
+?>
 
 <section class="courses_features">
 	<div class="container">
@@ -272,7 +276,7 @@
 
 
 
-<section class="video_online">
+<!-- <section class="video_online">
 	<div class="container">
 		<div class="row">
 			<div class="col-12 col-sm-12 col-md-12 col-lg-12">
@@ -327,7 +331,7 @@
 	</div>
 	<div class="bg_shapes">
 	</div>
-</section><!-- End ONline Video -->
+</section>End ONline Video -->
 
 
 
@@ -342,52 +346,31 @@
 			</div>
 		</div>
 		<div class="row">
+		@foreach ($users->slice(0,3) as $user)
+@if($user['role']=='student')
 			<div class="col-12 col-sm-6 col-md-6 col-lg-4">
 				<div class="testimonial_single">
 					<div class="reviewer_info">
 						<div class="pro_pic_teacher">
-							<img src="images/team/review_1.jpg" alt="2" class="img-fluid">
+							<img src="{{$user['profile_photo_path']}}" alt="2" class="img-fluid">
 						</div>
 						<div class="name_position">
-							<span class="name">John Porter</span>
-							<span>Graphic Student</span>
+							<span class="name">{{$user['name']}}</span>
+							<span>{{$user['specialist']}} student</span>
 						</div>
 					</div>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean commodo ligula ng elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes.</p>
+					<p>{{$user['description']}}</p>
 				</div>                                       
 			</div>
-			<div class="col-12 col-sm-6 col-md-6 col-lg-4">
-				<div class="testimonial_single">
-					<div class="reviewer_info">
-						<div class="pro_pic_teacher">
-							<img src="images/team/review_3.jpg" alt="2" class="img-fluid">
-						</div>
-						<div class="name_position">
-							<span class="name">Mittie Hill</span>
-							<span>Wordpress Student</span>
-						</div>
-					</div>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoqr. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes.</p>
-				</div>                                       
-			</div>
-			<div class="col-12 col-sm-6 col-md-6 col-lg-4">
-				<div class="testimonial_single">
-					<div class="reviewer_info">
-						<div class="pro_pic_teacher">
-							<img src="images/team/review_4.jpg" alt="2" class="img-fluid">
-						</div>
-						<div class="name_position">
-							<span class="name">Marian Dupre</span>
-							<span>Web Student</span>
-						</div>
-					</div>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sigula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes.</p>
-				</div>                                       
-			</div>
+			
+			@endif
+            @endforeach
 
 		</div>
 	</div>
 </section><!-- End Testimonial -->
+
+
 
 
 
@@ -401,90 +384,31 @@
 						<p>Lorem ipsum dolor sit amet mollis felis dapibus arcu donec viverra. Pede phasellus eget. Etiam maecenas vel vici quis dictum rutrum nec nisi et.</p>  
 					</div><!-- ends: .section-header -->
 					<div class="envent_all_view">
-						<a href="#" title="">View All</a>
+						<a href="/team" title="">View All</a>
 					</div>
 				</div> 
 			</div>
 		</div>      
 		<div class="row">
+@foreach ($users->slice(0,6) as $user)
+@if($user['role']=='instructor')
 			<div class="col-12 col-sm-6 col-md-6 col-lg-4">
 				<div class="testimonial_single">
 					<div class="reviewer_info">
 						<div class="pro_pic_teacher">
-							<img src="images/team/team_1.jpg" alt="2" class="img-fluid">
+							<img src="{{$user['profile_photo_path']}}" alt="2" class="img-fluid">
 						</div>
 						<div class="name_position">
-							<span class="name"><a href="#" title="">Stephen Patterson</a></span>
-							<span>Graphic Teacher</span>
+							<span class="name"><a href="#" title="">{{$user['name']}}</a></span>
+							<span>{{$user['specialist']}}</span>
 						</div>
 					</div>
 				</div>                                       
 			</div>
-			<div class="col-12 col-sm-6 col-md-6 col-lg-4">
-				<div class="testimonial_single">
-					<div class="reviewer_info">
-						<div class="pro_pic_teacher">
-							<img src="images/team/team_2.jpg" alt="2" class="img-fluid">
-						</div>
-						<div class="name_position">
-							<span class="name"><a href="#" title="">Janes Smith</a></span>
-							<span>Senior Lecturer</span>
-						</div>
-					</div>
-				</div>                                       
-			</div>
-			<div class="col-12 col-sm-6 col-md-6 col-lg-4">
-				<div class="testimonial_single">
-					<div class="reviewer_info">
-						<div class="pro_pic_teacher">
-							<img src="images/team/team_3.jpg" alt="2" class="img-fluid">
-						</div>
-						<div class="name_position">
-							<span class="name"><a href="#" title="">Patricia Roberts</a></span>
-							<span>Biology Professor</span>
-						</div>
-					</div>
-				</div>                                       
-			</div>           
-			<div class="col-12 col-sm-6 col-md-6 col-lg-4">
-				<div class="testimonial_single">
-					<div class="reviewer_info">
-						<div class="pro_pic_teacher">
-							<img src="images/team/team_4.jpg" alt="2" class="img-fluid">
-						</div>
-						<div class="name_position">
-							<span class="name"><a href="#" title="">Dolores Galloway</a></span>
-							<span>English Lecturer</span>
-						</div>
-					</div>
-				</div>                                       
-			</div>
-			<div class="col-12 col-sm-6 col-md-6 col-lg-4">
-				<div class="testimonial_single">
-					<div class="reviewer_info">
-						<div class="pro_pic_teacher">
-							<img src="images/team/team_5.jpg" alt="2" class="img-fluid">
-						</div>
-						<div class="name_position">
-							<span class="name"><a href="#" title="">Henry Norman</a></span>
-							<span>Language Teacher </span>
-						</div>
-					</div>
-				</div>                                       
-			</div>
-			<div class="col-12 col-sm-6 col-md-6 col-lg-4">
-				<div class="testimonial_single">
-					<div class="reviewer_info">
-						<div class="pro_pic_teacher">
-							<img src="images/team/team_6.jpg" alt="2" class="img-fluid">
-						</div>
-						<div class="name_position">
-							<span class="name"><a href="#" title="">Matthew Reck</a></span>
-							<span>Marketing Teacher</span>
-						</div>
-					</div>
-				</div>                                       
-			</div>
+
+			@endif
+            @endforeach
+			
 		</div>
 	</div>
 	<div class="shape_wrapper">
