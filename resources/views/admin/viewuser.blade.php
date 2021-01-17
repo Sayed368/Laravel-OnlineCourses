@@ -301,36 +301,39 @@
                       
                             <tr>
                             <th>Name</th>
-                            <td>Html, Css, JavaScript, Bootstrap, PHP, SQL, Laravel</td>
+                            <td>{{$user["name"]}}</td>
                             </tr>
                             <tr>
                             <th>image</th>
-                            <td>127h</td>
+                            <td><img src="../{{ $user['profile_photo_path'] }}" class="rounded-circle" width="60" height="50" /></td>
                             </tr>
                              <tr>
                              <th>email</th>
-                             <td>Full stack</td>
+                             <td>{{$user["email"]}}</td>
                             </tr>
                             <tr>
                             <th>role</th>
-                             <td>13/13/2018</td>
+                             <td>{{$user["role"]}}</td>
                             </tr>
                             <tr>
                             <th>gender</th>
-                             <td>15/16/2007k</td>
+                             <td>{{$user["gender"]}}</td>
                             </tr>
-                            <tr>
+                            <!-- <tr>
                             <th>experience</th>
                              <td>video link</td>
-                            </tr>
-                            <tr>
+                            </tr> -->
+                            <!-- <tr>
                             <th>website</th>
                              <td>video link</td>
-                            </tr>
+                            </tr> -->
                             <tr>
                             <th>Address</th>
-                             <td>video link</td>
+                             <td>{{$user["address"]}}</td>
                             </tr>
+                            <th>university</th>
+                             <td>{{$user["university"]}}</td>
+                            </tr> 
                         </tbody>
                     </table>
                         </div>

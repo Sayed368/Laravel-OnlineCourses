@@ -192,7 +192,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="{{url('admin/allcategeries')}}" class="nav-link active">
+            <a href="/categories" class="nav-link active">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 All categeries
@@ -224,7 +224,7 @@
           
           
           <li class="nav-item">
-            <a href="{{url('admin/addcategery')}}" class="nav-link">
+            <a href="/categories/create" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                  Add categery
@@ -286,7 +286,7 @@
                 <div class="col-xs-12 sub">
                     <div class="row">
                         <div class="col-xs-12">
-                            <h3><span class="fa fa-users"></span> categories <button class="btn btn-success m-l-15"><span class="fa fa-plus"></span><a style="text-decoration: none ; color: white;" href="{{url('admin/addcategery')}}">Add categories</a></button></h3>
+                            <h3><span class="fa fa-users"></span> categories <button class="btn btn-success m-l-15"><span class="fa fa-plus"></span><a style="text-decoration: none ; color: white;" href="/categories/create">Add categories</a></button></h3>
                             
                         </div>
                         <div class="col-xs-12 col-sm-6 ">
@@ -311,16 +311,27 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                @foreach($categories as $category)
                                     <tr>
-                                        <td>1</td>
-                                        <td>full stack</td>
+                                        <td>{{$category["id"]}}</td>
+                                        <td>{{$category["name"]}}</td>
                                    
                                         <td>
-                                            <a href="{{url('admin/editcategery')}}"><span class="fa fa-edit"></span></a>
-                                            <a class="text-success m-l-5" href="{{url('admin/viewcateg')}}"><span class="fa fa-eye"></span></a>
-                                            <a href="#"><span class="fa fa-trash-alt"></span></a>
+                                            <a href="{{route('categories.edit',$category)}}"><span class="fa fa-edit"></span></a>
+                                            <a class="text-success m-l-5" href="{{route('categories.show',$category)}}"><span class="fa fa-eye"></span></a>
+                                            <form action="{{route('categories.destroy',$category)}}" method="Post" style="display:inline-block;">
+                      @csrf
+                      @method("delete")
+                     
+                      <input type="submit"  value="Delete" 
+                      
+                      class="btn btn-danger"
+                              style="width:70px ;height:40px;border-radius:40%">
+                             
+                       </form>
                                         </td>
                                     </tr>
+                                 @endforeach
                                 </tbody>
                             </table>
                         </div>

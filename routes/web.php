@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CategoryController;
@@ -96,6 +97,7 @@ Route::resource("courses",CourseController::class);
 //     return view('admin.all_users');
 // });
 
+<<<<<<< HEAD
 // // Route::get('/admin/allcourses', function () {
 // //     return view('admin.all_courses');
 // // });
@@ -107,12 +109,29 @@ Route::resource("courses",CourseController::class);
 
 // Route::get('/admin/allcategeries', function () {
 //     return view('admin.all_categeries');
+=======
+// Route::get('/admin/allcourses', function () {
+//     return view('admin.all_courses');
+// });
+
+// Route::get('/admin/addcourse', function () {
+//     return view('admin.add_course');
+// });
+
+// Route::get('/admin/allcategeries', function () {
+//     return view('admin.all_categeries');
+// });
+
+// Route::get('/admin/addcategery', function () {
+//     return view('admin.add_categeries');
+>>>>>>> abcb0ebf63b052d04b842de020a354a600e090a3
 // });
 
 // Route::get('/admin/addcategery', function () {
 //     return view('admin.add_categeries');
 // });
 
+<<<<<<< HEAD
 
 // Route::get('/admin/edituser', function () {
 //     return view('admin.edit_user');
@@ -121,11 +140,25 @@ Route::resource("courses",CourseController::class);
 // // Route::get('/admin/editcourse', function () {
 // //     return view('admin.edit_course');
 // // });
+=======
+// Route::get('/admin/edituser', function () {
+//     return view('admin.edit_user');
+// });
+
+// Route::get('/admin/editcourse', function () {
+//     return view('admin.edit_course');
+// });
+
+// Route::get('/admin/editcategery', function () {
+//     return view('admin.edit_categeries');
+// });
+>>>>>>> abcb0ebf63b052d04b842de020a354a600e090a3
 
 // Route::get('/admin/editcategery', function () {
 //     return view('admin.edit_categeries');
 // });
 
+<<<<<<< HEAD
 
 // Route::get('/admin/viewuser', function () {
 //     return view('admin.viewuser');
@@ -135,12 +168,24 @@ Route::resource("courses",CourseController::class);
 // //     return view('admin.viewcourse');
 // // });
 
+=======
+// Route::get('/admin/viewuser', function () {
+//     return view('admin.viewuser');
+// });
+
+// Route::get('/admin/viewcourse', function () {
+//     return view('admin.viewcourse');
+// });
+
+>>>>>>> abcb0ebf63b052d04b842de020a354a600e090a3
 // Route::get('/admin/viewcateg', function () {
 //     return view('admin.viewcateg');
 // });
 
 
+Route::resource("categories",CategoryController::class);
 
+<<<<<<< HEAD
 // // resource routes
 
 //         // Route::resource('user', Usercontroller::class);
@@ -148,6 +193,12 @@ Route::resource("courses",CourseController::class);
 //         // Route::resource('user', CourseController::class);
 
 //         // Route::resource('user', CategoryController::class);
+=======
+
+         Route::resource('users', Usercontroller::class);
+
+
+>>>>>>> abcb0ebf63b052d04b842de020a354a600e090a3
 
 
 
