@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\user;
+use App\Models\Category;
+use App\Models\Course;
+use App\Models\CategoryCourse;
 
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CourseController;
@@ -64,9 +68,29 @@ Route::get('/forgot-password', function () {
 });
 
 
-Route::get('/teacher-profile', function () {
-    return view('courses.teacher-profile');
+Route::get('/teacher-profile/{id}', function ($id) {
+    $post=new user;
+    $fpost=$post->find($id);
+    return view('courses.teacher-profile',["data"=>$fpost]);
 });
+
+
+Route::get('/category/{id}/courses', function ($id) {
+
+    $category=new Category;
+    $category=$category->findorfail($id);
+    
+    $courses=$category->course;
+    // dd($courses);
+    
+    return view('courses.related-courses',["courses"=>$courses]);
+})->name("categorycourses.show");
+
+
+
+// Route::get('/teacher-profile', function () {
+//     return view('courses.teacher-profile');
+// });
 
 Route::get('/team', function () {
     return view('courses.team');

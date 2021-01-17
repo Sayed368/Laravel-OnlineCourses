@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Course;
+use App\Models\Category;
+
 use Illuminate\Http\Request;
 
 class ViewCourseController extends Controller
@@ -47,10 +49,21 @@ class ViewCourseController extends Controller
     public function show($id)
     {
         $course=new Course;
+        $courses=Course::all();
+        
 
         $course=$course->findorfail($id);
+
+        // related courses with the same category 
+            // $category=new Category;
+            // $category=$course->category;
+            // dd($category);
+        // $courses=$category->course;
+            // dd($courses);
+
+
         // dd($course);
-        return view("courses.course-details",['course'=>$course]);
+        return view("courses.course-details",['course'=>$course,'courses'=>$courses]);
     }
 
     /**

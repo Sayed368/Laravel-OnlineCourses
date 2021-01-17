@@ -10,7 +10,8 @@
     <meta name="author" content="Ecology Theme">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eduwise - Education HTML5 Template</title>
-    <link rel="shortcut icon" href="images/favicon.ico" type="{{asset('image/x-icon')}}">
+    <link rel="shortcut icon" href="{{asset('images/favicon.ico')}}" type="{{asset('image/x-icon')}}">
+    <link rel="shortcut icon" href="{{asset('images/favicon.ico')}}" type="image/x-icon">
     <!-- Goole Font -->
     <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet"> 
@@ -55,16 +56,16 @@
                     <div class="info_wrapper">
                         <div class="contact_info">                   
                             <ul class="list-unstyled">
-                                <li><i class="flaticon-phone-receiver"></i>+000-2356-222</li>
-                                <li><i class="flaticon-mail-black-envelope-symbol"></i>contact@yourdomain.com</li>
+                                <li><i class="flaticon-phone-receiver"></i>+02-01010-752703</li>
+                                <li><i class="flaticon-mail-black-envelope-symbol"></i>Info@Eduwise.com</li>
                             </ul>                    
                         </div>
                         <div class="login_info">
                              <ul class="d-flex">
                                 <li class="nav-item"><a href="#" class="nav-link sign-in js-modal-show"><i class="flaticon-user-male-black-shape-with-plus-sign"></i>Sign Up</a></li>
-                                <li class="nav-item"><a href="#" class="nav-link join_now js-modal-show"><i class="flaticon-padlock"></i>Lon In</a></li>
+                                <li class="nav-item"><a href="#" class="nav-link join_now js-modal-show"><i class="flaticon-padlock"></i>Log In</a></li>
                             </ul>
-                            <a href="#" title="" class="apply_btn">Apply Now</a>
+                           
                         </div>
                     </div>
                 </div>
@@ -81,8 +82,9 @@
                         <li class="nav-item"><a href="/" class="nav-link">Home</a>
                             
                         </li>
-                        <li class="nav-item"><a href="/about" class="nav-link">About</a></li>
-                        <li class="nav-item"><a href="/course" class="nav-link active">Courses</a>
+                        <li class="nav-item"><a href="/about" class="nav-link">About us</a></li>
+                        <li class="nav-item"><a href="/team" class="nav-link">Instractors</a></li>
+                        <li class="nav-item"><a href="/course" class="nav-link ">Courses</a>
                             {{-- <ul class="navbar-nav nav mx-auto">
                                 <li class="nav-item"><a href="/course" class="nav-link active">Courses</a></li>
                                 <li class="nav-item"><a href="/course-details" class="nav-link">Courses Details</a></li>
@@ -96,7 +98,7 @@ $categories= Category::all();
     ?>
 
                                 @foreach ($categories as $item)
-                                <li class="nav-item"><a href="/course" class="nav-link">{{$item['name']}}</a></li>
+                                <li class="nav-item"><a href="{{Route("categorycourses.show",$item['id'])}}" class="nav-link">{{$item['name']}}</a></li>
 
                                 @endforeach
 
@@ -108,7 +110,7 @@ $categories= Category::all();
                         <li class="nav-item"><a href="/blog" class="nav-link">Blog</a>
                             
                         </li>
-                        <li class="nav-item"><a href="#" class="nav-link">Pages</a>
+                        <!-- <li class="nav-item"><a href="#" class="nav-link">Pages</a>
                             <ul class="navbar-nav nav mx-auto">
                                 <li class="nav-item"><a href="#" class="nav-link dropdown_icon active">Courses</a>
                                     <ul class="navbar-nav nav mx-auto">
@@ -129,11 +131,9 @@ $categories= Category::all();
                                     </ul>    
                                 </li> 
                                 <li class="nav-item"><a href="/become-a-teacher" class="nav-link">Become A Teacher</a></li>
-                                <li class="nav-item"><a href="/teacher-profile" class="nav-link">Teachers Profile</a></li>
-                                <li class="nav-item"><a href="/team" class="nav-link">Teachers Page</a></li>
                                 <li class="nav-item"><a href="/forgot-password" class="nav-link">Forgot Password</a></li>
                             </ul>                            
-                        </li>     
+                        </li>      -->
                         <li class="nav-item"><a href="/contact" class="nav-link">Contact</a></li>
                     </ul>
                 </div>
@@ -316,8 +316,8 @@ $categories= Category::all();
                         <h3>Contact Us</h3>
                         <p>Ante amet vitae vulputate odio nulla vel pretium aenean.</p>
                         <div class="contact_info">
-                            <span>+000 124 325</span> 
-                            <span class="email">info@yourdomain.com</span>
+                            <span>+02-01010-752703</span> 
+                            <span class="email">Info@Eduwise.com</span>
                         </div>
                         <ul class="social_items d-flex list-unstyled">
                             <li><a href="#"><i class="fab fa-facebook-f fb-icon"></i></a></li>

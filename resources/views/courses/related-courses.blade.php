@@ -13,8 +13,8 @@
 @section('main')
 
 <?php
-    use App\Models\Course;
-    $courses= Course::all();
+    //use App\Models\Course;
+    //$courses= Course::all();
 ?>
 
 
@@ -29,7 +29,7 @@
             <div class="col-12 col-sm-6 col-md-6 col-lg-4">
                 <div class="single-courses">
                     <div class="courses_banner_wrapper">
-                        <div class="courses_banner"><a href="course-details.html"><img src="{{$item['image']}}" alt="" class="img-fluid"></a></div>
+                        <div class="courses_banner"><a href="course-details.html"><img src="{{asset($item['image'])}}" alt="" class="img-fluid"></a></div>
                         <div class="purchase_price">
                             <a href="#" class="read_more-btn">Free</a>
                         </div>

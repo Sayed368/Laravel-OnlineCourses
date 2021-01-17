@@ -303,10 +303,7 @@
                             <th>Name</th>
                             <td>{{$user["name"]}}</td>
                             </tr>
-                            <tr>
-                            <th>image</th>
-                            <td><img src="../{{ $user['profile_photo_path'] }}" class="rounded-circle" width="60" height="50" /></td>
-                            </tr>
+                          
                              <tr>
                              <th>email</th>
                              <td>{{$user["email"]}}</td>
@@ -319,21 +316,28 @@
                             <th>gender</th>
                              <td>{{$user["gender"]}}</td>
                             </tr>
-                            <!-- <tr>
-                            <th>experience</th>
-                             <td>video link</td>
-                            </tr> -->
-                            <!-- <tr>
-                            <th>website</th>
-                             <td>video link</td>
-                            </tr> -->
+                            <tr>
+                            <th>dob</th>
+                             <td>{{$user["dob"]}}</td>
+                            </tr>
+                            <tr>
+                            <th>specialist</th>
+                             <td>{{$user["specialist"]}}</td>
+                            </tr>
                             <tr>
                             <th>Address</th>
                              <td>{{$user["address"]}}</td>
                             </tr>
                             <th>university</th>
                              <td>{{$user["university"]}}</td>
+                            </tr>
+                            <th>description</th>
+                             <td>{{$user["description"]}}</td>
                             </tr> 
+                            <tr>
+                            <th>image</th>
+                            <td><img src="../{{ $user['profile_photo_path'] }}" class="rounded-circle" width="60" height="50" /></td>
+                            </tr>
                         </tbody>
                     </table>
                         </div>

@@ -428,7 +428,17 @@
     </div> 
 </section><!-- ./ End  Blog Wrapper-->
 
+<?php
 
+// use App\Models\course;
+// dd($course);
+// $category=$course->category
+//     // $category=$category->findorfail($id);
+//     $courses=$category->course;
+// // $cat=
+//     // $categories= Category::all();
+
+?>
 
 <!--Start Courses Area Section-->
 <section class="popular_courses" id="related_courses_wrapper">
@@ -441,29 +451,36 @@
             </div>
             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                 <div id="related_courses" class="owlCarousel">
+
+
+                    @foreach ($courses as $item)
+                        
+                   
                     <div class="single-courses">
                         <div class="courses_banner_wrapper">
-                            <div class="courses_banner"><a href="#"><img src="{{asset('images/courses/courses_1.jpg')}}" alt="" class="img-fluid"></a></div>
+                            <div class="courses_banner"><a href="#"><img src="{{asset($item['image'])}}" alt="" class="img-fluid"></a></div>
                             <div class="purchase_price">
                                 <a href="#" class="read_more-btn">Free</a>
                             </div>
                         </div>
                         <div class="courses_info_wrapper">
                             <div class="courses_title">
-                                <h3><a href="#">Make Better Decisions</a></h3>
-                                <div class="teachers_name">Teacher - <a href="#" title="">Jhonthan Smith</a></div>
+                                <h3><a href="course-details.html">{{$item['name']}}</a></h3>
+                                <div class="teachers_name">Teacher - <a href="#" title="">{{$item['instructor']['name']}}</a></div>
                             </div>
                             <div class="courses_info">
                                 <ul class="list-unstyled">
-                                    <li><i class="fas fa-user"></i>180 Days</li>
+                                    <li><i class="fas fa-calendar-alt"></i>{{$item['duration']}} Hours</li>
                                     <li><i class="fas fa-calendar-alt"></i>30 Students</li>
                                 </ul>
-                                <a href="#" class="cart_btn">Add to Cart</a>
+                                <a href="{{route("Viewcourses.show",$item['id'])}}" class="cart_btn">View Details</a>
                             </div>
                         </div>
                     </div><!-- Ends: .single courses -->
+                    @endforeach
 
 
+{{-- 
                     <div class="single-courses">
                         <div class="courses_banner_wrapper">
                             <div class="courses_banner"><a href="#"><img src="{{asset('images/courses/courses_2.jpg')}}" alt="" class="img-fluid"></a></div>
@@ -569,7 +586,7 @@
                                 <a href="#" class="cart_btn">Add to Cart</a>
                             </div>
                         </div>
-                    </div>    
+                    </div>     --}}
                 </div><!-- Ends: .single courses -->
             </div><!-- Ends: . -->                                       
         </div>
