@@ -319,7 +319,7 @@
                             <label for="role">User Role</label>
                             <select class="form-control" id="role"  name="role"  >
                                 <option value="admin">admin</option>
-                                <option value="student">instructor</option>
+                                <option value="instructor">instructor</option>
                                 <option value="student">student</option>
                             </select>
                             <label class="text-danger"> {{$errors->first("role")}}</label>
