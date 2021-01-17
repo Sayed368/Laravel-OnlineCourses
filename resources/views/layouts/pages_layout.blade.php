@@ -10,31 +10,31 @@
     <meta name="author" content="Ecology Theme">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eduwise - Education HTML5 Template</title>
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="{{asset('images/favicon.ico')}}" type="image/x-icon">
     <!-- Goole Font -->
     <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900" rel="stylesheet">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/assets/bootstrap.min.css">
+    <link rel="stylesheet" href="{{asset('css/assets/bootstrap.min.css')}}">
     <!-- Font awsome CSS -->
-    <link rel="stylesheet" href="css/assets/font-awesome.min.css">    
-    <link rel="stylesheet" href="css/assets/flaticon.css">
-    <link rel="stylesheet" href="css/assets/magnific-popup.css">    
+    <link rel="stylesheet" href="{{asset('css/assets/font-awesome.min.css')}}">    
+    <link rel="stylesheet" href="{{asset('css/assets/flaticon.css')}}">
+    <link rel="stylesheet" href="{{asset('css/assets/magnific-popup.css')}}">    
     <!-- owl carousel -->
-    <link rel="stylesheet" href="css/assets/owl.carousel.css">
-    <link rel="stylesheet" href="css/assets/owl.theme.css">     
-    <link rel="stylesheet" href="css/assets/animate.css"> 
+    <link rel="stylesheet" href="{{asset('css/assets/owl.carousel.css')}}">
+    <link rel="stylesheet" href="{{asset('css/assets/owl.theme.css')}}">     
+    <link rel="stylesheet" href="{{asset('css/assets/animate.css')}}"> 
     <!-- Slick Carousel -->
-    <link rel="stylesheet" href="css/assets/slick.css">  
+    <link rel="stylesheet" href="{{asset('css/assets/slick.css')}}">  
     <!-- Mean Menu-->
-    <link rel="stylesheet" href="css/assets/meanmenu.css">
+    <link rel="stylesheet" href="{{asset('css/assets/meanmenu.css')}}">
     <!-- main style-->
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/responsive.css">
-    <link rel="stylesheet" href="css/demo.css">
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('css/responsive.css')}}">
+    <link rel="stylesheet" href="{{asset('css/demo.css')}}">
 
-    <link rel="stylesheet" href="css/video_player.css">
+    <link rel="stylesheet" href="{{asset('css/video_player.css')}}">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -55,16 +55,16 @@
                     <div class="info_wrapper">
                         <div class="contact_info">                   
                             <ul class="list-unstyled">
-                                <li><i class="flaticon-phone-receiver"></i>+000-2356-222</li>
-                                <li><i class="flaticon-mail-black-envelope-symbol"></i>contact@yourdomain.com</li>
+                                <li><i class="flaticon-phone-receiver"></i>+02-01010-752703</li>
+                                <li><i class="flaticon-mail-black-envelope-symbol"></i>Info@Eduwise.com</li>
                             </ul>                    
                         </div>
                         <div class="login_info">
                              <ul class="d-flex">
                                 <li class="nav-item"><a href="#" class="nav-link sign-in js-modal-show"><i class="flaticon-user-male-black-shape-with-plus-sign"></i>Sign Up</a></li>
-                                <li class="nav-item"><a href="#" class="nav-link join_now js-modal-show"><i class="flaticon-padlock"></i>Lon In</a></li>
+                                <li class="nav-item"><a href="#" class="nav-link join_now js-modal-show"><i class="flaticon-padlock"></i>Log In</a></li>
                             </ul>
-                            <a href="#" title="" class="apply_btn">Apply Now</a>
+                           
                         </div>
                     </div>
                 </div>
@@ -75,13 +75,14 @@
     <div class="edu_nav ">
         <div class="container">
             <nav class="navbar navbar-expand-md navbar-light bg-faded">
-                <a class="navbar-brand" href="index-2.html"><img src="images/logo.png" alt="logo"></a>
+                <a class="navbar-brand" href="index-2.html"><img src="{{asset('images/logo.png')}}" alt="logo"></a>
                 <div class="collapse navbar-collapse main-menu" id="navbarSupportedContent">
                     <ul class="navbar-nav nav lavalamp ml-auto menu">
                         <li class="nav-item"><a href="/" class="nav-link">Home</a>
                             
                         </li>
-                        <li class="nav-item"><a href="/about" class="nav-link">About</a></li>
+                        <li class="nav-item"><a href="/about" class="nav-link">About us</a></li>
+                        <li class="nav-item"><a href="/team" class="nav-link">Instractors</a></li>
                         <li class="nav-item"><a href="/course" class="nav-link active">Courses</a>
                             <ul class="navbar-nav nav mx-auto">
                                 <li class="nav-item"><a href="/course" class="nav-link active">Courses</a></li>
@@ -103,7 +104,7 @@
                         <li class="nav-item"><a href="/blog" class="nav-link">Blog</a>
                             
                         </li>
-                        <li class="nav-item"><a href="#" class="nav-link">Pages</a>
+                        <!-- <li class="nav-item"><a href="#" class="nav-link">Pages</a>
                             <ul class="navbar-nav nav mx-auto">
                                 <li class="nav-item"><a href="#" class="nav-link dropdown_icon active">Courses</a>
                                     <ul class="navbar-nav nav mx-auto">
@@ -124,11 +125,9 @@
                                     </ul>    
                                 </li> 
                                 <li class="nav-item"><a href="/become-a-teacher" class="nav-link">Become A Teacher</a></li>
-                                <li class="nav-item"><a href="/teacher-profile" class="nav-link">Teachers Profile</a></li>
-                                <li class="nav-item"><a href="/team" class="nav-link">Teachers Page</a></li>
                                 <li class="nav-item"><a href="/forgot-password" class="nav-link">Forgot Password</a></li>
                             </ul>                            
-                        </li>     
+                        </li>      -->
                         <li class="nav-item"><a href="/contact" class="nav-link">Contact</a></li>
                     </ul>
                 </div>
@@ -311,8 +310,8 @@
                         <h3>Contact Us</h3>
                         <p>Ante amet vitae vulputate odio nulla vel pretium aenean.</p>
                         <div class="contact_info">
-                            <span>+000 124 325</span> 
-                            <span class="email">info@yourdomain.com</span>
+                            <span>+02-01010-752703</span> 
+                            <span class="email">Info@Eduwise.com</span>
                         </div>
                         <ul class="social_items d-flex list-unstyled">
                             <li><a href="#"><i class="fab fa-facebook-f fb-icon"></i></a></li>
@@ -344,19 +343,19 @@
 </section>
 
     <!-- JavaScript -->
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.magnific-popup.min.js"></script>     
-    <script src="js/owl.carousel.min.js"></script>   
-    <script src="js/slick.min.js"></script>   
-    <script src="js/jquery.meanmenu.min.js"></script>      
-    <script src="js/wow.min.js"></script> 
+    <script src="{{asset('js/jquery-3.2.1.min.js')}}"></script>
+    <script src="{{asset('js/popper.min.js')}}"></script>
+    <script src="{{asset('js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('js/jquery.magnific-popup.min.js')}}"></script>     
+    <script src="{{asset('js/owl.carousel.min.js')}}"></script>   
+    <script src="{{asset('js/slick.min.js')}}"></script>   
+    <script src="{{asset('js/jquery.meanmenu.min.js')}}"></script>      
+    <script src="{{asset('js/wow.min.js')}}"></script> 
     <!-- Counter Script -->
-    <script src="js/waypoints.min.js"></script>
-    <script src="js/jquery.counterup.min.js"></script>
-    <script src="js/custom.js"></script> 
-    <script src="js/video_player.js"></script>  
+    <script src="{{asset('js/waypoints.min.js')}}"></script>
+    <script src="{{asset('js/jquery.counterup.min.js')}}"></script>
+    <script src="{{asset('js/custom.js')}}"></script> 
+    <script src="{{asset('js/video_player.js')}}"></script>  
     
     <!-- =========================================================
          STYLE SWITCHER | ONLY FOR DEMO NOT INCLUDED IN MAIN FILES
@@ -366,7 +365,7 @@
         <a id="toggle-switcher" class="switch-button" title="Change Styles"><span class="fa fa-cog fa-spin"></span></a>
         <div class="switched-options">
             <div class="config-title">
-                <a class="navbar-brand" href="index-2.html"><img src="images/logo.png" alt="logo"></a>
+                <a class="navbar-brand" href="index-2.html"><img src="{{asset('images/logo.png')}}" alt="logo"></a>
                 <p>Education Template</p>
                 
             </div>
