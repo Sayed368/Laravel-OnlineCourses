@@ -235,7 +235,7 @@
 
 
           <li class="nav-item">
-            <a href="{{url('admin/addcourse')}}" class="nav-link">
+            <a href="/courses/create" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                  Add course
@@ -279,13 +279,20 @@
         </div>
       </div><!-- /.container-fluid -->
     </section>
+    <?php
+    use App\Models\User;
+   
+
+    
+    ?>
+
     <div style="padding-top:10px; padding-left:40px ;" class="container-fluid">
         <div class="row">
         
             <div class="col-xs-12 sub">
                 <div class="row">
                     <div class="col-xs-12">
-                        <h3><span class="fa fa-graduation-cap"></span> Courses <button class="btn btn-success m-l-15"><span class="fa fa-plus"></span><a style="text-decoration: none ; color: white;" href="{{url('admin/addcourse')}}">Add course</a></button></h3>
+                        <h3><span class="fa fa-graduation-cap"></span> Courses <button class="btn btn-success m-l-15"><span class="fa fa-plus"></span><a style="text-decoration: none ; color: white;" href="/courses/create">Add course</a></button></h3>
                         
                     </div>
                     <div class="col-xs-12 col-sm-6 ">
@@ -302,36 +309,59 @@
                     <div class="col-xs-12 col-sm-6">
                         
                     </div>
+                   
+
                     <div class="col-xs-12">
                         <table class="table table-responsive table-hover table-condensed">
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Course</th>
+                                    <th>Course Name</th>
                                     <th>Description</th>
-                                    <th>Start At</th>
-                                    <th>End At</th>
                                     <th>Duration</th>
-                                    <th>categery</th>
+                                    <th>Categery</th>
+                                    <th>Instructor</th>
+                                    <th>Image</th>
+                                    
                                     <th>Options</th>
                                 </tr>
                             </thead>
                             <tbody>
+                            @foreach($courses as $course)
+                            
+                            
                                 <tr>
-                                    <td>1</td>
-                                    <td><a href="#"><b>Web Developement</b></a></td>
-                                    <td>Html, Css, JavaScript, Bootstrap, PHP, SQL, Laravel</td>
-                                    <td>20/8/2017</td>
-                                    <td>20/10/2017</td>
-                                    <td>127h</td>
-                                    <td>Full stack</td>
+                                    <td>{{$course["id"]}}</td>
+                                    <td><a href="#"><b>{{$course["name"]}}</b></a></td>
+                                    <td>{{$course["description"]}}</td>
+                                    <td>{{$course["duration"]}}</td>
+                                    <td>full stack</td>
+                                    <td>{{$course["instructor"]["name"]}}</td>
                                     <td>
-                                        <a href="{{url('admin/editcourse')}}"><span class="fa fa-edit"></span></a>
-                                        <a class="text-success m-l-5" href="{{url('admin/viewcourse')}}"><span class="fa fa-eye"></span></a>
-                                        <a href="#"><span class="fa fa-trash-alt"></span></a>
+                                    
+                                    <img src="{{ $course['image'] }}" class="rounded-circle" width="60" height="50" /></td>
+                                    </td>
+                                    <td>
+                                        <a href="{{route('courses.edit',$course)}}"><span class="fa fa-edit"></span></a>
+                                        <a class="text-success m-l-5" href="{{route('courses.show',$course)}}"><span class="fa fa-eye xx" ></span></a>
+                                   
+                                        <form action="{{route('courses.destroy',$course)}}" method="Post" style="display:inline-block;">
+                      @csrf
+                      @method("delete")
+                     
+                      <input type="submit"  value="Delete" 
+                      
+                      class="btn btn-danger"
+                              style="width:70px ;height:40px;border-radius:40%">
+                             
+                       </form>
+                
+                                   
                                     </td>
                                 </tr>
-  
+                                
+                              
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

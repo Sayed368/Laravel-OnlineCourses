@@ -10,4 +10,6 @@ class CategoryCourse extends Model
 {
     use HasFactory;
     protected $guarded;
+
+     
 }

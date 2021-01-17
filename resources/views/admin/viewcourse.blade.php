@@ -272,7 +272,7 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item"><a href="/courses">Home</a></li>
           
             </ol>
           </div>
@@ -301,31 +301,28 @@
                         
                         <tr>
                         <th>Course</th>
-                        <td><a href="#"><b>Web Developement</b></a></td>
+                        <td><a href="#"><b>{{$course["name"]}}</b></a></td>
                             </tr>
                             <tr>
                             <th>Description</th>
-                            <td>Html, Css, JavaScript, Bootstrap, PHP, SQL, Laravel</td>
+                            <td>{{$course["description"]}}</td>
                             </tr>
                             <tr>
                             <th>Duration</th>
-                            <td>127h</td>
+                            <td>{{$course["duration"]}}</td>
                             </tr>
                              <tr>
                              <th>categery</th>
                              <td>Full stack</td>
                             </tr>
                             <tr>
-                            <th>Start At</th>
-                             <td>13/13/2018</td>
+                             <th>Content</th>
+                             <td>{{$course["content"]}}</td>
                             </tr>
+                            
                             <tr>
-                            <th>End At</th>
-                             <td>15/16/2007k</td>
-                            </tr>
-                            <tr>
-                             <th>video</th>
-                             <td>video link</td>
+                             <th>image</th>
+                             <td> <img src="../{{ $course['image'] }}" class="rounded-circle" width="60" height="50" /></td>
                             </tr>
                         </tbody>
                     </table>

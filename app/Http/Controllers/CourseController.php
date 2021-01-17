@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Course;
+ use App\Models\User;
+ use App\Models\Category;
 use Illuminate\Http\Request;
 
 class CourseController extends Controller
@@ -14,7 +16,14 @@ class CourseController extends Controller
      */
     public function index()
     {
-        //
+        
+       
+        $cat=new  Category;
+        $cats=$cat->all();
+        $courses= Course::all();
+       
+        return view('admin.all_courses',["courses"=>$courses,"cats"=>$cats]);
+        
     }
 
     /**
@@ -24,7 +33,7 @@ class CourseController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.add_course');
     }
 
     /**
@@ -36,6 +45,32 @@ class CourseController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            "name"=>"required", 
+            "description"=>"required",
+            "duration"=>"required",
+            "content"=>"required",
+            "image"=> "required|image|mimes:jpeg,png,jpg,gif,svg|max:2048"
+            
+            ]);
+            if($request->hasFile('image')) {
+                $image = $request->file('image');
+                $filename =rand() . '.' . $image->getClientOriginalExtension();
+                $image->move(public_path('courseimg/'), $filename);
+                $filename='courseimg/'.$filename;
+               
+            }
+           
+       Course::create([
+        "name"=>$request["name"],
+        "description"=>$request["description"],
+        "duration"=>$request["duration"],
+        "content"=>$request["content"],
+        "instructor_id"=>$request["instructor"],
+        "image"=>$filename
+       ]);
+    // dd($request["instructor"]);
+       return redirect(route("courses.index"))->with('Success', 'Course Inserted Successfully');
     }
 
     /**
@@ -46,7 +81,7 @@ class CourseController extends Controller
      */
     public function show(Course $course)
     {
-        //
+        return view("admin.viewcourse",["course"=>$course]);
     }
 
     /**
@@ -57,7 +92,7 @@ class CourseController extends Controller
      */
     public function edit(Course $course)
     {
-        //
+        return view("admin.edit_course",["course"=>$course]);
     }
 
     /**
@@ -69,7 +104,29 @@ class CourseController extends Controller
      */
     public function update(Request $request, Course $course)
     {
-        //
+
+      
+        if($request->hasFile('image')) {
+            $image = $request->file('image');
+            $filename =rand() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('courseimg/'), $filename);
+            $filename='courseimg/'.$filename;
+        }
+      
+        $course->update([
+            "name"=>$request["name"],
+            "description"=>$request["description"],
+            "duration"=>$request["duration"],
+            "content"=>$request["content"],
+           
+            "image"=>$filename
+           
+        ]
+        
+    );
+        
+        return redirect(route("courses.index",["course"=>$course]));
+    
     }
 
     /**
@@ -80,6 +137,7 @@ class CourseController extends Controller
      */
     public function destroy(Course $course)
     {
-        //
+        $course->delete();
+        return redirect(route("courses.index"));
     }
 }

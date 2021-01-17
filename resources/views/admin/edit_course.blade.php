@@ -203,7 +203,7 @@
           
           
           <li class="nav-item">
-            <a href="{{url('admin/allcourses')}}" class="nav-link">
+            <a href="/courses" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                  All courses
@@ -235,7 +235,7 @@
 
 
           <li class="nav-item">
-            <a href="{{url('admin/addcourse')}}" class="nav-link">
+            <a href="/courses/create" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                  Add course
@@ -279,71 +279,71 @@
         </div>
       </div><!-- /.container-fluid -->
     </section>
+    <?php
+    use App\Models\User;
+    $users=new User;
+    $userss=$users->all();
 
-    <div style="padding-top:10px; padding-left:400px ;" class="container-fluid">
+    use App\Models\Category;
+    $cat=new  Category;
+    $cats=$cat->all();
+    ?>
+    <div style="padding-top:10px; padding-left:250px ;" class="container-fluid">
         <div class="row">
             <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                 <div class="row">
-                    <form>
+                    <form method="post" action="{{route('courses.update',$course)}}" enctype="multipart/form-data">
+                    @csrf
+                     @method("put")
                         <div style="width: 600px;" class="form-group">
                             <label for="course_name">Course Name</label>
-                            <input type="text" maxlength="100" class="form-control" id="course_name" name="course_name" placeholder="Enter Course Name" required="true">
+                            <input type="text" maxlength="100" class="form-control"  value="{{$course['name']}}"  name="name"  required="true">
                         </div>
 
                         <div class="form-group">
                             <label for="description">Description</label>
-                            <textarea class="form-control" rows="3" name="description" id="description" placeholder="Course Description ..." required></textarea>
+                            <input class="form-control" value="{{$course['description']}}" rows="3"  name="description"  placeholder="Course Description ..." required></input>
                         </div>
 
                         <div class="form-group">
                             <label for="total_hours">Total Hours</label>
-                            <input type="number" class="form-control" id="total_hours" name="total_hours" placeholder="Enter Total Course Hours ..." max="100">
+                            <input type="number" class="form-control" value="{{$course['duration']}}"  name="duration" placeholder="Enter Total Course Hours ..." max="100">
                         </div>
-
                         <div class="form-group">
-                            <label for="hours_per_session">Hours Per Session</label>
-                            <input type="number" class="form-control" id="hours_per_session" name="hours_per_session" placeholder="Enter Hours Per Session..." max="10">
+                            <label for="role">Category Name</label>
+                            @foreach($cats as $cat)
+                           
+                            <select class="form-control" name="category" >
+                                <option disabled selected>Please Select Category</option>
+                                <option value="{{$cat['id']}}">{{$cat["name"]}}</option>
+                               
+                            </select>
+                            
+                            @endforeach
                         </div>
 
                         <div class="form-group">
                             <label for="role">Instructor</label>
-                            <select class="form-control" id="role">
+                            @foreach($userss as $user)
+                            @if($user['role']=='instructor')
+                            <select class="form-control" name="instructor" >
                                 <option disabled selected>Please Select Instructor</option>
-                                <option value="15">Merna Rady</option>
-                                <option value="26">Mohammed Ali</option>
-                                <option value="79">Shaker Mamdouh</option>
+                                <option value="{{$user['id']}}">{{$user["name"]}}</option>
+                               
                             </select>
+                            @endif
+                            @endforeach
                         </div>
-
-
+                      
+                    
                         <div class="form-group">
-                            <label for="role">categories</label>
-                            <select class="form-control" id="role">
-                                <option disabled selected>Please Select categery</option>
-                                <option value="15">categery1</option>
-                                <option value="26">categery2</option>
-                                <option value="79">categery3</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="start_at">Start At</label>
-                            <input type="date" class="form-control" id="start_at" name="start_at">
+                            <label for="note">Content</label>
+                            <input class="form-control" rows="3" name="content" value="{{$course['content']}}" placeholder="Note About Course ..."></input>
                         </div>
 
                         <div class="form-group">
-                            <label for="end_at">End At</label>
-                            <input type="date" class="form-control" id="end_at" name="end_at">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="note">Note</label>
-                            <textarea class="form-control" rows="3" name="note" id="note" placeholder="Note About Course ..."></textarea>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="note">video</label>
-                            <input type="file" class="form-control" id="end_at" name="end_at">
+                            <label for="note">image</label>
+                            <input type="file" class="form-control"  name="image">
                         </div>
 
                         <button type="submit" class="btn btn-primary pull-right">Submit</button>

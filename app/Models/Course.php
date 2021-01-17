@@ -17,18 +17,18 @@ class Course extends Model
         return $this->belongsToMany(User::class,"student_courses");
     }
 
-    // relatiom between course and video 
+    // relation between course and video 
     function video(){
         return  $this->hasMany(CourseVideo::class);
     }
 
-    // relatiom between course and Category M-N
+    // relation between course and Category M-N
     public function Category()
     {
         return $this->belongsToMany(Category::class,"category_courses");
     }
 
-    // relatiom between course and instructor(user) M-1
+    // relation between course and instructor(user) M-1
     public function instructor(){
        
         return  $this->belongsTo(User::class);
