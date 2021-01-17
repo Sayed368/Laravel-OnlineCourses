@@ -357,6 +357,24 @@
                             <label for="note">image</label>
                             <input type="file" class="form-control" id="dob" name="profile_photo_path" required>
                         </div>
+                        <div class="form-group">
+                                <label for="dob">DOB</label>
+                                <input type="date" class="form-control" id="dob" name="dob" required
+                                value="{{$user['dob']}}">
+                                <label class="text-danger"> {{$errors->first("dob")}}</label>
+                            </div>
+                            <div class="form-group">
+                                <label for="note">specialist</label>
+                                <input class="form-control" rows="3" name="specialist" placeholder="Enter specialst ..."
+                                value="{{$user['specialist']}}">
+                                <label class="text-danger"> {{$errors->first("specialist")}}</label>
+                            </div>
+                            <div class="form-group">
+                                <label for="description">description</label>
+                                <textarea class="form-control" rows="4" name="description"  placeholder="User description ..."
+                                value="{{$user['description']}}"></textarea>
+                                <label class="text-danger"> {{$errors->first("description")}}</label>
+                            </div>
 
                         <button type="submit" class="btn btn-primary pull-right">Submit</button>
                         <br><br><br><br>
