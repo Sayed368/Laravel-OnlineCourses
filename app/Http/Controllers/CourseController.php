@@ -44,6 +44,7 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
+            // dd($request->all());
         //
         $request->validate([
             "name"=>"required", 
@@ -52,16 +53,17 @@ class CourseController extends Controller
             "content"=>"required",
             "image"=> "required|image|mimes:jpeg,png,jpg,gif,svg|max:2048"
             
-            ]);
-            if($request->hasFile('image')) {
-                $image = $request->file('image');
-                $filename =rand() . '.' . $image->getClientOriginalExtension();
-                $image->move(public_path('courseimg/'), $filename);
-                $filename='courseimg/'.$filename;
-               
-            }
-           
-       Course::create([
+        ]);
+
+        if($request->hasFile('image')) {
+            $image = $request->file('image');
+            $filename =rand() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('courseimg/'), $filename);
+            $filename='courseimg/'.$filename;
+            
+        }
+       
+        $course=Course::create([
         "name"=>$request["name"],
         "description"=>$request["description"],
         "duration"=>$request["duration"],
@@ -69,7 +71,9 @@ class CourseController extends Controller
         "instructor_id"=>$request["instructor"],
         "image"=>$filename
        ]);
-    // dd($request["instructor"]);
+    
+       $course->Category()->attach($request["category"]);
+    //    dd( $course);
        return redirect(route("courses.index"))->with('Success', 'Course Inserted Successfully');
     }
 
@@ -121,9 +125,14 @@ class CourseController extends Controller
            
             "image"=>$filename
            
-        ]
+        ]);
+
+        if($request["category"])
+        {
+            $course->Category()->detach();
         
-    );
+            $course->Category()->attach($request["category"]);
+        }
         
         return redirect(route("courses.index",["course"=>$course]));
     

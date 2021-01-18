@@ -9,30 +9,30 @@
 	<meta name="author" content="Ecology Theme">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Eduwise </title>
-	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="{{asset('images/favicon.ico')}}" type="image/x-icon">
 	<!-- Goole Font -->
 	<link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900" rel="stylesheet">
 	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="css/assets/bootstrap.min.css">
+	<link rel="stylesheet" href="{{asset('css/assets/bootstrap.min.css')}}">
 	<!-- Font awsome CSS -->
-	<link rel="stylesheet" href="css/assets/font-awesome.min.css">    
-	<link rel="stylesheet" href="css/assets/flaticon.css">
-	<link rel="stylesheet" href="css/assets/magnific-popup.css">    
+	<link rel="stylesheet" href="{{asset('css/assets/font-awesome.min.css')}}">    
+	<link rel="stylesheet" href="{{asset('css/assets/flaticon.css')}}">
+	<link rel="stylesheet" href="{{asset('css/assets/magnific-popup.css')}}">    
 	<!-- owl carousel -->
-	<link rel="stylesheet" href="css/assets/owl.carousel.css">
-	<link rel="stylesheet" href="css/assets/owl.theme.css">     
-	<link rel="stylesheet" href="css/assets/animate.css"> 
+	<link rel="stylesheet" href="{{asset('css/assets/owl.carousel.css')}}">
+	<link rel="stylesheet" href="{{asset('css/assets/owl.theme.css')}}">     
+	<link rel="stylesheet" href="{{asset('css/assets/animate.css')}}"> 
 	<!-- Slick Carousel -->
-	<link rel="stylesheet" href="css/assets/slick.css">  
+	<link rel="stylesheet" href="{{asset('css/assets/slick.css')}}">  
   
 	<!-- Mean Menu-->
-	<link rel="stylesheet" href="css/assets/meanmenu.css">
+	<link rel="stylesheet" href="{{asset('css/assets/meanmenu.css')}}">
 	<!-- main style-->
-	<link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/responsive.css">
-    <link rel="stylesheet" href="css/demo.css">
+	<link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('css/responsive.css')}}">
+    <link rel="stylesheet" href="{{asset('css/demo.css')}}">
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 	<!--[if lt IE 9]>
@@ -81,19 +81,30 @@
                         <li class="nav-item"><a href="/about" class="nav-link">About us</a></li>
                         <li class="nav-item"><a href="/team" class="nav-link">Instractors</a></li>
                         <li class="nav-item"><a href="/course" class="nav-link">Courses</a>
-                            <ul class="navbar-nav nav mx-auto">
+                            {{-- <ul class="navbar-nav nav mx-auto">
                                 <li class="nav-item"><a href="/course" class="nav-link">Courses</a></li>
                                 <li class="nav-item"><a href="/course-details" class="nav-link">Courses Details</a></li>
-                            </ul> 
-						</li>
+                            </ul>  --}}
+                        </li>
+                        
 						<li class="nav-item"><a href="/course" class="nav-link">Categories</a>
                             <ul class="navbar-nav nav mx-auto">
-								<li class="nav-item"><a href="/course" class="nav-link">Design</a></li>
+
+<?php
+    use App\Models\Category;
+    $categories= Category::all();
+?>
+                                
+                                @foreach ($categories as $item)
+                                <li class="nav-item"><a href="{{Route("categorycourses.show",$item['id'])}}" value="{{$item['id']}}" class="nav-link">{{$item['name']}}</a></li>
+
+                                @endforeach
+								{{-- <li class="nav-item"><a href="/course" class="nav-link">Design</a></li>
 								<li class="nav-item"><a href="/course" class="nav-link">Finance</a></li>
 								<li class="nav-item"><a href="/course" class="nav-link">Marketing</a></li>
 								<li class="nav-item"><a href="/course" class="nav-link">Photography</a></li>
 								<li class="nav-item"><a href="/course" class="nav-link">Science</a></li>
-								<li class="nav-item"><a href="/course" class="nav-link">Web Development</a></li>
+								<li class="nav-item"><a href="/course" class="nav-link">Web Development</a></li> --}}
 								
                                
                             </ul> 
@@ -206,12 +217,16 @@
 								<div class="dropdown dropdown-toggle"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 									<div class="all-categories "><span>Categories</span> <i class="cat_icon flaticon-down-arrow"></i></div>
 									<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-										<li class="dropdown-item" >Action</li>
+                                        @foreach ($categories as $item)
+                                        <li class="dropdown-item" ><a href="" value="{{$item['id']}}" >{{$item['name']}}</a></li>
+                                        @endforeach
+                                        
+                                        {{-- <li class="dropdown-item" >Action</li>
 										<li class="dropdown-item" >Another action</li>
 										<li class="dropdown-item" >Action</li>
 										<li class="dropdown-item" >Another action</li>
 										<li class="dropdown-item" >Action</li>
-										<li class="dropdown-item" >Another action</li>
+										<li class="dropdown-item" >Another action</li> --}}
 									</ul>
 								</div>
 								<div class="form-group d-flex">
