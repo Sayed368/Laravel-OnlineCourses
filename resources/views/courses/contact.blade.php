@@ -46,24 +46,31 @@
                    </div>
                </div>
            </div>
+  
            <div class="col-12 col-sm-12 col-md-12 col-lg-6">
                <div class="contact_form_wrapper">
-                   <h3 class="title">Get In Touch</h3>
+                   <h3 class="title">Put your Feedback</h3>
+                   @if(session()->has('message'))
+    <div class="alert alert-success">
+        {{ session()->get('message') }}
+    </div>
+@endif
                    <div class="leave_comment">
                        <div class="contact_form">
-                           <form action="#">
+                           <form method="post" action="">
+                           {{ csrf_field() }}
                                <div class="row">
                                    <div class="col-12 col-sm-12 col-md-6 form-group">
-                                      <input type="text" class="form-control" id="name"  placeholder="Your Name">
+                                      <input type="text" class="form-control" id="name" name="name"  placeholder="Your Name">
                                    </div>
                                    <div class="col-12 col-sm-12 col-md-6 form-group">
-                                       <input type="email" class="form-control" id="email" placeholder="Your E-mail">
+                                       <input type="email" class="form-control" id="email" name="email"  placeholder="Your E-mail">
                                    </div>                                    
                                    <div class="col-12 col-sm-12 col-md-12 form-group">
-                                       <input type="text" class="form-control" id="subject" placeholder="Pick Your Subject">
+                                       <input type="text" class="form-control" id="subject" name="subject"  placeholder="Pick Your Subject">
                                    </div>
                                    <div class="col-12 col-sm-12 col-md-12 form-group">
-                                       <textarea class="form-control" id="comment" placeholder="Your Comment Wite Here ..."></textarea>
+                                       <textarea class="form-control" id="comment" name="comments" placeholder="Your Comment Wite Here ..."></textarea>
                                    </div>
                                     <div class="col-12 col-sm-12 col-md-12 submit-btn">
                                        <button type="submit" class="text-center">Send Massage</button>
