@@ -72,30 +72,21 @@
             </div>
         </div>
     </div>
-
+<?php
+use App\Models\Category;
+$categories= Category::all();
+?>
+    
     <div class="edu_nav ">
         <div class="container">
             <nav class="navbar navbar-expand-md navbar-light bg-faded">
                 <a class="navbar-brand" href="index-2.html"><img src="{{asset('images/logo.png')}}" alt="logo"></a>
                 <div class="collapse navbar-collapse main-menu" id="navbarSupportedContent">
                     <ul class="navbar-nav nav lavalamp ml-auto menu">
-                        <li class="nav-item"><a href="/" class="nav-link">Home</a>
-                            
-                        </li>
-                        <li class="nav-item"><a href="/about" class="nav-link">About us</a></li>
-                        <li class="nav-item"><a href="/team" class="nav-link">Instractors</a></li>
+                        <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
                         <li class="nav-item"><a href="/course" class="nav-link ">Courses</a>
-                            {{-- <ul class="navbar-nav nav mx-auto">
-                                <li class="nav-item"><a href="/course" class="nav-link active">Courses</a></li>
-                                <li class="nav-item"><a href="/course-details" class="nav-link">Courses Details</a></li>
-                            </ul>  --}}
-                        </li>
-                        <li class="nav-item"><a href="/course" class="nav-link">Categories</a>
+                            
                             <ul class="navbar-nav nav mx-auto">
-<?php
-use App\Models\Category;
-$categories= Category::all();
-    ?>
 
                                 @foreach ($categories as $item)
                                 <li class="nav-item"><a href="{{Route("categorycourses.show",$item['id'])}}" class="nav-link">{{$item['name']}}</a></li>
@@ -105,8 +96,12 @@ $categories= Category::all();
 								
 								
                                
-                            </ul> 
+                            </ul>
                         </li>
+                        {{-- <li class="nav-item"><a href="/course" class="nav-link">Categories</a>
+                             
+                        </li> --}}
+                        <li class="nav-item"><a href="/team" class="nav-link">Instractors</a></li>
                         <li class="nav-item"><a href="/blog" class="nav-link">Blog</a>
                             
                         </li>
@@ -134,6 +129,8 @@ $categories= Category::all();
                                 <li class="nav-item"><a href="/forgot-password" class="nav-link">Forgot Password</a></li>
                             </ul>                            
                         </li>      -->
+                        <li class="nav-item"><a href="/about" class="nav-link">About us</a></li>
+                        
                         <li class="nav-item"><a href="/contact" class="nav-link">Contact</a></li>
                     </ul>
                 </div>

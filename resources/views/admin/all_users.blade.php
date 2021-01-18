@@ -333,7 +333,7 @@
                                        
                                         <td>
                                     
-                    <img src="{{ $user['profile_photo_path'] }}" class="rounded-circle" width="60" height="50" /></td>
+                    <img src="{{ asset($user['profile_photo_path']) }}" class="rounded-circle" width="60" height="50" /></td>
                                         <td>{{$user["role"]}}</td>
                                         <td>{{$user["gender"]}}</td>
                                         <td>{{$user["specialist"]}}</td>
@@ -348,9 +348,8 @@
                                             <form action="{{route('users.destroy',$user)}}" method="Post" style="display:inline-block;">
                       @csrf
                       @method("delete")
-                      <input type="submit"  value="Delete"
-                              class="btn btn-danger"
-                              > 
+                      <button type="submit" value="Delete"
+                              class="fa fa-trash"></button> 
                               <!-- <a ><input type="submit" class="fa fa-trash-alt"><span class="fa fa-trash-alt"></span></a> -->
 </form>
                                         </td>

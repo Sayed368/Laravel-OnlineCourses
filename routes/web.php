@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\user;
+use App\Models\feedback;
 use App\Models\Category;
 use App\Models\Course;
 use App\Models\CategoryCourse;
@@ -48,8 +49,21 @@ Route::get('/course', function () {
 Route::get('/blog', function () {
     return view('courses.blog');
 });
+
+
 Route::get('/contact', function () {
     return view('courses.contact');
+});
+
+
+Route::post('/contact', function () {
+    $feedback=new feedback;
+    $feedback->name=request("name");
+    $feedback->email=request("email");
+    $feedback->subject=request("subject");
+    $feedback->comments=request("comments");
+    $feedback->save();
+    return redirect()->back()->with('message', 'Thanks for your Feedback!');
 });
 
 Route::get('/event', function () {
@@ -95,7 +109,9 @@ Route::get('/category/{id}/courses', function ($id) {
 Route::get('/team', function () {
     return view('courses.team');
 });
-
+Route::get('/about', function () {
+    return view('courses.about');
+});
 
 Route::get('/become-a-teacher', function () {
     return view('courses.become-a-teacher');
