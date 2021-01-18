@@ -2,10 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\user;
+<<<<<<< HEAD
+use App\Models\feedback;
+=======
 use App\Models\Category;
 use App\Models\Course;
 use App\Models\CategoryCourse;
 
+>>>>>>> 05f35a9e24159d5980c064a808e99b08a9d6c86a
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CategoryController;
@@ -48,8 +52,21 @@ Route::get('/course', function () {
 Route::get('/blog', function () {
     return view('courses.blog');
 });
+
+
 Route::get('/contact', function () {
     return view('courses.contact');
+});
+
+
+Route::post('/contact', function () {
+    $feedback=new feedback;
+    $feedback->name=request("name");
+    $feedback->email=request("email");
+    $feedback->subject=request("subject");
+    $feedback->comments=request("comments");
+    $feedback->save();
+    return redirect()->back()->with('message', 'Thanks for your Feedback!');
 });
 
 Route::get('/event', function () {
@@ -224,6 +241,6 @@ Route::resource('users', Usercontroller::class);
 
 
 
-// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-//     return view('dashboard');
-// })->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');

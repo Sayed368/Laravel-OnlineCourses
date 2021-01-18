@@ -1,8 +1,16 @@
+<style> 
+.min-h-screen{
+    background-image: url("images/360_F_239399223_tthRTvt26El5ccmyQIck9ySsHKgX5YBo_1_1250x426.jpg");
+    background-repeat: no-repeat;
+  background-size: cover;
+}
+</style>
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
-            <x-jet-authentication-card-logo />
-            {{-- <img src="images/logos/logo-3.png" alt=""> --}}
+        <!-- <img src="images/logoo_1_250x200.png" style="width:150px"> -->
+            <!-- <x-jet-authentication-card-logo /> -->
+            <!-- {{-- <img src="images/logos/logo-3.png" alt=""> --}} -->
         </x-slot>
 
         <x-jet-validation-errors class="mb-4" />

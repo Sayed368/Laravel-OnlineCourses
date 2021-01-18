@@ -4,7 +4,7 @@
 
 <?php
 use App\Models\user;
-$user=new user ;
+$user=new user;
 $users=$user->all();
 
 use App\Models\Category;
@@ -185,7 +185,11 @@ $courses= Course::all();
 	<div class="bg_shapes">
 	</div>
 </section>End ONline Video -->
-
+<?php
+use App\Models\feedback;
+$feedback=new feedback;
+$feedbacks=$feedback->all();
+?>
 
 
 <section class="testimonial_3">
@@ -199,24 +203,21 @@ $courses= Course::all();
 			</div>
 		</div>
 		<div class="row">
-		@foreach ($users->slice(0,3) as $user)
-@if($user['role']=='student')
+		@foreach ($feedbacks->slice(0,3) as $feedback)
 			<div class="col-12 col-sm-6 col-md-6 col-lg-4">
 				<div class="testimonial_single">
 					<div class="reviewer_info">
 						<div class="pro_pic_teacher">
-							<img src="{{$user['profile_photo_path']}}" alt="2" class="img-fluid">
+						
 						</div>
 						<div class="name_position">
-							<span class="name">{{$user['name']}}</span>
-							<span>{{$user['specialist']}} student</span>
+							<span class="name">{{$feedback['name']}}</span>
+							<span>{{$feedback['subject']}} student</span>
 						</div>
 					</div>
-					<p>{{$user['description']}}</p>
+					<p>{{$feedback['comments']}}</p>
 				</div>                                       
 			</div>
-			
-			@endif
             @endforeach
 
 		</div>

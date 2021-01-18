@@ -348,10 +348,8 @@
                                             <form action="{{route('users.destroy',$user)}}" method="Post" style="display:inline-block;">
                       @csrf
                       @method("delete")
-                      <!-- <input type="submit"  value="Delete"
-                              class="btn btn-danger" -->
-                              <button type="submit" value="Delete"
-                              class="fa fa-trash"></button>
+                      <button type="submit" value="Delete"
+                              class="fa fa-trash"></button> 
                               <!-- <a ><input type="submit" class="fa fa-trash-alt"><span class="fa fa-trash-alt"></span></a> -->
 </form>
                                         </td>
