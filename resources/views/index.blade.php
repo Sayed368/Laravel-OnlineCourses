@@ -29,7 +29,7 @@ $courses= Course::all();
 		</div>
 		<div class="row">
 
-			@foreach ($categories as $item)
+			@foreach ($categories->slice(0,6) as $item)
 				
 			
 
@@ -94,8 +94,9 @@ $courses= Course::all();
 					<p>Lorem ipsum dolor sit amet mollis felis dapibus arcu donec viverra. Pede phasellus eget. Etiam maecenas vel vici quis dictum rutrum nec nisi et.</p>  
 				</div><!-- ends: .section-header -->
 			</div>
+			
 
-			@foreach ($courses as $item)
+			@foreach ($courses->slice(0,6) as $item)
 
 			<div class="col-12 col-sm-6 col-md-6 col-lg-4">
                 <div class="single-courses">

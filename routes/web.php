@@ -2,14 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\user;
-<<<<<<< HEAD
 use App\Models\feedback;
-=======
 use App\Models\Category;
 use App\Models\Course;
 use App\Models\CategoryCourse;
 
->>>>>>> 05f35a9e24159d5980c064a808e99b08a9d6c86a
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CategoryController;
@@ -112,7 +109,9 @@ Route::get('/category/{id}/courses', function ($id) {
 Route::get('/team', function () {
     return view('courses.team');
 });
-
+Route::get('/about', function () {
+    return view('courses.about');
+});
 
 Route::get('/become-a-teacher', function () {
     return view('courses.become-a-teacher');
