@@ -1,10 +1,8 @@
 <x-app-layout>
-<<<<<<< HEAD
     jfijerifierif
 </x-app-layout>
 
 
-=======
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Dashboard') }}
@@ -19,4 +17,3 @@
         </div>
     </div>
 </x-app-layout>
->>>>>>> c971b99725af0886ed53e640ab0dccabd4e9df96

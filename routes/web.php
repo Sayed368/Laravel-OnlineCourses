@@ -6,10 +6,7 @@ use App\Models\feedback;
 use App\Models\Category;
 use App\Models\Course;
 use App\Models\CategoryCourse;
-<<<<<<< HEAD
-=======
 
->>>>>>> c971b99725af0886ed53e640ab0dccabd4e9df96
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CategoryController;
