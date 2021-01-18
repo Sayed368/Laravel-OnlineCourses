@@ -2,18 +2,16 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\user;
-<<<<<<< HEAD
 use App\Models\feedback;
-=======
 use App\Models\Category;
 use App\Models\Course;
 use App\Models\CategoryCourse;
-
->>>>>>> 05f35a9e24159d5980c064a808e99b08a9d6c86a
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ViewCourseController;
+
+use App\Http\Middleware;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +38,10 @@ Route::get('/course', function () {
     return view('courses.course');
 });
 
+    Route::get('/profile', function () {
+        return view('courses.student_profile');
+    })->middleware('auth');
+    
 
 // Route::get('/course-details', function () {
 //     return view('courses.course-details');

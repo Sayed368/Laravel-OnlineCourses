@@ -353,10 +353,10 @@
                       @csrf
                       @method("delete")
                      
-                      <input type="submit"  value="Delete" 
+                
                       
-                      class="btn btn-danger"
-                              style="width:70px ;height:40px;border-radius:40%">
+                      <button type="submit" value="Delete"
+                              class="fa fa-trash"></button>
                              
                        </form>
                 

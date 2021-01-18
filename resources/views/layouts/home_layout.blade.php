@@ -56,8 +56,25 @@
         					</ul>                
 						</div>
 						<div class="login_info">
-							<a href="#" title="" class="sign_up sign-in js-modal-show">Sign Up</a>
-							<a href="#" title="" class="sign_in join_now js-modal-show">Log In</a>
+                            @if (Route::has('login'))
+                            @auth
+  <a id="navbarDropdown" class="sign_up sign-in" href="/profile" >
+                                    {{ Auth::user()->name }}
+    </a>&nbsp;
+    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                            @else
+                        <a href="/register" title="" class="sign_up sign-in">Sign Up</a>
+                        <a class="nav-link" href="{{ route('login') }}">Login</a>
+                    @endauth
+                    @endif
 						</div>
 					</div>
 				</div>
