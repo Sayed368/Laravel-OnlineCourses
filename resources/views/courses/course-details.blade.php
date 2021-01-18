@@ -21,13 +21,13 @@
             <div class="col-12 col-sm-12 col-md-8 col-lg-8">
                 <div class="courses_details">
                     <div class="single-curses-contert">
-                        <h2>WordPress: Step by Step for Beginners</h2>
+                        <h2>{{$course['name']}}</h2>
                         <div class="review-option">
                             <div class="teacher-info single_items single_items_shape">
-                                <img src="images/team/review_1.jpg" alt="" class="img-fluid">
+                                <img src="{{asset($course['instructor']['profile_photo_path'])}}" alt="" class="img-fluid">
                                 <div class="teacher-name">
                                     <span>Teacher</span>
-                                    <span>DAVID MARTIN</span>
+                                    <span>{{$course['instructor']['name']}}</span>
                                 </div>
                             </div>
                             <div class="review-rank single_items single_items_shape">
@@ -52,7 +52,7 @@
                             </div>
                         </div>
                         <div class="details-img-bxo">
-                            <img src="images/blog/blog3-1.jpg" alt="" class="img-fluid">
+                            <img src="{{asset('images/blog/blog3-1.jpg')}}" alt="" class="img-fluid">
                         </div>
                     </div>
                     <div class="courses_tab_wrapper">  
@@ -69,9 +69,9 @@
                         <div class="tab_contents tab-content">
                             <div role="tabpanel" class="tab-pane fade in active show" id="information">
                                 <h3>Courses Description <span>:</span></h3>
-                                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
-                                <h3>What Will I Learn? <span>:</span></h3>
-                                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>  
+                                <p>" {{$course['description']}} "</p>
+                                 <h3>What Will I Learn? <span>:</span></h3>
+                                <p>" {{$course['content']}} "</p>
                                 <ul class="step_point">
                                     <li>Create static HTML and CSS portfolio sites and landing pages.</li>
                                     <li>Think like a developer. Become an expert at Googling code questions!</li>
@@ -236,11 +236,11 @@
                                 <div class="courses_teacher">
                                     <div class="tutor_signle">
                                         <div class="tutor_pro">
-                                            <a href="#" title=""><img src="images/team/team_1.jpg" alt="" class="img-fluid"></a>
+                                            <a href="#" title=""><img src="{{asset($course['instructor']['profile_photo_path'])}}" alt="" class="img-fluid"></a>
                                         </div>
                                         <div class="teachers_name">
-                                            <h5><a href="#" title="">Jonson Park</a></h5>
-                                            <span>Associate Professor</span>
+                                            <h5><a href="#" title="">{{$course['instructor']['name']}}</a></h5>
+                                            <span>{{$course['instructor']['specialist']}}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -320,7 +320,7 @@
                                         <div class="comment-list-wrapper">
                                             <div class="comment-list">
                                                 <div class="commnet_img">
-                                                    <img src="images/team/team_2.jpg" alt="member img" class="img-fluid">
+                                                    <img src="{{asset('images/team/team_2.jpg')}}" alt="member img" class="img-fluid">
                                                 </div>
                                                 <div class="comment-text">
                                                     <div class="author_info d-flex justify-content-between"> 
@@ -343,7 +343,7 @@
                                         <div class="comment-list-wrapper">
                                             <div class="comment-list">
                                                 <div class="commnet_img">
-                                                    <img src="images/team/team_4.jpg" alt="member img" class="img-fluid">
+                                                    <img src="{{asset('images/team/team_4.jpg')}}" alt="member img" class="img-fluid">
                                                 </div>
                                                 <div class="comment-text">
                                                     <div class="author_info d-flex justify-content-between"> 
@@ -390,7 +390,7 @@
                                 <li><a href="#" title=""><i class="flaticon-edit"></i> Assessments</a><span>Yes</span></li>
                             </ul>
                         </div>
-                        <img src="images/shapes/testimonial_2_shpe_2.png" alt="" class="courses_feaures_shpe">
+                        <img src="{{asset('images/shapes/testimonial_2_shpe_2.png')}}" alt="" class="courses_feaures_shpe">
                     </div>  
 
 
@@ -402,14 +402,22 @@
                             <h3 class="title">All Categories</h3>
 
                         </div>
+
+<?php
+    use App\Models\Category;
+    $categories= Category::all();
+?>
                         <div class="archives-items">
                             <ul class="list-unstyled">
-                                <li><a href="#" title="">Art & Design </a></li>
+                                @foreach ($categories as $item)
+                                <li><a href="#" title="">{{$item['name']}} </a></li>
+                                @endforeach
+                                {{-- <li><a href="#" title="">Art & Design </a></li>
                                 <li><a href="#" title="">Busness</a></li>
                                 <li><a href="#" title="">IT & Software</a></li>
                                 <li><a href="#" title="">Languages</a></li>
                                 <li><a href="#" title="">Programming</a></li>                                
-                                <li><a href="#" title="">Technology</a></li>
+                                <li><a href="#" title="">Technology</a></li> --}}
                             </ul>
                         </div>
                     </div>  
@@ -420,7 +428,17 @@
     </div> 
 </section><!-- ./ End  Blog Wrapper-->
 
+<?php
 
+// use App\Models\course;
+// dd($course);
+// $category=$course->category
+//     // $category=$category->findorfail($id);
+//     $courses=$category->course;
+// // $cat=
+//     // $categories= Category::all();
+
+?>
 
 <!--Start Courses Area Section-->
 <section class="popular_courses" id="related_courses_wrapper">
@@ -433,32 +451,39 @@
             </div>
             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                 <div id="related_courses" class="owlCarousel">
+
+
+                    @foreach ($courses as $item)
+                        
+                   
                     <div class="single-courses">
                         <div class="courses_banner_wrapper">
-                            <div class="courses_banner"><a href="#"><img src="images/courses/courses_1.jpg" alt="" class="img-fluid"></a></div>
+                            <div class="courses_banner"><a href="#"><img src="{{asset($item['image'])}}" alt="" class="img-fluid"></a></div>
                             <div class="purchase_price">
                                 <a href="#" class="read_more-btn">Free</a>
                             </div>
                         </div>
                         <div class="courses_info_wrapper">
                             <div class="courses_title">
-                                <h3><a href="#">Make Better Decisions</a></h3>
-                                <div class="teachers_name">Teacher - <a href="#" title="">Jhonthan Smith</a></div>
+                                <h3><a href="course-details.html">{{$item['name']}}</a></h3>
+                                <div class="teachers_name">Teacher - <a href="#" title="">{{$item['instructor']['name']}}</a></div>
                             </div>
                             <div class="courses_info">
                                 <ul class="list-unstyled">
-                                    <li><i class="fas fa-user"></i>180 Days</li>
+                                    <li><i class="fas fa-calendar-alt"></i>{{$item['duration']}} Hours</li>
                                     <li><i class="fas fa-calendar-alt"></i>30 Students</li>
                                 </ul>
-                                <a href="#" class="cart_btn">Add to Cart</a>
+                                <a href="{{route("Viewcourses.show",$item['id'])}}" class="cart_btn">View Details</a>
                             </div>
                         </div>
                     </div><!-- Ends: .single courses -->
+                    @endforeach
 
 
+{{-- 
                     <div class="single-courses">
                         <div class="courses_banner_wrapper">
-                            <div class="courses_banner"><a href="#"><img src="images/courses/courses_2.jpg" alt="" class="img-fluid"></a></div>
+                            <div class="courses_banner"><a href="#"><img src="{{asset('images/courses/courses_2.jpg')}}" alt="" class="img-fluid"></a></div>
                             <div class="purchase_price">
                                 <a href="#" class="read_more-btn">Free</a>
                             </div>
@@ -480,7 +505,7 @@
 
                     <div class="single-courses">
                         <div class="courses_banner_wrapper">
-                            <div class="courses_banner"><a href="#"><img src="images/courses/courses_3.jpg" alt="" class="img-fluid"></a></div>
+                            <div class="courses_banner"><a href="#"><img src="{{asset('images/courses/courses_3.jpg')}}" alt="" class="img-fluid"></a></div>
                             <div class="purchase_price">
                                 <a href="#" class="read_more-btn">Free</a>
                             </div>
@@ -501,7 +526,7 @@
                     </div>                     
                     <div class="single-courses">
                         <div class="courses_banner_wrapper">
-                            <div class="courses_banner"><a href="#"><img src="images/courses/courses_3.jpg" alt="" class="img-fluid"></a></div>
+                            <div class="courses_banner"><a href="#"><img src="{{asset('images/courses/courses_3.jpg')}}" alt="" class="img-fluid"></a></div>
                             <div class="purchase_price">
                                 <a href="#" class="read_more-btn">Free</a>
                             </div>
@@ -522,7 +547,7 @@
                     </div>                     
                     <div class="single-courses">
                         <div class="courses_banner_wrapper">
-                            <div class="courses_banner"><a href="#"><img src="images/courses/courses_3.jpg" alt="" class="img-fluid"></a></div>
+                            <div class="courses_banner"><a href="#"><img src="{{asset('images/courses/courses_3.jpg')}}" alt="" class="img-fluid"></a></div>
                             <div class="purchase_price">
                                 <a href="#" class="read_more-btn">Free</a>
                             </div>
@@ -543,7 +568,7 @@
                     </div>                     
                     <div class="single-courses">
                         <div class="courses_banner_wrapper">
-                            <div class="courses_banner"><a href="#"><img src="images/courses/courses_3.jpg" alt="" class="img-fluid"></a></div>
+                            <div class="courses_banner"><a href="#"><img src="{{asset('images/courses/courses_3.jpg')}}" alt="" class="img-fluid"></a></div>
                             <div class="purchase_price">
                                 <a href="#" class="read_more-btn">Free</a>
                             </div>
@@ -561,7 +586,7 @@
                                 <a href="#" class="cart_btn">Add to Cart</a>
                             </div>
                         </div>
-                    </div>    
+                    </div>     --}}
                 </div><!-- Ends: .single courses -->
             </div><!-- Ends: . -->                                       
         </div>

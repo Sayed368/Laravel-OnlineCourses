@@ -313,7 +313,7 @@
                             <label for="role">Category Name</label>
                             
                            
-                            <select class="form-control" name="category">
+                            <select class="form-control" name="category[]" multiple>
                                 <option disabled selected>Please Select Category</option>
                                 @foreach($cats as $cat)
                                 <option value="{{$cat['id']}}">{{$cat["name"]}}</option>

@@ -2,10 +2,19 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\user;
+<<<<<<< HEAD
 use App\Models\feedback;
+=======
+use App\Models\Category;
+use App\Models\Course;
+use App\Models\CategoryCourse;
+
+>>>>>>> 05f35a9e24159d5980c064a808e99b08a9d6c86a
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ViewCourseController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,9 +41,9 @@ Route::get('/course', function () {
 });
 
 
-Route::get('/course-details', function () {
-    return view('courses.course-details');
-});
+// Route::get('/course-details', function () {
+//     return view('courses.course-details');
+// });
 
 // Route::get('/courses', function () {
 //     return view('courses.about');
@@ -83,6 +92,19 @@ Route::get('/teacher-profile/{id}', function ($id) {
 });
 
 
+Route::get('/category/{id}/courses', function ($id) {
+
+    $category=new Category;
+    $category=$category->findorfail($id);
+    
+    $courses=$category->course;
+    // dd($courses);
+    
+    return view('courses.related-courses',["courses"=>$courses]);
+})->name("categorycourses.show");
+
+
+
 // Route::get('/teacher-profile', function () {
 //     return view('courses.teacher-profile');
 // });
@@ -105,7 +127,7 @@ Route::get('/player', function () {
 // end test routs
 Route::resource("courses",CourseController::class);
 
-
+Route::resource("Viewcourses",ViewCourseController::class);
 // Route::get('/admin', function () {
 //     return view('admin.all_users');
 // });
@@ -197,6 +219,7 @@ Route::resource("courses",CourseController::class);
 
 Route::resource("categories",CategoryController::class);
 
+
 // // resource routes
 
 //         // Route::resource('user', Usercontroller::class);
@@ -205,7 +228,7 @@ Route::resource("categories",CategoryController::class);
 
 //         // Route::resource('user', CategoryController::class);
 
-         Route::resource('users', Usercontroller::class);
+Route::resource('users', Usercontroller::class);
 
 
 
@@ -218,6 +241,6 @@ Route::resource("categories",CategoryController::class);
 
 
 
-// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-//     return view('dashboard');
-// })->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');

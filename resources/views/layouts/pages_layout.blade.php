@@ -10,6 +10,7 @@
     <meta name="author" content="Ecology Theme">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eduwise - Education HTML5 Template</title>
+    <link rel="shortcut icon" href="{{asset('images/favicon.ico')}}" type="{{asset('image/x-icon')}}">
     <link rel="shortcut icon" href="{{asset('images/favicon.ico')}}" type="image/x-icon">
     <!-- Goole Font -->
     <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet">
@@ -83,20 +84,25 @@
                         </li>
                         <li class="nav-item"><a href="/about" class="nav-link">About us</a></li>
                         <li class="nav-item"><a href="/team" class="nav-link">Instractors</a></li>
-                        <li class="nav-item"><a href="/course" class="nav-link active">Courses</a>
-                            <ul class="navbar-nav nav mx-auto">
+                        <li class="nav-item"><a href="/course" class="nav-link ">Courses</a>
+                            {{-- <ul class="navbar-nav nav mx-auto">
                                 <li class="nav-item"><a href="/course" class="nav-link active">Courses</a></li>
                                 <li class="nav-item"><a href="/course-details" class="nav-link">Courses Details</a></li>
-                            </ul> 
+                            </ul>  --}}
                         </li>
                         <li class="nav-item"><a href="/course" class="nav-link">Categories</a>
                             <ul class="navbar-nav nav mx-auto">
-								<li class="nav-item"><a href="/course" class="nav-link">Design</a></li>
-								<li class="nav-item"><a href="/course" class="nav-link">Finance</a></li>
-								<li class="nav-item"><a href="/course" class="nav-link">Marketing</a></li>
-								<li class="nav-item"><a href="/course" class="nav-link">Photography</a></li>
-								<li class="nav-item"><a href="/course" class="nav-link">Science</a></li>
-								<li class="nav-item"><a href="/course" class="nav-link">Web Development</a></li>
+<?php
+use App\Models\Category;
+$categories= Category::all();
+    ?>
+
+                                @foreach ($categories as $item)
+                                <li class="nav-item"><a href="{{Route("categorycourses.show",$item['id'])}}" class="nav-link">{{$item['name']}}</a></li>
+
+                                @endforeach
+
+								
 								
                                
                             </ul> 
@@ -277,7 +283,7 @@
             <div class="row">
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="footer_single_col footer_intro">
-                        <img src="images/logo2.png" alt="" class="f_logo">
+                        <img src="{{asset('images/logo2.png')}}" alt="" class="f_logo">
                         <p>Ante amet vitae vulputate odio nulla vel pretium pulvinar aenean. Rhoncus eget adipiscing etiam arcu. Ultricies justo ipsum nec amet.</p>
                     </div>
                 </div>
@@ -330,8 +336,8 @@
         </div>
     </div>
     <div class="shapes_bg">
-        <img src="images/shapes/testimonial_2_shpe_1.png" alt="" class="shape_3">        
-        <img src="images/shapes/footer_2.png" alt="" class="shape_1">
+        <img src="{{asset('images/shapes/testimonial_2_shpe_1.png')}}" alt="" class="shape_3">        
+        <img src="{{asset('images/shapes/footer_2.png')}}" alt="" class="shape_1">
     </div>    
 </footer><!-- End Footer -->
 
@@ -360,7 +366,7 @@
     <!-- =========================================================
          STYLE SWITCHER | ONLY FOR DEMO NOT INCLUDED IN MAIN FILES
     ============================================================== -->
-    <script type="text/javascript" src="js/demo.js"></script>
+    <script type="text/javascript" src="{{asset('js/demo.js')}}"></script>
     <div class="demo-style-switch" id="switch-style">
         <a id="toggle-switcher" class="switch-button" title="Change Styles"><span class="fa fa-cog fa-spin"></span></a>
         <div class="switched-options">
