@@ -8,12 +8,9 @@
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
-<<<<<<< HEAD
         <!-- <img src="images/logoo_1_250x200.png" style="width:150px"> -->
-=======
-            <x-jet-authentication-card-logo />
-            {{-- <img src="images/logos/logo-3.png" alt=""> --}}
->>>>>>> 72e681cae031ec81bac4115dc283b757eee168a3
+            <!-- <x-jet-authentication-card-logo /> -->
+            <!-- {{-- <img src="images/logos/logo-3.png" alt=""> --}} -->
         </x-slot>
 
         <x-jet-validation-errors class="mb-4" />
