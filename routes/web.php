@@ -6,6 +6,10 @@ use App\Models\feedback;
 use App\Models\Category;
 use App\Models\Course;
 use App\Models\CategoryCourse;
+<<<<<<< HEAD
+=======
+
+>>>>>>> c971b99725af0886ed53e640ab0dccabd4e9df96
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CategoryController;
@@ -114,7 +118,9 @@ Route::get('/category/{id}/courses', function ($id) {
 Route::get('/team', function () {
     return view('courses.team');
 });
-
+Route::get('/about', function () {
+    return view('courses.about');
+});
 
 Route::get('/become-a-teacher', function () {
     return view('courses.become-a-teacher');
