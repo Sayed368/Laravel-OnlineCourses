@@ -323,7 +323,7 @@
                             <label for="role">User Role</label>
                             <select class="form-control" id="role"  name="role" required >
                                 <option value="admin">admin</option>
-                                <option value="student">instructor</option>
+                                <option value="instructor">instructor</option>
                                 <option value="student">student</option>
                             </select>
                         </div>

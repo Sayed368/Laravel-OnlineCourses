@@ -311,10 +311,10 @@
                     </div>
                    
 
-                    <div class="col-xs-12">
-                        <table class="table table-responsive table-hover table-condensed">
+                   <div class="col-xs-12 ">
+            <table class="table table-bordered table-striped bg-dark" style="color:white; border:none">
                             <thead>
-                                <tr>
+                                <tr class="text-center">
                                     <th>#</th>
                                     <th>Course Name</th>
                                     <th>Description</th>
@@ -326,7 +326,7 @@
                                     <th>Options</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody style="color:black; font:blod; background:#ffff">
                             @foreach($courses as $course)
                             
                             
@@ -349,10 +349,9 @@
                       @csrf
                       @method("delete")
                      
-                      <input type="submit"  value="Delete" 
-                      
-                      class="btn btn-danger"
-                              style="width:70px ;height:40px;border-radius:40%">
+                      <button type="submit"  value="Delete"
+                      class="fa fa-trash"
+                              > </button>
                              
                        </form>
                 
@@ -365,7 +364,7 @@
                             </tbody>
                         </table>
                     </div>
-                </div>
+                </div> 
             </div>            
         </div>
     </div>

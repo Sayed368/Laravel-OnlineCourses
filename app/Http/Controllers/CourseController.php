@@ -67,9 +67,10 @@ class CourseController extends Controller
         "duration"=>$request["duration"],
         "content"=>$request["content"],
         "instructor_id"=>$request["instructor"],
+       
         "image"=>$filename
        ]);
-    // dd($request["instructor"]);
+     dd($request["instructor"]);
        return redirect(route("courses.index"))->with('Success', 'Course Inserted Successfully');
     }
 

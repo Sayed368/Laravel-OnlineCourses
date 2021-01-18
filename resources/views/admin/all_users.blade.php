@@ -332,7 +332,7 @@
                                        
                                         <td>
                                     
-                    <img src="{{ $user['profile_photo_path'] }}" class="rounded-circle" width="60" height="50" /></td>
+                    <img src="{{$user['profile_photo_path'] }}" class="rounded-circle" width="60" height="50" /></td>
                                         <td>{{$user["role"]}}</td>
                                         <td>{{$user["gender"]}}</td>
                                         <!-- <td>expert</td> -->
