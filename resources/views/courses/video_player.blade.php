@@ -20,25 +20,16 @@
 <div class="container-fluid py-5" style="background-color: #E6E6FA;">
     
 
+    @if ($video==0)
+        
+    
     <div class="container-player">
         <div id="mediaPlayer">
-            <div class="lds-ring" id=preload><div></div><div></div><div></div><div></div></div>
-            <video id='media-video' preload>
-                <!-- <source  src="https://www.html5rocks.com/en/tutorials/video/basics/devstories.mp4" type='video/mp4'> -->
-                <source  src="images/preview.mp4" type='video/mp4'>
-                <source src='parrots.webm' type='video/webm'>
-            </video>
-            <div id="controls">
-                <button id=play><i class="fas fa-pause"></i></button>
-                <button id=audioVolume class="fas fa-volume-off"></button>
-                <div id="progressBar">
-                    <div id="progress"></div>
-                </div>
-                <div id="timer">
-                    <span id="start"> 0 : 00</span>
-                </div>
-                <button id=expand><i class="fas fa-expand"></i></button>
-            </div>
+            
+            <iframe class="w-100 h-100" 
+            src="https://www.youtube.com/embed/{{$video}}" 
+            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen></iframe>
         </div>
 
 
@@ -51,66 +42,30 @@
 
             <table class="mdl-data-table mdl-js-data-table mdl-video-table w-100">
                 <tbody>
-                  <tr>
-                    <td>
-                      <i class="material-icons mdl-list__item-icon" style="padding-top: 5px;">play_circle_outline</i>
-                    </td>
-                    <td style="text-align: left;"><a class="mdl-navigation__link"> Video 1 </a></td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <i class="material-icons mdl-list__item-icon" style="padding-top: 5px;">play_circle_outline</i>
-                    </td>
-                    <td style="text-align: left;"><a class="mdl-navigation__link"> Video 2 </a></td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <i class="material-icons mdl-list__item-icon" style="padding-top: 5px;">play_circle_outline</i>
-                    </td>
-                    <td style="text-align: left;"><a class="mdl-navigation__link"> Video 3 </a></td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <i class="material-icons mdl-list__item-icon" style="padding-top: 5px;">play_circle_outline</i>
-                    </td>
-                    <td style="text-align: left;"><a class="mdl-navigation__link"> Video 4 </a></td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <i class="material-icons mdl-list__item-icon" style="padding-top: 5px;">play_circle_outline</i>
-                    </td>
-                    <td style="text-align: left;"><a class="mdl-navigation__link"> Video 5 </a></td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <i class="material-icons mdl-list__item-icon" style="padding-top: 5px;">play_circle_outline</i>
-                    </td>
-                    <td style="text-align: left;"><a class="mdl-navigation__link"> Video 6 </a></td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <i class="material-icons mdl-list__item-icon" style="padding-top: 5px;">play_circle_outline</i>
-                    </td>
-                    <td style="text-align: left;"><a class="mdl-navigation__link"> Video 7 </a></td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <i class="material-icons mdl-list__item-icon" style="padding-top: 5px;">play_circle_outline</i>
-                    </td>
-                    <td style="text-align: left;"><a class="mdl-navigation__link"> Video 8 </a></td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <i class="material-icons mdl-list__item-icon" style="padding-top: 5px;">play_circle_outline</i>
-                    </td>
-                    <td style="text-align: left;"><a class="mdl-navigation__link"> Video 9 </a></td>
-                  </tr>
+
+                @foreach ($course['video'] as $item)
+                        
+                    
+                    <a href="{{route('changevideo', $item)}}">
+                        <tr>
+                            <td><i class="fas fa-video fa-5x" style="padding-top: 5px;"></i></td>
+                            <td style="text-align: left;"><a class="mdl-navigation__link"> Video 1 </a></td>
+                    
+                        </tr>gggggggg
+                    </a>
+                @endforeach
+
                 </tbody>
               </table>
             
             
         </div>
     </div>
+     
+    @else
+    <div class="contaner bg-success"><h6 class="text-xl-center">No Videos Found</h6></div>
+        
+    @endif
 
 </div>
 <!-- End video player -->

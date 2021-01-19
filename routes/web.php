@@ -12,6 +12,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ViewCourseController;
+use App\Http\Controllers\EnrollController;
 
 use App\Http\Controllers\MailController;
 use App\Mail\SendEmail;
@@ -139,9 +140,9 @@ Route::get('/become-a-teacher', function () {
 
 
 
-Route::get('/player', function () {
-    return view('courses.video_player');
-});
+// Route::get('/player', function () {
+//     return view('courses.video_player');
+// });
 
 
 
@@ -243,7 +244,7 @@ Route::resource("Viewcourses",ViewCourseController::class);
 
 Route::resource("categories",CategoryController::class);
 
-
+Route::resource("enroll",EnrollController::class);
 // // resource routes
 
 //         // Route::resource('user', Usercontroller::class);
@@ -273,6 +274,30 @@ Route::get('/admin/course/{id}/videos', function ($id) {
 })->name("corsevideos");
 
 
+Route::get('/course/{id}/videos', function ($id) {
+    
+    $course=new Course;
+    $course=$course->findorfail($id);
+    if(isset($course['video'][0]))
+    {
+        $video=$course['video'][0]['video_url'];
+    }
+    else{
+        $video=0;
+    }
+    return view('courses.video_player',["course"=>$course,'video'=>$video]);
+})->name("viewcourse");
+
+
+Route::get('/course/videos/{id}', function ($id) {
+    $video=new CourseVideo;
+    $course=new Course;
+    $video=$video->findorfail($id);
+    $course=$course->findorfail($video['course_id']);
+    $video=$video['video_url'];
+    // dd($course);
+    return view('courses.video_player',["course"=>$course,'video'=>$video]);
+})->name("changevideo");
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
