@@ -6,12 +6,12 @@ use App\Models\feedback;
 use App\Models\Category;
 use App\Models\Course;
 use App\Models\CategoryCourse;
-
 use App\Http\Controllers\UserController;
+
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ViewCourseController;
-
+use App\Http\Controllers\UpdateStudentController;
 use App\Http\Middleware;
 
 /*
@@ -237,7 +237,9 @@ Route::resource('users', Usercontroller::class);
 
 
 
+Route::post('/edituser/{id}',"App\Http\Controllers\UpdateStudentController@update");
 
+Route::get('/edituser/{id}',"App\Http\Controllers\UpdateStudentController@edit");
 
 
 
