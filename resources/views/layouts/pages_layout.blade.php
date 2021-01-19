@@ -61,12 +61,26 @@
                             </ul>                    
                         </div>
                         <div class="login_info">
-                             <ul class="d-flex">
-                                <li class="nav-item"><a href="#" class="nav-link sign-in js-modal-show"><i class="flaticon-user-male-black-shape-with-plus-sign"></i>Sign Up</a></li>
-                                <li class="nav-item"><a href="#" class="nav-link join_now js-modal-show"><i class="flaticon-padlock"></i>Log In</a></li>
-                            </ul>
-                           
-                        </div>
+                            @if (Route::has('login'))
+                            @auth
+  <a style="color:white;" id="navbarDropdown" class="sign_up sign-in" href="/profile" >
+                                    {{ Auth::user()->name }}
+    </a>&nbsp;
+    <a style="color:white;" class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                            @else
+                        <a style="color:white;" href="/register" title="" class="sign_up sign-in">Sign Up</a>
+                        <a style="color:white;" class="nav-link" href="{{ route('login') }}">Login</a>
+                    @endauth
+                    @endif
+						</div>
                     </div>
                 </div>
             </div>

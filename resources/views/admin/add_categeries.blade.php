@@ -288,6 +288,10 @@
                             <label for="first_name">Categery name</label>
                             <input type="text" class="form-control"  name="name" placeholder="Enter Categery Name" required>
                           </div>
+                          <div  style="width: 600px;"  class="form-group">
+                            <label>Categery image</label>
+                            <input type="file" class="form-control"  name="image"  required>
+                          </div>
                         <button type="submit" class="btn btn-primary pull-right">Submit</button>
 <br><br><br><br>
 

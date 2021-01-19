@@ -216,7 +216,7 @@ $feedbacks=$feedback->all();
 				<div class="testimonial_single">
 					<div class="reviewer_info">
 						<div class="pro_pic_teacher">
-						
+						<img src="{{asset('userimg/user.png')}}" alt="2" class="img-fluid">
 						</div>
 						<div class="name_position">
 							<span class="name">{{$feedback['name']}}</span>

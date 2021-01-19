@@ -306,7 +306,7 @@
                                     <tr>
                                         <th>#</th>
                                         <th>categery name</th>
-                                    
+                                        <th>Image</th>
                                         <th>Options</th>
                                     </tr>
                                 </thead>
@@ -315,18 +315,20 @@
                                     <tr>
                                         <td>{{$category["id"]}}</td>
                                         <td>{{$category["name"]}}</td>
-                                   
+                                        <td>
+                                    
+                                    <img src="{{ $category['image'] }}" class="rounded-circle" width="60" height="50" /></td>
+                                    </td>
                                         <td>
                                             <a href="{{route('categories.edit',$category)}}"><span class="fa fa-edit"></span></a>
                                             <a class="text-success m-l-5" href="{{route('categories.show',$category)}}"><span class="fa fa-eye"></span></a>
-                                            <form action="{{route('categories.destroy',$category)}}" method="Post" style="display:inline-block;">
+                                            <form action="{{route('categories.destroy',$category)}}" method="Post" enctype="multipart/form-data" style="display:inline-block;">
                       @csrf
                       @method("delete")
                      
-                      <input type="submit"  value="Delete" 
-                      
-                      class="btn btn-danger"
-                              style="width:70px ;height:40px;border-radius:40%">
+                      <button type="submit"  value="Delete"
+                      class="fa fa-trash"
+                              > </button>
                              
                        </form>
                                         </td>
