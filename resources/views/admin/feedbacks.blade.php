@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>view categery</title>
+  <title>All Feedback</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -182,7 +182,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="{{url('admin/allusers')}}" class="nav-link ">
+            <a href="{{url('admin/allusers')}}" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 all users
@@ -244,8 +244,9 @@
             </a>
           </li>
 
+          
           <li class="nav-item">
-            <a href="{{url('admin/feedback')}}" class="nav-link">
+            <a href="{{url('admin/feedback')}}" class="nav-link active">
               <i class="nav-icon fas fa-th"></i>
               <p>
                  Feedbacks
@@ -278,12 +279,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-          <h3><span class="fa fa-users"></span>View categery</h3>
+            <h1>All feedback</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-          
+              <li class="breadcrumb-item active">All Feedback</li>
             </ol>
           </div>
         </div>
@@ -296,28 +297,50 @@
                 <div class="col-xs-12 sub">
                     <div class="row">
                         <div class="col-xs-12">
-                        
-                      
+                          
+                            
                         </div>
                         <div class="col-xs-12 col-sm-6 ">
                             <div class="form-group p-t-20">
-                              
+                  
                             </div>
                         </div>
-         
-                         
-                        <table class="table">
-                        <tbody>
-                        
-                            <tr>
-                                <th>categery name:</th>
-                                <td>{{$category["name"]}}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                        </div>
-                        <div class="col-xs-12">
+                        <div class="col-xs-12 col-sm-6">
                            
+                        </div>
+
+                        <?php
+
+                        use App\Models\feedback;
+                        $feedback=new feedback;
+                        $feedbacks=$feedback->all();  
+                                             ?>
+                        <div class="col-xs-12">
+                            <table class="table table-responsive table-hover table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Name</th>
+                                        <th>email</th>
+                                        <th>subject</th>
+                                        <th>comments</th>
+                                        
+                                    
+                                      
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                @foreach ($feedbacks as $feedback)
+                                    <tr>
+                                        <td>{{$feedback['id']}}</td>
+                                        <td>{{$feedback['name']}}</td>
+                                        <td>{{$feedback['email']}}</td>
+                                        <td>{{$feedback['subject']}}</td>
+                                        <td>{{$feedback['comments']}}</td>
+                                    </tr>
+                                    @endforeach 
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>            

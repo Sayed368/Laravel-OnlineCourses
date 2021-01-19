@@ -11,18 +11,14 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ViewCourseController;
-<<<<<<< HEAD
+
 use App\Http\Controllers\MailController;
 use App\Mail\SendEmail;
-=======
-<<<<<<< HEAD
+
 use App\Http\Controllers\AboutController;
-=======
 
 use App\Http\Middleware;
 
->>>>>>> 4c1e0c3baaf3f2644d89cec391edb4ad136d41b8
->>>>>>> 691a287ba6c8bed468732162e6db518988b2dd23
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -81,6 +77,11 @@ Route::post('/contact', function () {
     $feedback->save();
     return redirect()->back()->with('message', 'Thanks for your Feedback!');
 });
+
+Route::get('/admin/feedback', function () {
+    return view('admin.feedbacks');
+});
+
 
 Route::get('/event', function () {
     return view('courses.event');

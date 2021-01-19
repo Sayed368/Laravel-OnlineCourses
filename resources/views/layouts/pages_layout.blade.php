@@ -66,7 +66,7 @@
   <a style="color:white;" id="navbarDropdown" class="sign_up sign-in" href="/profile" >
                                     {{ Auth::user()->name }}
     </a>&nbsp;
-    <a style="color:white;" class="dropdown-item" href="{{ route('logout') }}"
+    <a style="color:white;" class="dropdown-item" href="{{ route('logout') }}" 
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
@@ -76,8 +76,8 @@
                                         @csrf
                                     </form>
                             @else
-                        <a style="color:white;" href="/register" title="" class="sign_up sign-in">Sign Up</a>
-                        <a style="color:white;" class="nav-link" href="{{ route('login') }}">Login</a>
+                        <a style="color:white;" href="/register" title="" class="sign_up sign-in"><i class="flaticon-user-male-black-shape-with-plus-sign"></i>&nbsp;Sign Up</a>
+                        <a style="color:white;" class="nav-link" href="{{ route('login') }}"><i class="flaticon-padlock"></i>&nbsp;Login</a>
                     @endauth
                     @endif
 						</div>
