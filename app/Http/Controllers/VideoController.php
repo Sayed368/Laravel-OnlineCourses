@@ -21,7 +21,8 @@ class VideoController extends Controller
         //   $coursev = CourseVideo::where('course_id',$course)->get();
         //   dd( $coursev);
         //   $courseVideo->course_id=$course;
-        
+      
+
         return view("admin.viewVideos");
      
     }

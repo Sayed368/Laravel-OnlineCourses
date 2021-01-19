@@ -19,21 +19,9 @@ use App\Http\Controllers\AboutController;
 
 use App\Http\Middleware;
 
-<<<<<<< HEAD
-=======
 
 
->>>>>>> 60aa1b165c74edbe9a2c0fbe7f386521b01ba077
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+
 
 
 
@@ -121,6 +109,13 @@ Route::get('/category/{id}/courses', function ($id) {
     
     return view('courses.related-courses',["courses"=>$courses]);
 })->name("categorycourses.show");
+
+
+
+
+
+
+
 
 
 
@@ -261,8 +256,6 @@ Route::get('/send-email/{id}', [MailController::class,'SendEmail'])->name("sende
 
 
 
-<<<<<<< HEAD
-=======
 Route::get('/admin/member_request', function () {
     return view('admin.view_member_request');
 })->name("membersRequest");
@@ -271,7 +264,6 @@ Route::get('/admin/member_request', function () {
 
 
 
->>>>>>> 0889164d3dd386b4b628ec1574162262275c5bc8
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');

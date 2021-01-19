@@ -367,19 +367,12 @@
                       @csrf
                       @method("delete")
                      
-<<<<<<< HEAD
                       <button type="submit"  value="Delete"
                       class="fa fa-trash"
                               > </button>
-=======
                 
                       
-                      <button type="submit" value="Delete"
-                              class="fa fa-trash"></button>
->>>>>>> 0889164d3dd386b4b628ec1574162262275c5bc8
-                             
-                       </form>
-                
+
                                    
                                     </td>
                                 </tr>

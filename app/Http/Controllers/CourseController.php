@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Course;
+ use App\Models\Course;
  use App\Models\User;
  use App\Models\CourseVideo;
  use App\Models\Category;
@@ -63,7 +63,6 @@ class CourseController extends Controller
             $filename =rand() . '.' . $image->getClientOriginalExtension();
             $image->move(public_path('courseimg/'), $filename);
             $filename='courseimg/'.$filename;
-            
         }
        
     
