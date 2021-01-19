@@ -292,30 +292,33 @@
                             </thead>
                             <tbody style="color:black; font:blod; background:#ffff">
                            
+                              @foreach ($videos as $item)
+                                  
+                             
                             
                                 <tr>
-                                    <td><b>name</b></td>
+                                    <td><b>{{$item['course']['name']}}</b></td>
                                    <td>
-                                  <a href="#"><b> Video link </b></a>
+                                  <a href="#"><b>{{$item['video_url']}}</b></a>
                                     
                                     </td>
                                     <td>
                                     <a href=""><span class="fa fa-edit"></span></a>
                                       
                                         <form action="" method="Post" style="display:inline-block;">
-                      @csrf
-                      @method("delete")
-                     
-                      <button type="submit"  value="Delete"
-                      class="fa fa-trash"
-                              > </button>
-                             
-                       </form>
+                                          @csrf
+                                          @method("delete")
+                                        
+                                          <button type="submit"  value="Delete"
+                                          class="fa fa-trash"
+                                                  > </button>
+                                                
+                                          </form>
                                    
                                     </td>
                                 </tr>
                               
-                              
+                                @endforeach
                                
                             </tbody>
                         </table>

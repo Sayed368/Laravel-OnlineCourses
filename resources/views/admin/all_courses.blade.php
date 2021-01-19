@@ -356,7 +356,7 @@
                                     <img src="{{ $course['image'] }}" class="rounded-circle" width="60" height="50" /></td>
                                     </td>
                                     <td>
-                                  <a href="{{route('videos.index'),$course['id']}}"><b> Videos link </b></a>
+                                  <a href="{{route('corsevideos', $course['id'])}}"><b> Videos link </b></a>
                                  
                                     </td>
                                     <td>
@@ -367,16 +367,13 @@
                       @csrf
                       @method("delete")
                      
-<<<<<<< HEAD
                       <button type="submit"  value="Delete"
                       class="fa fa-trash"
                               > </button>
-=======
                 
                       
                       <button type="submit" value="Delete"
                               class="fa fa-trash"></button>
->>>>>>> 0889164d3dd386b4b628ec1574162262275c5bc8
                              
                        </form>
                 

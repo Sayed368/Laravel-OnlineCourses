@@ -6,6 +6,7 @@ use App\Models\feedback;
 use App\Models\Category;
 use App\Models\Course;
 use App\Models\CategoryCourse;
+use App\Models\CourseVideo;
 
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CourseController;
@@ -19,11 +20,8 @@ use App\Http\Controllers\AboutController;
 
 use App\Http\Middleware;
 
-<<<<<<< HEAD
-=======
 
 
->>>>>>> 60aa1b165c74edbe9a2c0fbe7f386521b01ba077
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -261,17 +259,22 @@ Route::get('/send-email/{id}', [MailController::class,'SendEmail'])->name("sende
 
 
 
-<<<<<<< HEAD
-=======
 Route::get('/admin/member_request', function () {
     return view('admin.view_member_request');
 })->name("membersRequest");
 
+Route::get('/admin/course/{id}/videos', function ($id) {
+    
+    $course=new Course;
+    $course=$course->findorfail($id);
+    $videos=$course->video;
+    // dd($videos);
+    return view('admin.viewVideos',["videos"=>$videos]);
+})->name("corsevideos");
 
 
 
 
->>>>>>> 0889164d3dd386b4b628ec1574162262275c5bc8
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
