@@ -8,7 +8,11 @@
 </head>
 <body>
     <h3>{{$details['title']}}</h3>
-    <p>{{$details['body']}}</p>
+    <h4>Dear Mr/Mrs {{$details['body']}} ,Hope this mail finds you well , </h4>
+    <p>you have been choosen to be part of ITI Instructors</p>
+    <p>please contact us ASAP</p>
+    <p>Email : ITI@iti.cov.eg</p>
+    <p>Phone : 01203549998</p>
     <p>Thank You</p>
 </body>
 </html>

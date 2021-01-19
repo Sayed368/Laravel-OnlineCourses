@@ -10,20 +10,21 @@ class MailController extends Controller
 {
 
     
-   public function sendEmail()
+   public function sendEmail($id)
    {
-        // $member=new MemberRequest;
-        // $member=MemberRequest::all();
-        // $member=$member->findorfail($id);
+        $member=new MemberRequest;
+        $member=MemberRequest::all();
+        $member=$member->find($id);
 
-        $email="sayed.abdallah1998@gmail.com";
+        // dd($member['email']);
+        $email=$member['email'];
 
         $details=[
             'title'=>"Hello ITI Online Courses",
-            'body'=>"this is test mail"
+            'body'=>$member['name']
         ];
         Mail::to($email)->send( new SendEmail($details));
 
-        return "email sent";
+        return redirect(route("membersRequest"));
     }
 }

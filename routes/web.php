@@ -19,6 +19,11 @@ use App\Http\Controllers\AboutController;
 
 use App\Http\Middleware;
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 60aa1b165c74edbe9a2c0fbe7f386521b01ba077
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -247,13 +252,13 @@ Route::resource("categories",CategoryController::class);
 Route::resource('users', Usercontroller::class);
 
 
-Route::get('/send-email', [MailController::class,'SendEmail']);
+Route::get('/send-email/{id}', [MailController::class,'SendEmail'])->name("sendemail");
 
 
 
 Route::get('/admin/member_request', function () {
     return view('admin.view_member_request');
-});
+})->name("membersRequest");
 
 
 
