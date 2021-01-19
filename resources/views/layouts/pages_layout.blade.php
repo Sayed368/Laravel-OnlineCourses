@@ -63,7 +63,7 @@
                         <div class="login_info">
                             @if (Route::has('login'))
                             @auth
-  <a id="navbarDropdown" class="sign_up sign-in" href="/profile" >
+  <a style="color:white;" id="navbarDropdown" class="sign_up sign-in" href="/profile" >
                                     {{ Auth::user()->name }}
     </a>&nbsp;
     <a style="color:white;" class="dropdown-item" href="{{ route('logout') }}"
@@ -76,8 +76,8 @@
                                         @csrf
                                     </form>
                             @else
-                        <a href="/register" title="" class="sign_up sign-in">Sign Up</a>
-                        <a class="nav-link" href="{{ route('login') }}">Login</a>
+                        <a style="color:white;" href="/register" title="" class="sign_up sign-in">Sign Up</a>
+                        <a style="color:white;" class="nav-link" href="{{ route('login') }}">Login</a>
                     @endauth
                     @endif
 						</div>
