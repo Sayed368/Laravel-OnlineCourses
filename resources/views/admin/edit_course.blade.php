@@ -244,6 +244,15 @@
             </a>
           </li>
           <li class="nav-item">
+            <a href="{{url('admin/feedback')}}" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                 Feedbacks
+                
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="pages/layout/top-nav.html" class="nav-link">
@@ -325,15 +334,16 @@
 
                         <div class="form-group">
                             <label for="role">Instructor</label>
-                            @foreach($userss as $user)
-                            @if($user['role']=='instructor')
+                           
                             <select class="form-control" name="instructor" >
                                 <option disabled selected>Please Select Instructor</option>
+                                @foreach($userss as $user)
+                            @if($user['role']=='instructor')
                                 <option value="{{$user['id']}}">{{$user["name"]}}</option>
-                               
-                            </select>
-                            @endif
+                                @endif
                             @endforeach
+                            </select>
+                           
                         </div>
                       
                     

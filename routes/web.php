@@ -6,13 +6,29 @@ use App\Models\feedback;
 use App\Models\Category;
 use App\Models\Course;
 use App\Models\CategoryCourse;
+<<<<<<< HEAD
+=======
+use App\Models\CourseVideo;
+
+>>>>>>> 0eb58237f613bc7136530fca970378af5e30aca6
 use App\Http\Controllers\UserController;
 
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ViewCourseController;
+<<<<<<< HEAD
 use App\Http\Controllers\UpdateStudentController;
+=======
+
+use App\Http\Controllers\MailController;
+use App\Mail\SendEmail;
+
+use App\Http\Controllers\AboutController;
+
+>>>>>>> 0eb58237f613bc7136530fca970378af5e30aca6
 use App\Http\Middleware;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +45,7 @@ use App\Http\Middleware;
 
 
 // test routs
+Route::post('about-create',[AboutController::class,'create']);
 
 Route::get('/', function () {
     return view('index');
@@ -71,6 +88,11 @@ Route::post('/contact', function () {
     $feedback->save();
     return redirect()->back()->with('message', 'Thanks for your Feedback!');
 });
+
+Route::get('/admin/feedback', function () {
+    return view('admin.feedbacks');
+});
+
 
 Route::get('/event', function () {
     return view('courses.event');
@@ -129,9 +151,14 @@ Route::get('/player', function () {
     return view('courses.video_player');
 });
 
-// end test routs
-Route::resource("courses",CourseController::class);
 
+
+
+// end test routs
+//Route::get('/courses/{id}', 'App\Http\Controllers\VideoController@index');
+
+Route::resource("courses",CourseController::class);
+Route::resource("videos" , App\Http\Controllers\VideoController::class);
 Route::resource("Viewcourses",ViewCourseController::class);
 // Route::get('/admin', function () {
 //     return view('admin.all_users');
@@ -236,14 +263,24 @@ Route::resource("categories",CategoryController::class);
 Route::resource('users', Usercontroller::class);
 
 
+Route::get('/send-email/{id}', [MailController::class,'SendEmail'])->name("sendemail");
 
 Route::post('/edituser/{id}',"App\Http\Controllers\UpdateStudentController@update");
 
 Route::get('/edituser/{id}',"App\Http\Controllers\UpdateStudentController@edit");
 
+Route::get('/admin/member_request', function () {
+    return view('admin.view_member_request');
+})->name("membersRequest");
 
-
-
+Route::get('/admin/course/{id}/videos', function ($id) {
+    
+    $course=new Course;
+    $course=$course->findorfail($id);
+    $videos=$course->video;
+    // dd($videos);
+    return view('admin.viewVideos',["videos"=>$videos]);
+})->name("corsevideos");
 
 
 

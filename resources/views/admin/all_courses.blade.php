@@ -244,6 +244,15 @@
             </a>
           </li>
           <li class="nav-item">
+            <a href="{{url('admin/feedback')}}" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                 Feedbacks
+                
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="pages/layout/top-nav.html" class="nav-link">
@@ -282,7 +291,7 @@
     <?php
     use App\Models\User;
    
-
+    use App\Models\CourseVideo;
     
     ?>
 
@@ -311,10 +320,10 @@
                     </div>
                    
 
-                    <div class="col-xs-12">
-                        <table class="table table-responsive table-hover table-condensed">
+                   <div class="col-xs-12 ">
+            <table class="table table-bordered table-striped bg-dark" style="color:white; border:none">
                             <thead>
-                                <tr>
+                                <tr class="text-center">
                                     <th>#</th>
                                     <th>Course Name</th>
                                     <th>Description</th>
@@ -322,11 +331,12 @@
                                     <th>Categery</th>
                                     <th>Instructor</th>
                                     <th>Image</th>
+                                    <th>Video</th>
                                     
                                     <th>Options</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody style="color:black; font:blod; background:#ffff">
                             @foreach($courses as $course)
                             
                             
@@ -346,6 +356,10 @@
                                     <img src="{{ $course['image'] }}" class="rounded-circle" width="60" height="50" /></td>
                                     </td>
                                     <td>
+                                  <a href="{{route('corsevideos', $course['id'])}}"><b> Videos link </b></a>
+                                 
+                                    </td>
+                                    <td>
                                         <a href="{{route('courses.edit',$course)}}"><span class="fa fa-edit"></span></a>
                                         <a class="text-success m-l-5" href="{{route('courses.show',$course)}}"><span class="fa fa-eye xx" ></span></a>
                                    
@@ -353,6 +367,9 @@
                       @csrf
                       @method("delete")
                      
+                      <button type="submit"  value="Delete"
+                      class="fa fa-trash"
+                              > </button>
                 
                       
                       <button type="submit" value="Delete"
@@ -369,7 +386,7 @@
                             </tbody>
                         </table>
                     </div>
-                </div>
+                </div> 
             </div>            
         </div>
     </div>

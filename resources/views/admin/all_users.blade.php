@@ -244,6 +244,15 @@
             </a>
           </li>
           <li class="nav-item">
+            <a href="{{url('admin/feedback')}}" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                 Feedbacks
+                
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="pages/layout/top-nav.html" class="nav-link">
@@ -333,11 +342,13 @@
                                        
                                         <td>
                                     
+                    <img src="{{$user['profile_photo_path'] }}" class="rounded-circle" width="60" height="50" /></td>
                     <img src="{{ asset($user['profile_photo_path']) }}" class="rounded-circle" width="60" height="50" /></td>
                                         <td>{{$user["role"]}}</td>
                                         <td>{{$user["gender"]}}</td>
                                         <td>{{$user["specialist"]}}</td>
                                         <td>{{$user["dob"]}}</td>
+                                      
                                         <!-- <td>{{$user["address"]}}</td> -->
                                         <td>{{$user["phone"]}}</td>
                                         <!-- <td> {{$user["university"]}}</td> -->

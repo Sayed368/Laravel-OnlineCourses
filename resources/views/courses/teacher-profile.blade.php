@@ -92,11 +92,8 @@ $courses=$course->all();
                                                                 <li><i class="fas fa-user"></i>{{$course['duration']}} Hours</li>
                                                                 <li><i class="fas fa-calendar-alt"></i>30 Students</li>
                                                             </ul>
-<<<<<<< HEAD
                                                             <a href="../Viewcourses/{{$course['id']}}" class="cart_btn">View</a>
-=======
-                                                            <a href="{{route("Viewcourses.show",$course['id'])}}" class="cart_btn">View Details</a>
->>>>>>> c971b99725af0886ed53e640ab0dccabd4e9df96
+                                                           
                                                         </div>
                                                     </div>
                                                 </div><!-- Ends: .single courses -->
@@ -143,11 +140,8 @@ $courses=$course->all();
                                 <li><i class="fa fa-user"></i> {{$course['duration']}} Hours</li>
                                 <li><i class="fa fa-comment"></i>60 Students</li>
                             </ul>
-<<<<<<< HEAD
                             <a href="../Viewcourses/{{$course['id']}}" class="cart_btn">View details</a>
-=======
-                            <a href="{{route("Viewcourses.show",$course['id'])}}" class="cart_btn">View Details</a>
->>>>>>> c971b99725af0886ed53e640ab0dccabd4e9df96
+                         
                         </div>
                     </div>
                 </div><!-- Ends: .single courses -->

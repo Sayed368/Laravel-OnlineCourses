@@ -210,9 +210,9 @@ $categories= Category::all();
 					<div class="intro_text">
 						<h1>Take The World's Best Courses Online.</h1>
 						<p>Ante amet vitae vulputate odio nulla vel pretium pulvinar aenean.<br> Poncus eget adipiscing etiam arcu Ultricies.</p>
-						<div class="intro_button">
+						{{-- <div class="intro_button">
 							<a href="#" class="nav-link">Start my free month</a>
-						</div>
+						</div> --}}
 					</div>
 				</div>				
 				<div class="col-sm-12 col-md-12 col-lg-12">
@@ -457,7 +457,7 @@ $categories= Category::all();
         <a id="toggle-switcher" class="switch-button" title="Change Styles"><span class="fa fa-cog fa-spin"></span></a>
         <div class="switched-options">
             <div class="config-title">
-                <a class="navbar-brand" href="index-2.html"><img src="images/logo.png" alt="logo"></a>
+                <a class="navbar-brand" href="/index"><img src="images/logo.png" alt="logo"></a>
                 
                 
             </div>

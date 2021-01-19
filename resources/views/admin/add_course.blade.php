@@ -243,6 +243,16 @@
               </p>
             </a>
           </li>
+
+          <li class="nav-item">
+            <a href="{{url('admin/feedback')}}" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                 Feedbacks
+                
+              </p>
+            </a>
+          </li>
           <li class="nav-item">
             <ul class="nav nav-treeview">
               <li class="nav-item">
@@ -343,7 +353,6 @@
 
                     
                         
-                      
 
                         <div class="form-group">
                             <label for="note">Content</label>
@@ -353,6 +362,10 @@
                         <div class="form-group">
                             <label for="note">Image</label>
                             <input type="file" class="form-control"  name="image">
+                        </div>
+                        <div class="form-group">
+                            <label for="note">Video</label>
+                            <input type="file" class="form-control"  name="video_url[]" multiple>
                         </div>
 
                         <button type="submit" class="btn btn-primary pull-right">Submit</button>
