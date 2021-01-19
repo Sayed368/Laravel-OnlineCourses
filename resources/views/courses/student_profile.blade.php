@@ -12,6 +12,11 @@ use App\Models\Course;
 $course=new Course ;
 $courses=$course->all();
 ?>
+<?php  
+use App\Models\user;
+$user=new User ;
+$users=User::all();
+?>
 
 
 <section class="teachers_profile">
@@ -39,7 +44,8 @@ $courses=$course->all();
                         <div class="teacher-info">
                             <ul class="list-unstyled">
                             <li style="padding-left:270px">
-                            <button type="button" class="btn btn-info">update Info</button>
+                           
+                            <button type="submit" class="btn btn-info" href = "/edituser/{{Auth::user()->id}}"><a style="text-decoration: none ; color: white;"href = "/edituser/{{Auth::user()->id}}">update Info<a></button>
                                 </li>
                             <li>
                                     <h3>Name :</h3>
