@@ -1,10 +1,17 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\user;
+use App\Models\feedback;
+use App\Models\Category;
+use App\Models\Course;
+use App\Models\CategoryCourse;
 
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ViewCourseController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,19 +38,32 @@ Route::get('/course', function () {
 });
 
 
-Route::get('/course-details', function () {
-    return view('courses.course-details');
-});
+// Route::get('/course-details', function () {
+//     return view('courses.course-details');
+// });
 
-Route::get('/courses', function () {
-    return view('courses.about');
-});
+// Route::get('/courses', function () {
+//     return view('courses.about');
+// });
 
 Route::get('/blog', function () {
     return view('courses.blog');
 });
+
+
 Route::get('/contact', function () {
     return view('courses.contact');
+});
+
+
+Route::post('/contact', function () {
+    $feedback=new feedback;
+    $feedback->name=request("name");
+    $feedback->email=request("email");
+    $feedback->subject=request("subject");
+    $feedback->comments=request("comments");
+    $feedback->save();
+    return redirect()->back()->with('message', 'Thanks for your Feedback!');
 });
 
 Route::get('/event', function () {
@@ -62,9 +82,29 @@ Route::get('/forgot-password', function () {
 });
 
 
-Route::get('/teacher-profile', function () {
-    return view('courses.teacher-profile');
+Route::get('/teacher-profile/{id}', function ($id) {
+    $post=new user;
+    $fpost=$post->find($id);
+    return view('courses.teacher-profile',["data"=>$fpost]);
 });
+
+
+Route::get('/category/{id}/courses', function ($id) {
+
+    $category=new Category;
+    $category=$category->findorfail($id);
+    
+    $courses=$category->course;
+    // dd($courses);
+    
+    return view('courses.related-courses',["courses"=>$courses]);
+})->name("categorycourses.show");
+
+
+
+// Route::get('/teacher-profile', function () {
+//     return view('courses.teacher-profile');
+// });
 
 Route::get('/team', function () {
     return view('courses.team');
@@ -81,10 +121,15 @@ Route::get('/player', function () {
     return view('courses.video_player');
 });
 
+
+
+
 // end test routs
+//Route::get('/courses/{id}', 'App\Http\Controllers\VideoController@index');
+
 Route::resource("courses",CourseController::class);
-
-
+Route::resource("videos" , App\Http\Controllers\VideoController::class);
+Route::resource("Viewcourses",ViewCourseController::class);
 // Route::get('/admin', function () {
 //     return view('admin.all_users');
 // });
@@ -176,6 +221,7 @@ Route::resource("courses",CourseController::class);
 
 Route::resource("categories",CategoryController::class);
 
+
 // // resource routes
 
 //         // Route::resource('user', Usercontroller::class);
@@ -184,19 +230,12 @@ Route::resource("categories",CategoryController::class);
 
 //         // Route::resource('user', CategoryController::class);
 
-         Route::resource('users', Usercontroller::class);
+Route::resource('users', Usercontroller::class);
 
 
 
 
 
-
-
-
-
-
-
-
-// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-//     return view('dashboard');
-// })->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');

@@ -311,28 +311,30 @@
                         </div>
                         <div class="form-group">
                             <label for="role">Category Name</label>
-                            @foreach($cats as $cat)
                            
-                            <select class="form-control" name="category" >
+                           
+                            <select class="form-control" name="category[]" multiple >
                                 <option disabled selected>Please Select Category</option>
+                                @foreach($cats as $cat)
                                 <option value="{{$cat['id']}}">{{$cat["name"]}}</option>
-                               
+                                @endforeach
                             </select>
                             
-                            @endforeach
+                           
                         </div>
 
                         <div class="form-group">
                             <label for="role">Instructor</label>
-                            @foreach($userss as $user)
-                            @if($user['role']=='instructor')
+                           
                             <select class="form-control" name="instructor" >
                                 <option disabled selected>Please Select Instructor</option>
+                                @foreach($userss as $user)
+                            @if($user['role']=='instructor')
                                 <option value="{{$user['id']}}">{{$user["name"]}}</option>
-                               
-                            </select>
-                            @endif
+                                @endif
                             @endforeach
+                            </select>
+                           
                         </div>
                       
                     

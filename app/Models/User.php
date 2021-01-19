@@ -32,6 +32,9 @@ class User extends Authenticatable
         'gender',
         'address',
         'phone',
+        'dob',
+        'description',
+        'specialist',
         'university'
 
     ];

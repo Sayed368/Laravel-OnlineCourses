@@ -2,7 +2,21 @@
 
 @section('main')
 
+<?php
+use App\Models\user;
+$user=new user;
+$users=$user->all();
 
+use App\Models\Category;
+$categories= Category::all();
+
+
+use App\Models\Course;
+$courses= Course::all();
+
+
+    
+?>
 
 <section class="courses_features">
 	<div class="container">
@@ -14,64 +28,25 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-12 col-sm-6 col-md-4 col-lg-4 single_features_wrapper">
-				<div class="feature_single feature_single_1">
-					<img src="images/features/courses_provide_1.jpg" alt="">
-					<div class="feature_content">
-						<a href="Design.html" title=""><h3>Design</h3></a>
-						<p>Over 700 Courses</p>
-					</div>
-				</div>
-			</div>
 
-			<div class="col-12 col-sm-6 col-md-4 col-lg-4 single_features_wrapper">
-				<div class="feature_single feature_single_2">
-					<img src="images/features/courses_provide_2.jpg" alt="">
-					<div class="feature_content">
-						<a href="Web Development.html" title=""><h3>Web Development</h3></a>
-						<p>Over 500 Courses</p>
-					</div>
-				</div>
-			</div>
+			@foreach ($categories as $item)
+				
+			
 
 			<div class="col-12 col-sm-6 col-md-4 col-lg-4 single_features_wrapper">
 				<div class="feature_single feature_single_3">
 					<img src="images/features/courses_provide_3.jpg" alt="">
 					<div class="feature_content">
-						<a href="Marketing.html" title=""><h3>Marketing</h3></a>
+						<a href="{{Route("categorycourses.show",$item['id'])}}" title=""><h3>{{$item['name']}}</h3></a>
 						<p>Over 450 Courses</p>
 					</div>
 				</div>
 			</div>
 
-			<div class="col-12 col-sm-6 col-md-4 col-lg-4 single_features_wrapper">
-				<div class="feature_single feature_single_4">
-					<img src="images/features/courses_provide_4.jpg" alt="">
-					<div class="feature_content">
-						<a href="Photography.html" title=""><h3>Photography</h3></a>
-						<p>Over 500 Courses</p>
-					</div>
-				</div>
-			</div>
+			@endforeach
 
-			<div class="col-12 col-sm-6 col-md-4 col-lg-4 single_features_wrapper">
-				<div class="feature_single feature_single_5">
-					<img src="images/features/courses_provide_5.jpg" alt="">
-					<div class="feature_content">
-						<a href="Science.html" title=""><h3>Science</h3></a>
-						<p>Over 1000 Courses</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-12 col-sm-6 col-md-4 col-lg-4 single_features_wrapper">
-				<div class="feature_single feature_single_6">
-					<img src="images/features/courses_provide_6.jpg" alt="">
-					<div class="feature_content">
-						<a href="Finance.html" title=""><h3>Finance</h3></a>
-						<p>Over 350 Courses</p>
-					</div>
-				</div>
-			</div>
+
+
 
 		</div>
 	</div>
@@ -120,151 +95,33 @@
 				</div><!-- ends: .section-header -->
 			</div>
 
+			@foreach ($courses as $item)
+
 			<div class="col-12 col-sm-6 col-md-6 col-lg-4">
                 <div class="single-courses">
                     <div class="courses_banner_wrapper">
-                        <div class="courses_banner"><a href="#"><img src="images/courses/courses_1.jpg" alt="" class="img-fluid"></a></div>
+                        <div class="courses_banner"><a href="#"><img src="{{$item['image']}}" alt="" class="img-fluid"></a></div>
                         <div class="purchase_price">
                             <a href="#" class="read_more-btn">Free</a>
                         </div>
                     </div>
                     <div class="courses_info_wrapper">
                         <div class="courses_title">
-                            <h3><a href="#">Make Better Decisions</a></h3>
-                            <div class="teachers_name">Teacher - <a href="#" title="">Jhonthan Smith</a></div>
+                            <h3><a href="#">{{$item['name']}}</a></h3>
+                            <div class="teachers_name">Teacher - <a href="#" title="">{{$item['instructor']['name']}}</a></div>
                         </div>
                         <div class="courses_info">
                             <ul class="list-unstyled">
-                                <li><i class="fas fa-calendar-alt"></i>180 Days</li>
+                                <li><i class="fas fa-calendar-alt"></i>{{$item['duration']}} Hours</li>
                                 <li><i class="fas fa-user"></i>30 Students</li>
                             </ul>
-                            <a href="#" class="cart_btn">Add to Cart</a>
+                            <a href="{{route("Viewcourses.show",$item['id'])}}" class="cart_btn">View Details</a>
                         </div>
                     </div>
                 </div><!-- Ends: .single courses -->
             </div><!-- Ends: . -->
-
-
-
-            <div class="col-12 col-sm-6 col-md-6 col-lg-4">
-                <div class="single-courses">
-                    <div class="courses_banner_wrapper">
-                        <div class="courses_banner"><a href="#"><img src="images/courses/courses_2.jpg" alt="" class="img-fluid"></a></div>
-                        <div class="purchase_price">
-                            <a href="#" class="read_more-btn">Free</a>
-                        </div>
-                    </div>
-                    <div class="courses_info_wrapper">
-                        <div class="courses_title">
-                            <h3><a href="#">How To Be A Speaker</a></h3>
-                            <div class="teachers_name">Teacher - <a href="#" title="">Denise Wood</a></div>
-                        </div>
-                        <div class="courses_info">
-                            <ul class="list-unstyled">
-                                <li><i class="fas fa-calendar-alt"></i> 180 Days</li>
-                                <li><i class="fa fa-user"></i>50 Students</li>
-                            </ul>
-                            <a href="#" class="cart_btn">Add to Cart</a>
-                        </div>
-                    </div>
-                </div><!-- Ends: .single courses -->
-            </div><!-- Ends: . -->
-
-            <div class="col-12 col-sm-6 col-md-6 col-lg-4">
-                <div class="single-courses">
-                    <div class="courses_banner_wrapper">
-                        <div class="courses_banner"><a href="#"><img src="images/courses/courses_3.jpg" alt="" class="img-fluid"></a></div>
-                        <div class="purchase_price">
-                            <a href="#" class="read_more-btn">Free</a>
-                        </div>
-                    </div>
-                    <div class="courses_info_wrapper">
-                        <div class="courses_title">
-                            <h3><a href="#">Network Introductions</a></h3>
-                            <div class="teachers_name">Teacher - <a href="#" title="">Preston Marshall</a></div>
-                        </div>
-                        <div class="courses_info">
-                            <ul class="list-unstyled">
-                                <li><i class="fas fa-calendar-alt"></i> 140 Days</li>
-                                <li><i class="fa fa-user"></i>60 Students</li>
-                            </ul>
-                            <a href="#" class="cart_btn">Add to Cart</a>
-                        </div>
-                    </div>
-                </div><!-- Ends: .single courses -->
-            </div><!-- Ends: . -->
-
-            <div class="col-12 col-sm-6 col-md-6 col-lg-4">
-                <div class="single-courses">
-                    <div class="courses_banner_wrapper">
-                        <div class="courses_banner"><a href="#"><img src="images/courses/courses_4.jpg" alt="" class="img-fluid"></a></div>
-                        <div class="purchase_price">
-                            <a href="#" class="read_more-btn">Free</a>
-                        </div>
-                    </div>
-                    <div class="courses_info_wrapper">
-                        <div class="courses_title">
-                            <h3><a href="#">Brand Management</a></h3>
-                            <div class="teachers_name">Teacher - <a href="#" title="">John Porter</a></div>
-                        </div>
-                        <div class="courses_info">
-                            <ul class="list-unstyled">
-                                <li><i class="fas fa-calendar-alt"></i> 130 Days</li>
-                                <li><i class="fa fa-user"></i>45 Students</li>
-                            </ul>
-                            <a href="#" class="cart_btn">Add to Cart</a>
-                        </div>
-                    </div>
-                </div><!-- Ends: .single courses -->
-            </div><!-- Ends: . -->
-
-            <div class="col-12 col-sm-6 col-md-6 col-lg-4">
-                <div class="single-courses">
-                    <div class="courses_banner_wrapper">
-                        <div class="courses_banner"><a href="#"><img src="images/courses/courses_5.jpg" alt="" class="img-fluid"></a></div>
-                        <div class="purchase_price">
-                            <a href="#" class="read_more-btn">Free</a>
-                        </div>
-                    </div>
-                    <div class="courses_info_wrapper">
-                        <div class="courses_title">
-                            <h3><a href="#">Moralities Of Everyday</a></h3>
-                            <div class="teachers_name">Teacher - <a href="#" title="">Mittie Hill</a></div>
-                        </div>
-                        <div class="courses_info">
-                            <ul class="list-unstyled">
-                                <li><i class="fas fa-calendar-alt"></i> 190 Days</li>
-                                <li><i class="fa fa-user"></i>40 Students</li>
-                            </ul>
-                            <a href="#" class="cart_btn">Add to Cart</a>
-                        </div>
-                    </div>
-                </div><!-- Ends: .single courses -->
-            </div><!-- Ends: . -->
-
-            <div class="col-12 col-sm-6 col-md-6 col-lg-4">
-                <div class="single-courses">
-                    <div class="courses_banner_wrapper">
-                        <div class="courses_banner"><a href="#"><img src="images/courses/courses_6.jpg" alt="" class="img-fluid"></a></div>
-                        <div class="purchase_price">
-                            <a href="#" class="read_more-btn">Free</a>
-                        </div>
-                    </div>
-                    <div class="courses_info_wrapper">
-                        <div class="courses_title">
-                            <h3><a href="#">Life Coach Training</a></h3>
-                            <div class="teachers_name">Teacher - <a href="#" title="">Marian Dupre</a></div>
-                        </div>
-                        <div class="courses_info">
-                            <ul class="list-unstyled">
-                                <li><i class="fas fa-calendar-alt"></i> 150 Days</li>
-                                <li><i class="fa fa-user"></i>30 Students</li>
-                            </ul>
-                            <a href="#" class="cart_btn">Add to Cart</a>
-                        </div>
-                    </div>
-                </div><!-- Ends: .single courses -->
-            </div><!-- Ends: . -->             
+		   
+			@endforeach
 		</div>
 
 	</div>
@@ -272,7 +129,7 @@
 
 
 
-<section class="video_online">
+<!-- <section class="video_online">
 	<div class="container">
 		<div class="row">
 			<div class="col-12 col-sm-12 col-md-12 col-lg-12">
@@ -327,8 +184,12 @@
 	</div>
 	<div class="bg_shapes">
 	</div>
-</section><!-- End ONline Video -->
-
+</section>End ONline Video -->
+<?php
+use App\Models\feedback;
+$feedback=new feedback;
+$feedbacks=$feedback->all();
+?>
 
 
 <section class="testimonial_3">
@@ -342,52 +203,28 @@
 			</div>
 		</div>
 		<div class="row">
+		@foreach ($feedbacks->slice(0,3) as $feedback)
 			<div class="col-12 col-sm-6 col-md-6 col-lg-4">
 				<div class="testimonial_single">
 					<div class="reviewer_info">
 						<div class="pro_pic_teacher">
-							<img src="images/team/review_1.jpg" alt="2" class="img-fluid">
+						
 						</div>
 						<div class="name_position">
-							<span class="name">John Porter</span>
-							<span>Graphic Student</span>
+							<span class="name">{{$feedback['name']}}</span>
+							<span>{{$feedback['subject']}} student</span>
 						</div>
 					</div>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean commodo ligula ng elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes.</p>
+					<p>{{$feedback['comments']}}</p>
 				</div>                                       
 			</div>
-			<div class="col-12 col-sm-6 col-md-6 col-lg-4">
-				<div class="testimonial_single">
-					<div class="reviewer_info">
-						<div class="pro_pic_teacher">
-							<img src="images/team/review_3.jpg" alt="2" class="img-fluid">
-						</div>
-						<div class="name_position">
-							<span class="name">Mittie Hill</span>
-							<span>Wordpress Student</span>
-						</div>
-					</div>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoqr. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes.</p>
-				</div>                                       
-			</div>
-			<div class="col-12 col-sm-6 col-md-6 col-lg-4">
-				<div class="testimonial_single">
-					<div class="reviewer_info">
-						<div class="pro_pic_teacher">
-							<img src="images/team/review_4.jpg" alt="2" class="img-fluid">
-						</div>
-						<div class="name_position">
-							<span class="name">Marian Dupre</span>
-							<span>Web Student</span>
-						</div>
-					</div>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sigula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes.</p>
-				</div>                                       
-			</div>
+            @endforeach
 
 		</div>
 	</div>
 </section><!-- End Testimonial -->
+
+
 
 
 
@@ -401,90 +238,31 @@
 						<p>Lorem ipsum dolor sit amet mollis felis dapibus arcu donec viverra. Pede phasellus eget. Etiam maecenas vel vici quis dictum rutrum nec nisi et.</p>  
 					</div><!-- ends: .section-header -->
 					<div class="envent_all_view">
-						<a href="#" title="">View All</a>
+						<a href="/team" title="">View All</a>
 					</div>
 				</div> 
 			</div>
 		</div>      
 		<div class="row">
+@foreach ($users->slice(0,6) as $user)
+@if($user['role']=='instructor')
 			<div class="col-12 col-sm-6 col-md-6 col-lg-4">
 				<div class="testimonial_single">
 					<div class="reviewer_info">
 						<div class="pro_pic_teacher">
-							<img src="images/team/team_1.jpg" alt="2" class="img-fluid">
+							<img src="{{$user['profile_photo_path']}}" alt="2" class="img-fluid">
 						</div>
 						<div class="name_position">
-							<span class="name"><a href="#" title="">Stephen Patterson</a></span>
-							<span>Graphic Teacher</span>
+							<span class="name"><a href="teacher-profile/{{$user['id']}}" title="">{{$user['name']}}</a></span>
+							<span>{{$user['specialist']}}</span>
 						</div>
 					</div>
 				</div>                                       
 			</div>
-			<div class="col-12 col-sm-6 col-md-6 col-lg-4">
-				<div class="testimonial_single">
-					<div class="reviewer_info">
-						<div class="pro_pic_teacher">
-							<img src="images/team/team_2.jpg" alt="2" class="img-fluid">
-						</div>
-						<div class="name_position">
-							<span class="name"><a href="#" title="">Janes Smith</a></span>
-							<span>Senior Lecturer</span>
-						</div>
-					</div>
-				</div>                                       
-			</div>
-			<div class="col-12 col-sm-6 col-md-6 col-lg-4">
-				<div class="testimonial_single">
-					<div class="reviewer_info">
-						<div class="pro_pic_teacher">
-							<img src="images/team/team_3.jpg" alt="2" class="img-fluid">
-						</div>
-						<div class="name_position">
-							<span class="name"><a href="#" title="">Patricia Roberts</a></span>
-							<span>Biology Professor</span>
-						</div>
-					</div>
-				</div>                                       
-			</div>           
-			<div class="col-12 col-sm-6 col-md-6 col-lg-4">
-				<div class="testimonial_single">
-					<div class="reviewer_info">
-						<div class="pro_pic_teacher">
-							<img src="images/team/team_4.jpg" alt="2" class="img-fluid">
-						</div>
-						<div class="name_position">
-							<span class="name"><a href="#" title="">Dolores Galloway</a></span>
-							<span>English Lecturer</span>
-						</div>
-					</div>
-				</div>                                       
-			</div>
-			<div class="col-12 col-sm-6 col-md-6 col-lg-4">
-				<div class="testimonial_single">
-					<div class="reviewer_info">
-						<div class="pro_pic_teacher">
-							<img src="images/team/team_5.jpg" alt="2" class="img-fluid">
-						</div>
-						<div class="name_position">
-							<span class="name"><a href="#" title="">Henry Norman</a></span>
-							<span>Language Teacher </span>
-						</div>
-					</div>
-				</div>                                       
-			</div>
-			<div class="col-12 col-sm-6 col-md-6 col-lg-4">
-				<div class="testimonial_single">
-					<div class="reviewer_info">
-						<div class="pro_pic_teacher">
-							<img src="images/team/team_6.jpg" alt="2" class="img-fluid">
-						</div>
-						<div class="name_position">
-							<span class="name"><a href="#" title="">Matthew Reck</a></span>
-							<span>Marketing Teacher</span>
-						</div>
-					</div>
-				</div>                                       
-			</div>
+
+			@endif
+            @endforeach
+			
 		</div>
 	</div>
 	<div class="shape_wrapper">

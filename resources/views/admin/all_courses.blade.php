@@ -282,7 +282,7 @@
     <?php
     use App\Models\User;
    
-
+    use App\Models\CourseVideo;
     
     ?>
 
@@ -322,6 +322,7 @@
                                     <th>Categery</th>
                                     <th>Instructor</th>
                                     <th>Image</th>
+                                    <th>Video</th>
                                     
                                     <th>Options</th>
                                 </tr>
@@ -335,11 +336,19 @@
                                     <td><a href="#"><b>{{$course["name"]}}</b></a></td>
                                     <td>{{$course["description"]}}</td>
                                     <td>{{$course["duration"]}}</td>
-                                    <td>full stack</td>
+                                    <td>
+                                      @foreach ($course["Category"] as $item)
+                                      {{$item["name"].','}}
+                                      @endforeach
+                                    </td>
                                     <td>{{$course["instructor"]["name"]}}</td>
                                     <td>
                                     
                                     <img src="{{ $course['image'] }}" class="rounded-circle" width="60" height="50" /></td>
+                                    </td>
+                                    <td>
+                                  <a href="{{route('videos.index'),$course['id']}}"><b> Videos link </b></a>
+                                 
                                     </td>
                                     <td>
                                         <a href="{{route('courses.edit',$course)}}"><span class="fa fa-edit"></span></a>

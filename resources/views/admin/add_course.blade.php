@@ -313,7 +313,7 @@
                             <label for="role">Category Name</label>
                             
                            
-                            <select class="form-control" name="category">
+                            <select class="form-control" name="category[]" multiple>
                                 <option disabled selected>Please Select Category</option>
                                 @foreach($cats as $cat)
                                 <option value="{{$cat['id']}}">{{$cat["name"]}}</option>
@@ -343,7 +343,6 @@
 
                     
                         
-                      
 
                         <div class="form-group">
                             <label for="note">Content</label>
@@ -353,6 +352,10 @@
                         <div class="form-group">
                             <label for="note">Image</label>
                             <input type="file" class="form-control"  name="image">
+                        </div>
+                        <div class="form-group">
+                            <label for="note">Video</label>
+                            <input type="file" class="form-control"  name="video_url[]" multiple>
                         </div>
 
                         <button type="submit" class="btn btn-primary pull-right">Submit</button>

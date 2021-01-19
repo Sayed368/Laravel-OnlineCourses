@@ -75,7 +75,11 @@ class UserController extends Controller
             "phone"=>$request["phone"],
             "university"=>$request["university"],
             "university"=>$request["university"],
-            "profile_photo_path"=>$filename
+            "profile_photo_path"=>$filename,
+            "specialist"=>$request["specialist"],
+            "dob"=>$request["dob"],
+            "university"=>$request["university"],
+            "description"=>$request["description"],
         ]);
         // if ($request->hasFile('profile_photo_path')){
         //     $file=$request->file('profile_photo_path');
@@ -133,7 +137,6 @@ class UserController extends Controller
         $user->update([
             "name"=>$request["name"],
             "email"=>$request["email"],
-            "avater"=>$request["avater"],
             "password"=>Hash::make ($request["password"]),
             "role"=>$request["role"],
             "gender"=>$request["gender"],
@@ -141,8 +144,11 @@ class UserController extends Controller
             "phone"=>$request["phone"],
             "university"=>$request["university"],
             "password_confirmation"=>$request["password_confirmation"],
-            "profile_photo_path"=>$filename
-            ]);
+            "profile_photo_path"=>$filename,
+            "specialist"=>$request["specialist"],
+            "dob"=>$request["dob"],
+            "university"=>$request["university"],
+            "description"=>$request["description"],            ]);
             return redirect(route("users.index"));
     }
 

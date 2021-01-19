@@ -9,30 +9,30 @@
 	<meta name="author" content="Ecology Theme">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Eduwise </title>
-	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="{{asset('images/favicon.ico')}}" type="image/x-icon">
 	<!-- Goole Font -->
 	<link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900" rel="stylesheet">
 	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="css/assets/bootstrap.min.css">
+	<link rel="stylesheet" href="{{asset('css/assets/bootstrap.min.css')}}">
 	<!-- Font awsome CSS -->
-	<link rel="stylesheet" href="css/assets/font-awesome.min.css">    
-	<link rel="stylesheet" href="css/assets/flaticon.css">
-	<link rel="stylesheet" href="css/assets/magnific-popup.css">    
+	<link rel="stylesheet" href="{{asset('css/assets/font-awesome.min.css')}}">    
+	<link rel="stylesheet" href="{{asset('css/assets/flaticon.css')}}">
+	<link rel="stylesheet" href="{{asset('css/assets/magnific-popup.css')}}">    
 	<!-- owl carousel -->
-	<link rel="stylesheet" href="css/assets/owl.carousel.css">
-	<link rel="stylesheet" href="css/assets/owl.theme.css">     
-	<link rel="stylesheet" href="css/assets/animate.css"> 
+	<link rel="stylesheet" href="{{asset('css/assets/owl.carousel.css')}}">
+	<link rel="stylesheet" href="{{asset('css/assets/owl.theme.css')}}">     
+	<link rel="stylesheet" href="{{asset('css/assets/animate.css')}}"> 
 	<!-- Slick Carousel -->
-	<link rel="stylesheet" href="css/assets/slick.css">  
+	<link rel="stylesheet" href="{{asset('css/assets/slick.css')}}">  
   
 	<!-- Mean Menu-->
-	<link rel="stylesheet" href="css/assets/meanmenu.css">
+	<link rel="stylesheet" href="{{asset('css/assets/meanmenu.css')}}">
 	<!-- main style-->
-	<link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/responsive.css">
-    <link rel="stylesheet" href="css/demo.css">
+	<link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('css/responsive.css')}}">
+    <link rel="stylesheet" href="{{asset('css/demo.css')}}">
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 	<!--[if lt IE 9]>
@@ -51,8 +51,8 @@
 					<div class="info_wrapper">
 						<div class="contact_info">                   
 							<ul class="list-unstyled">
-                                <li><i class="flaticon-phone-receiver"></i>+000-2356-222</li>
-        						<li><i class="flaticon-mail-black-envelope-symbol"></i>contact@yourdomain.com</li>
+                                <li><i class="flaticon-phone-receiver"></i>+02-01010-75270</li>
+        						<li><i class="flaticon-mail-black-envelope-symbol"></i>Info@Eduwise.com</li>
         					</ul>                
 						</div>
 						<div class="login_info">
@@ -78,21 +78,33 @@
                             
                         
                         </li>
-                        <li class="nav-item"><a href="/about" class="nav-link">About</a></li>
+                        <li class="nav-item"><a href="/about" class="nav-link">About us</a></li>
+                        <li class="nav-item"><a href="/team" class="nav-link">Instractors</a></li>
                         <li class="nav-item"><a href="/course" class="nav-link">Courses</a>
-                            <ul class="navbar-nav nav mx-auto">
+                            {{-- <ul class="navbar-nav nav mx-auto">
                                 <li class="nav-item"><a href="/course" class="nav-link">Courses</a></li>
                                 <li class="nav-item"><a href="/course-details" class="nav-link">Courses Details</a></li>
-                            </ul> 
-						</li>
+                            </ul>  --}}
+                        </li>
+                        
 						<li class="nav-item"><a href="/course" class="nav-link">Categories</a>
                             <ul class="navbar-nav nav mx-auto">
-								<li class="nav-item"><a href="/course" class="nav-link">Design</a></li>
+
+<?php
+    use App\Models\Category;
+    $categories= Category::all();
+?>
+                                
+                                @foreach ($categories as $item)
+                                <li class="nav-item"><a href="{{Route("categorycourses.show",$item['id'])}}" value="{{$item['id']}}" class="nav-link">{{$item['name']}}</a></li>
+
+                                @endforeach
+								{{-- <li class="nav-item"><a href="/course" class="nav-link">Design</a></li>
 								<li class="nav-item"><a href="/course" class="nav-link">Finance</a></li>
 								<li class="nav-item"><a href="/course" class="nav-link">Marketing</a></li>
 								<li class="nav-item"><a href="/course" class="nav-link">Photography</a></li>
 								<li class="nav-item"><a href="/course" class="nav-link">Science</a></li>
-								<li class="nav-item"><a href="/course" class="nav-link">Web Development</a></li>
+								<li class="nav-item"><a href="/course" class="nav-link">Web Development</a></li> --}}
 								
                                
                             </ul> 
@@ -103,7 +115,7 @@
                                
                             </ul>  -->
                         </li>
-                        <li class="nav-item"><a href="#" class="nav-link">Pages</a>
+                        <!-- <li class="nav-item"><a href="#" class="nav-link">Pages</a>
                             <ul class="navbar-nav nav mx-auto">
                                 <li class="nav-item"><a href="#" class="nav-link dropdown_icon">Courses</a>
                                     <ul class="navbar-nav nav mx-auto">
@@ -123,13 +135,12 @@
                                         <li class="nav-item"><a href="blog.html" class="nav-link">Blog Grid One</a></li> 
                                         
                                     </ul>     -->
-                                </li> 
+                                <!-- </li> 
                                 <li class="nav-item"><a href="/become-a-teacher" class="nav-link">Become A Teacher</a></li>
-                                <li class="nav-item"><a href="/teacher-profile" class="nav-link">Teachers Profile</a></li>
-                                <li class="nav-item"><a href="/team" class="nav-link">Teachers Page</a></li>
+
                                 <li class="nav-item"><a href="/forgot-password" class="nav-link">Forgot Password</a></li>
                             </ul>                            
-                        </li>     
+                        </li>      --> 
                         <li class="nav-item"><a href="/contact" class="nav-link">Contact</a></li>
                     </ul>
                 </div>
@@ -143,7 +154,7 @@
                                  </form>
                             </div>
                         </li>
-                        <li class="nav-item cart_icon"><i class="flaticon-shopping-bag"><p>2</p></i> 
+                        <!-- <li class="nav-item cart_icon"><i class="flaticon-shopping-bag"><p>2</p></i> 
                     	 	<div class="cart_list">
                                 <div class="single_cart d-flex justify-content-between">
                                     <div class="cart_banner">
@@ -180,7 +191,7 @@
                                     <a class="checkout" href="#">checkout</a>
                                 </div>
                             </div>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </nav><!-- END NAVBAR -->
@@ -206,12 +217,16 @@
 								<div class="dropdown dropdown-toggle"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 									<div class="all-categories "><span>Categories</span> <i class="cat_icon flaticon-down-arrow"></i></div>
 									<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-										<li class="dropdown-item" >Action</li>
+                                        @foreach ($categories as $item)
+                                        <li class="dropdown-item" ><a href="" value="{{$item['id']}}" >{{$item['name']}}</a></li>
+                                        @endforeach
+                                        
+                                        {{-- <li class="dropdown-item" >Action</li>
 										<li class="dropdown-item" >Another action</li>
 										<li class="dropdown-item" >Action</li>
 										<li class="dropdown-item" >Another action</li>
 										<li class="dropdown-item" >Action</li>
-										<li class="dropdown-item" >Another action</li>
+										<li class="dropdown-item" >Another action</li> --}}
 									</ul>
 								</div>
 								<div class="form-group d-flex">
@@ -329,23 +344,23 @@
 @yield('main')
 
 
-
+<br><br>
 <!-- Footer -->  
 <footer class="footer_3">
 	<div class="container">
-		<div class="row">
+		<!-- <div class="row">
 			<div class="col-12 col-sm-12 col-md-12 col-lg-12">
 				<div class="become_instractor">  
 					<div class="sub_title">
 						<h2>Become A Instractor</h2>
 						<p>Lorem ipsum dolor sit amet mollis felis dapibus arcu donec viverra. Pede phasellus eget. Etiam maecenas vel vici quis dictum rutrum nec nisi et.</p>  
 					</div><!-- ends: .section-header -->
-					<div class="envent_all_view">
+					<!-- <div class="envent_all_view">
 						<a href="#" title="">Start my free month</a>
 					</div>
 				</div> 
 			</div>
-		</div>  
+		</div>   --> 
 		<div class="footer_top">
 			<div class="row">
 				<div class="col-12 col-md-6 col-lg-4">
@@ -383,8 +398,8 @@
 						<h3>Contact Us</h3>
 						<p>Ante amet vitae vulputate odio nulla vel pretium aenean.</p>
 						<div class="contact_info">
-							<span>+000 124 325</span> 
-							<span class="email">info@yourdomain.com</span>
+							<span>+02-01010-752703</span> 
+							<span class="email">Info@Eduwise.com</span>
 						</div>
 						<ul class="social_items d-flex list-unstyled">
 							<li><a href="#"><i class="fab fa-facebook-f fb-icon"></i></a></li>
