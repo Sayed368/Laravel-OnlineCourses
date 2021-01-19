@@ -324,7 +324,7 @@
                                     
                                     
                                     <td>
-                                        <a href="{{route('courses.edit',$member['id'])}}" class="btn btn-success">Accept</a>
+                                        <a href="{{route('sendemail',$member['id'])}}" class="btn btn-success">Accept</a>
                                        
                                    
                                         {{-- <form action="{{route('courses.destroy',$course)}}" method="Post" style="display:inline-block;">

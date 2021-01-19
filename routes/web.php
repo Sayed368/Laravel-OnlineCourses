@@ -11,18 +11,16 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ViewCourseController;
-<<<<<<< HEAD
+
 use App\Http\Controllers\MailController;
 use App\Mail\SendEmail;
-=======
-<<<<<<< HEAD
+
 use App\Http\Controllers\AboutController;
-=======
 
 use App\Http\Middleware;
 
->>>>>>> 4c1e0c3baaf3f2644d89cec391edb4ad136d41b8
->>>>>>> 691a287ba6c8bed468732162e6db518988b2dd23
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -246,13 +244,13 @@ Route::resource("categories",CategoryController::class);
 Route::resource('users', Usercontroller::class);
 
 
-Route::get('/send-email', [MailController::class,'SendEmail']);
+Route::get('/send-email/{id}', [MailController::class,'SendEmail'])->name("sendemail");
 
 
 
 Route::get('/admin/member_request', function () {
     return view('admin.view_member_request');
-});
+})->name("membersRequest");
 
 
 
