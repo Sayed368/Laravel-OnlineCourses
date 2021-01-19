@@ -143,7 +143,8 @@
                             <h2>Become A Membar</h2>
                             <p>Get Instant access to <span>5000+ </span>Video courses </p>
                         </div>
-                        <form>
+                        <form method="POST" action="about-create">
+                         @csrf
                             <div class="register-form">
                                 <div class="row">
                                     <div class="col-12 col-xs-12 col-md-12">
@@ -160,9 +161,15 @@
                                         </div>
                                     </div>
                                     <div class="col-12 col-xs-12 col-md-12">
+                                        <div class="form-group">
+                                            <label><i class="fa fa-phone"></i></label>
+                                            <input class="form-control" name="phone" placeholder="Write Your Phone" required="" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-xs-12 col-md-12">
                                         <div class="form-group massage_text">
                                             <label><i class="flaticon-copywriting"></i></label>
-                                            <textarea class="form-control"  placeholder="Write Something Here" required=""></textarea>
+                                            <textarea class="form-control" name="skills" placeholder="Skills" required=""></textarea>
                                         </div>
                                     </div>
                                     <div class="col-12 col-xs-12 col-md-12 register-btn-box">

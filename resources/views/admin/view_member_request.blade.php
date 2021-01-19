@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>All user</title>
+  <title>All Member</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -182,7 +182,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="#" class="nav-link active">
+            <a href="{{url('admin/allusers')}}" class="nav-link ">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 all users
@@ -203,7 +203,7 @@
           
           
           <li class="nav-item">
-            <a href="{{url('admin/allcourses')}}" class="nav-link">
+            <a href="{{url('admin/allcourses')}}" class="nav-link  active">
               <i class="nav-icon fas fa-th"></i>
               <p>
                  All courses
@@ -213,7 +213,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="/users/create" class="nav-link">
+            <a href="{{url('admin/adduser')}}" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Add user
@@ -235,7 +235,7 @@
 
 
           <li class="nav-item">
-            <a href="{{url('admin/addcourse')}}" class="nav-link">
+            <a href="/courses/create" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                  Add course
@@ -277,105 +277,89 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>All user</h1>
+            <h1>All Member Requests</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">All user</li>
+              <li class="breadcrumb-item active">All Member Requests</li>
             </ol>
           </div>
         </div>
       </div><!-- /.container-fluid -->
     </section>
+    <?php
+    use App\Models\MemberRequest;
 
-        <div style="padding-top:10px; padding-left:50px ;" class="container-fluid">
-            <div class="row">
-            
-                <div class="col-xs-12 sub">
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <h3><span class="fa fa-users"></span> Users <button class="btn btn-success m-l-15"><span class="fa fa-plus"></span> <a style="text-decoration: none ; color: white;" href="/users/create">Add User</a></button></h3>
+        $members=new MemberRequest;
+        $members=MemberRequest::all();
+        
+    
+    ?>
+
+    <div style="padding-top:10px; padding-left:40px ;" class="container-fluid">
+        <div class="row">
+        
+            <div class="col-xs-12 sub">
+                <div class="row">
+                    
+                   
+
+                    <div class="col-xs-12">
+                        <table class="table table-responsive table-hover table-condensed">
+                            <thead>
+                                <tr>
+                                    
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>Skills</th>
+                                    
+                                    
+                                    <th>Options</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($members as $member)
                             
-                        </div>
-                        <!-- <div class="col-xs-12 col-sm-6 ">
-                            <div class="form-group p-t-20">
-                                <select class="form-control">
-                                    <option selected disabled>Amount</option>
-                                    <option value="10" selected>10</option>
-                                    <option value="25">25</option>
-                                    <option value="50">50</option>
-                                    <option value="100">100</option>
-                                </select>
-                            </div>
-                        </div> -->
-                        <div class="col-xs-12 col-sm-6">
-                           
-                        </div>
-                        <div class="col-xs-12">
-                            <table class="table table-responsive table-hover table-condensed">
-                                <thead>
-                                    <tr>
-                                        <!-- <th>#</th> -->
-                                        <th>Name</th>
-                                        
-                                        <th>email</th>
-                                        <th>image</th>
-                                        <th>role</th>
-                                        <th>gender</th>
-                                        <th>specialist</th>
-                                        <th>dob</th>
-                                        <!-- <th>Address</th> -->
-                                        <th>phone number</th>
-                                        <!-- <th>university</th> -->
-                                        <!-- <th>description</th> -->
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                      @foreach($users as $user)
-                                        <!-- <td>1</td> -->
-                                        <td> {{$user["name"]}}</td>
-                                        
-                                        <td> {{$user["email"]}}</td>
+                            
+                                <tr>
+                                    
+                                    <td><a href="#"><b>{{$member["name"]}}</b></a></td>
+                                    <td>{{$member["email"]}}</td>
+                                    <td>{{$member["phone"]}}</td>
+                                    
+                                    <td>{{$member["skills"]}}</td>
+                                    
+                                    
+                                    <td>
+                                        <a href="{{route('sendemail',$member['id'])}}" class="btn btn-success">Accept</a>
                                        
-                                        <td>
-                                    
-<<<<<<< HEAD
-                    <img src="{{$user['profile_photo_path'] }}" class="rounded-circle" width="60" height="50" /></td>
-=======
-                    <img src="{{ asset($user['profile_photo_path']) }}" class="rounded-circle" width="60" height="50" /></td>
->>>>>>> 0889164d3dd386b4b628ec1574162262275c5bc8
-                                        <td>{{$user["role"]}}</td>
-                                        <td>{{$user["gender"]}}</td>
-                                        <td>{{$user["specialist"]}}</td>
-                                        <td>{{$user["dob"]}}</td>
-                                        <!-- <td>{{$user["address"]}}</td> -->
-                                        <td>{{$user["phone"]}}</td>
-                                        <!-- <td> {{$user["university"]}}</td> -->
-                                        <!-- <td>{{$user["description"]}}</td> -->
-                                        <td>
-                                            <a class="text-success m-l-5" href="{{route('users.show',$user)}}"><span class="fa fa-eye"></span></a>
-                                            <a href="{{route('users.edit',$user)}}"><span class="fa fa-edit"></span></a>
-                                            <form action="{{route('users.destroy',$user)}}" method="Post" style="display:inline-block;">
-                      @csrf
-                      @method("delete")
-                      <button type="submit" value="Delete"
-                              class="fa fa-trash"></button> 
-                              <!-- <a ><input type="submit" class="fa fa-trash-alt"><span class="fa fa-trash-alt"></span></a> -->
-</form>
-                                        </td>
-</tr>
-                                        @endforeach
-                                    
-                                </tbody>
-                            </table>
-                        </div>
+                                   
+                                        {{-- <form action="{{route('courses.destroy',$course)}}" method="Post" style="display:inline-block;">
+                                            @csrf
+                                            @method("delete")
+                                            
+                                            <input type="submit"  value="Delete" 
+                                            
+                                            class="btn btn-danger"
+                                                    style="width:70px ;height:40px;border-radius:40%">
+                                                    
+                                        </form> --}}
+                
+                                   
+                                    </td>
+                                </tr>
+                                
+                              
+                            @endforeach
+                            </tbody>
+                        </table>
                     </div>
-                </div>            
-            </div>
+                </div>
+            </div>            
         </div>
+    </div>
 
-    </body>
+</body>
 </html>

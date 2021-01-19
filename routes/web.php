@@ -12,6 +12,18 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ViewCourseController;
 
+use App\Http\Controllers\MailController;
+use App\Mail\SendEmail;
+
+use App\Http\Controllers\AboutController;
+
+use App\Http\Middleware;
+
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 60aa1b165c74edbe9a2c0fbe7f386521b01ba077
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,6 +39,7 @@ use App\Http\Controllers\ViewCourseController;
 
 
 // test routs
+Route::post('about-create',[AboutController::class,'create']);
 
 Route::get('/', function () {
     return view('index');
@@ -37,6 +50,10 @@ Route::get('/course', function () {
     return view('courses.course');
 });
 
+    Route::get('/profile', function () {
+        return view('courses.student_profile');
+    })->middleware('auth');
+    
 
 // Route::get('/course-details', function () {
 //     return view('courses.course-details');
@@ -65,6 +82,11 @@ Route::post('/contact', function () {
     $feedback->save();
     return redirect()->back()->with('message', 'Thanks for your Feedback!');
 });
+
+Route::get('/admin/feedback', function () {
+    return view('admin.feedbacks');
+});
+
 
 Route::get('/event', function () {
     return view('courses.event');
@@ -109,7 +131,9 @@ Route::get('/category/{id}/courses', function ($id) {
 Route::get('/team', function () {
     return view('courses.team');
 });
-
+Route::get('/about', function () {
+    return view('courses.about');
+});
 
 Route::get('/become-a-teacher', function () {
     return view('courses.become-a-teacher');
@@ -233,9 +257,21 @@ Route::resource("categories",CategoryController::class);
 Route::resource('users', Usercontroller::class);
 
 
+Route::get('/send-email/{id}', [MailController::class,'SendEmail'])->name("sendemail");
 
 
 
+<<<<<<< HEAD
+=======
+Route::get('/admin/member_request', function () {
+    return view('admin.view_member_request');
+})->name("membersRequest");
+
+
+
+
+
+>>>>>>> 0889164d3dd386b4b628ec1574162262275c5bc8
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');

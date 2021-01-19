@@ -33,6 +33,7 @@
 	<link rel="stylesheet" href="{{asset('css/style.css')}}">
     <link rel="stylesheet" href="{{asset('css/responsive.css')}}">
     <link rel="stylesheet" href="{{asset('css/demo.css')}}">
+    
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 	<!--[if lt IE 9]>
@@ -56,8 +57,25 @@
         					</ul>                
 						</div>
 						<div class="login_info">
-							<a href="#" title="" class="sign_up sign-in js-modal-show">Sign Up</a>
-							<a href="#" title="" class="sign_in join_now js-modal-show">Log In</a>
+                            @if (Route::has('login'))
+                            @auth
+  <a id="navbarDropdown" class="sign_up sign-in" href="/profile" >
+                                    {{ Auth::user()->name }}
+    </a>&nbsp;
+    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                            @else
+                        <a href="/register" title="" class="sign_up sign-in">Sign Up</a>
+                        <a class="nav-link" href="{{ route('login') }}">Login</a>
+                    @endauth
+                    @endif
 						</div>
 					</div>
 				</div>
@@ -65,6 +83,10 @@
 		</div>
 	</div>
 
+<?php
+use App\Models\Category;
+$categories= Category::all();
+?>
 	<div class="edu_nav">
         <div class="container">
             <nav class="navbar navbar-expand-md navbar-light bg-faded">
@@ -74,47 +96,27 @@
 
                       
 
-                        <li class="nav-item"><a href="/" class="nav-link active">Home</a>
-                            
+                        <li class="nav-item"><a href="/" class="nav-link active">Home</a></li>
                         
-                        </li>
-                        <li class="nav-item"><a href="/about" class="nav-link">About us</a></li>
-                        <li class="nav-item"><a href="/team" class="nav-link">Instractors</a></li>
                         <li class="nav-item"><a href="/course" class="nav-link">Courses</a>
-                            {{-- <ul class="navbar-nav nav mx-auto">
-                                <li class="nav-item"><a href="/course" class="nav-link">Courses</a></li>
-                                <li class="nav-item"><a href="/course-details" class="nav-link">Courses Details</a></li>
-                            </ul>  --}}
-                        </li>
-                        
-						<li class="nav-item"><a href="/course" class="nav-link">Categories</a>
                             <ul class="navbar-nav nav mx-auto">
 
-<?php
-    use App\Models\Category;
-    $categories= Category::all();
-?>
+
                                 
                                 @foreach ($categories as $item)
                                 <li class="nav-item"><a href="{{Route("categorycourses.show",$item['id'])}}" value="{{$item['id']}}" class="nav-link">{{$item['name']}}</a></li>
 
                                 @endforeach
-								{{-- <li class="nav-item"><a href="/course" class="nav-link">Design</a></li>
-								<li class="nav-item"><a href="/course" class="nav-link">Finance</a></li>
-								<li class="nav-item"><a href="/course" class="nav-link">Marketing</a></li>
-								<li class="nav-item"><a href="/course" class="nav-link">Photography</a></li>
-								<li class="nav-item"><a href="/course" class="nav-link">Science</a></li>
-								<li class="nav-item"><a href="/course" class="nav-link">Web Development</a></li> --}}
 								
-                               
-                            </ul> 
+                            </ul>
                         </li>
-                        <li class="nav-item"><a href="/blog" class="nav-link">Blog</a>
-                            <!-- <ul class="navbar-nav nav mx-auto">
-                                <li class="nav-item"><a href="blog.html" class="nav-link">Blog List</a></li> 
-                               
-                            </ul>  -->
-                        </li>
+                        
+						{{-- <li class="nav-item"><a href="/course" class="nav-link">Categories</a>
+                             
+                        </li> --}}
+
+                        <li class="nav-item"><a href="/team" class="nav-link">Instractors</a></li>
+                        <li class="nav-item"><a href="/blog" class="nav-link">Blog</a></li>
                         <!-- <li class="nav-item"><a href="#" class="nav-link">Pages</a>
                             <ul class="navbar-nav nav mx-auto">
                                 <li class="nav-item"><a href="#" class="nav-link dropdown_icon">Courses</a>
@@ -141,6 +143,9 @@
                                 <li class="nav-item"><a href="/forgot-password" class="nav-link">Forgot Password</a></li>
                             </ul>                            
                         </li>      --> 
+
+                        <li class="nav-item"><a href="/about" class="nav-link">About us</a></li>
+                        
                         <li class="nav-item"><a href="/contact" class="nav-link">Contact</a></li>
                     </ul>
                 </div>
@@ -205,9 +210,9 @@
 					<div class="intro_text">
 						<h1>Take The World's Best Courses Online.</h1>
 						<p>Ante amet vitae vulputate odio nulla vel pretium pulvinar aenean.<br> Poncus eget adipiscing etiam arcu Ultricies.</p>
-						<div class="intro_button">
+						{{-- <div class="intro_button">
 							<a href="#" class="nav-link">Start my free month</a>
-						</div>
+						</div> --}}
 					</div>
 				</div>				
 				<div class="col-sm-12 col-md-12 col-lg-12">
@@ -452,7 +457,7 @@
         <a id="toggle-switcher" class="switch-button" title="Change Styles"><span class="fa fa-cog fa-spin"></span></a>
         <div class="switched-options">
             <div class="config-title">
-                <a class="navbar-brand" href="index-2.html"><img src="images/logo.png" alt="logo"></a>
+                <a class="navbar-brand" href="/index"><img src="images/logo.png" alt="logo"></a>
                 
                 
             </div>

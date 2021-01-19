@@ -29,7 +29,7 @@ $courses= Course::all();
 		</div>
 		<div class="row">
 
-			@foreach ($categories as $item)
+			@foreach ($categories->slice(0,6) as $item)
 				
 			
 
@@ -94,8 +94,9 @@ $courses= Course::all();
 					<p>Lorem ipsum dolor sit amet mollis felis dapibus arcu donec viverra. Pede phasellus eget. Etiam maecenas vel vici quis dictum rutrum nec nisi et.</p>  
 				</div><!-- ends: .section-header -->
 			</div>
+			
 
-			@foreach ($courses as $item)
+			@foreach ($courses->slice(0,6) as $item)
 
 			<div class="col-12 col-sm-6 col-md-6 col-lg-4">
                 <div class="single-courses">
@@ -129,7 +130,10 @@ $courses= Course::all();
 
 
 
-<!-- <section class="video_online">
+
+
+{{-- 
+<section class="video_online">
 	<div class="container">
 		<div class="row">
 			<div class="col-12 col-sm-12 col-md-12 col-lg-12">
@@ -184,7 +188,11 @@ $courses= Course::all();
 	</div>
 	<div class="bg_shapes">
 	</div>
-</section>End ONline Video -->
+</section>End ONline Video  --}}
+
+
+
+
 <?php
 use App\Models\feedback;
 $feedback=new feedback;
@@ -208,7 +216,7 @@ $feedbacks=$feedback->all();
 				<div class="testimonial_single">
 					<div class="reviewer_info">
 						<div class="pro_pic_teacher">
-						
+						<img src="{{asset('userimg/user.png')}}" alt="2" class="img-fluid">
 						</div>
 						<div class="name_position">
 							<span class="name">{{$feedback['name']}}</span>

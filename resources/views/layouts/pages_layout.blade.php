@@ -61,41 +61,46 @@
                             </ul>                    
                         </div>
                         <div class="login_info">
-                             <ul class="d-flex">
-                                <li class="nav-item"><a href="#" class="nav-link sign-in js-modal-show"><i class="flaticon-user-male-black-shape-with-plus-sign"></i>Sign Up</a></li>
-                                <li class="nav-item"><a href="#" class="nav-link join_now js-modal-show"><i class="flaticon-padlock"></i>Log In</a></li>
-                            </ul>
-                           
-                        </div>
+                            @if (Route::has('login'))
+                            @auth
+  <a style="color:white;" id="navbarDropdown" class="sign_up sign-in" href="/profile" >
+                                    {{ Auth::user()->name }}
+    </a>&nbsp;
+    <a style="color:white;" class="dropdown-item" href="{{ route('logout') }}" 
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                            @else
+                        <a style="color:white;" href="/register" title="" class="sign_up sign-in"><i class="flaticon-user-male-black-shape-with-plus-sign"></i>&nbsp;Sign Up</a>
+                        <a style="color:white;" class="nav-link" href="{{ route('login') }}"><i class="flaticon-padlock"></i>&nbsp;Login</a>
+                    @endauth
+                    @endif
+						</div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
+<?php
+use App\Models\Category;
+$categories= Category::all();
+?>
+    
     <div class="edu_nav ">
         <div class="container">
             <nav class="navbar navbar-expand-md navbar-light bg-faded">
                 <a class="navbar-brand" href="index-2.html"><img src="{{asset('images/logo.png')}}" alt="logo"></a>
                 <div class="collapse navbar-collapse main-menu" id="navbarSupportedContent">
                     <ul class="navbar-nav nav lavalamp ml-auto menu">
-                        <li class="nav-item"><a href="/" class="nav-link">Home</a>
-                            
-                        </li>
-                        <li class="nav-item"><a href="/about" class="nav-link">About us</a></li>
-                        <li class="nav-item"><a href="/team" class="nav-link">Instractors</a></li>
+                        <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
                         <li class="nav-item"><a href="/course" class="nav-link ">Courses</a>
-                            {{-- <ul class="navbar-nav nav mx-auto">
-                                <li class="nav-item"><a href="/course" class="nav-link active">Courses</a></li>
-                                <li class="nav-item"><a href="/course-details" class="nav-link">Courses Details</a></li>
-                            </ul>  --}}
-                        </li>
-                        <li class="nav-item"><a href="/course" class="nav-link">Categories</a>
+                            
                             <ul class="navbar-nav nav mx-auto">
-<?php
-use App\Models\Category;
-$categories= Category::all();
-    ?>
 
                                 @foreach ($categories as $item)
                                 <li class="nav-item"><a href="{{Route("categorycourses.show",$item['id'])}}" class="nav-link">{{$item['name']}}</a></li>
@@ -105,8 +110,12 @@ $categories= Category::all();
 								
 								
                                
-                            </ul> 
+                            </ul>
                         </li>
+                        {{-- <li class="nav-item"><a href="/course" class="nav-link">Categories</a>
+                             
+                        </li> --}}
+                        <li class="nav-item"><a href="/team" class="nav-link">Instractors</a></li>
                         <li class="nav-item"><a href="/blog" class="nav-link">Blog</a>
                             
                         </li>
@@ -134,6 +143,8 @@ $categories= Category::all();
                                 <li class="nav-item"><a href="/forgot-password" class="nav-link">Forgot Password</a></li>
                             </ul>                            
                         </li>      -->
+                        <li class="nav-item"><a href="/about" class="nav-link">About us</a></li>
+                        
                         <li class="nav-item"><a href="/contact" class="nav-link">Contact</a></li>
                     </ul>
                 </div>
@@ -372,7 +383,7 @@ $categories= Category::all();
         <div class="switched-options">
             <div class="config-title">
                 <a class="navbar-brand" href="index-2.html"><img src="{{asset('images/logo.png')}}" alt="logo"></a>
-                <p>Education Template</p>
+                {{-- <p>ITI Students</p> --}}
                 
             </div>
             <div class="demos">

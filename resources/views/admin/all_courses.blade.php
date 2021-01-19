@@ -244,6 +244,15 @@
             </a>
           </li>
           <li class="nav-item">
+            <a href="{{url('admin/feedback')}}" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                 Feedbacks
+                
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="pages/layout/top-nav.html" class="nav-link">
@@ -358,9 +367,16 @@
                       @csrf
                       @method("delete")
                      
+<<<<<<< HEAD
                       <button type="submit"  value="Delete"
                       class="fa fa-trash"
                               > </button>
+=======
+                
+                      
+                      <button type="submit" value="Delete"
+                              class="fa fa-trash"></button>
+>>>>>>> 0889164d3dd386b4b628ec1574162262275c5bc8
                              
                        </form>
                 
