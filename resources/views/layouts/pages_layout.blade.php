@@ -369,7 +369,7 @@ $categories= Category::all();
         <div class="switched-options">
             <div class="config-title">
                 <a class="navbar-brand" href="index-2.html"><img src="{{asset('images/logo.png')}}" alt="logo"></a>
-                <p>Education Template</p>
+                {{-- <p>ITI Students</p> --}}
                 
             </div>
             <div class="demos">

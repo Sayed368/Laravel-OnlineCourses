@@ -11,7 +11,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ViewCourseController;
-
+use App\Http\Controllers\MailController;
+use App\Mail\SendEmail;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -230,11 +231,13 @@ Route::resource("categories",CategoryController::class);
 Route::resource('users', Usercontroller::class);
 
 
+Route::get('/send-email', [MailController::class,'SendEmail']);
 
 
 
-
-
+Route::get('/admin/member_request', function () {
+    return view('admin.view_member_request');
+});
 
 
 

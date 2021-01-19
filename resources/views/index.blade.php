@@ -130,7 +130,10 @@ $courses= Course::all();
 
 
 
-<!-- <section class="video_online">
+
+
+{{-- 
+<section class="video_online">
 	<div class="container">
 		<div class="row">
 			<div class="col-12 col-sm-12 col-md-12 col-lg-12">
@@ -185,7 +188,11 @@ $courses= Course::all();
 	</div>
 	<div class="bg_shapes">
 	</div>
-</section>End ONline Video -->
+</section>End ONline Video  --}}
+
+
+
+
 <?php
 use App\Models\feedback;
 $feedback=new feedback;
