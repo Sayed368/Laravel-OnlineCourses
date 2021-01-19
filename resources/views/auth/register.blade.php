@@ -1,3 +1,4 @@
+
 <style> 
 .min-h-screen{
     background-image: url("images/istockphoto-1191641363-170667a_1349x1280.jpg");
@@ -35,13 +36,13 @@
                 <x-jet-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
                 <x-jet-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
             </div>
-            <div>
+            <!-- <div>
                 <x-jet-label for="specialist" value="{{ __('specialist') }}" />
                 <x-jet-input id="specialist" class="block mt-1 w-full" type="text" name="specialist" :value="old('specialist')" required autofocus autocomplete="specialist" />
             </div> <div>
                 <x-jet-label for="description" value="{{ __('description') }}" />
                 <x-jet-input id="description" class="block mt-1 w-full" type="text" name="description" :value="old('description')" required autofocus autocomplete="description" />
-            </div>
+            </div> -->
             <div>
                 <x-jet-label for="address" value="{{ __('address') }}" />
                 <x-jet-input id="address" class="block mt-1 w-full" type="text" name="address" :value="old('address')" required autofocus autocomplete="address" />

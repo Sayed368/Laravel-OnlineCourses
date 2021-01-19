@@ -11,7 +11,13 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ViewCourseController;
+<<<<<<< HEAD
 use App\Http\Controllers\AboutController;
+=======
+
+use App\Http\Middleware;
+
+>>>>>>> 4c1e0c3baaf3f2644d89cec391edb4ad136d41b8
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,6 +44,10 @@ Route::get('/course', function () {
     return view('courses.course');
 });
 
+    Route::get('/profile', function () {
+        return view('courses.student_profile');
+    })->middleware('auth');
+    
 
 // Route::get('/course-details', function () {
 //     return view('courses.course-details');
