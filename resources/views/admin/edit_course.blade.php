@@ -334,15 +334,16 @@
 
                         <div class="form-group">
                             <label for="role">Instructor</label>
-                            @foreach($userss as $user)
-                            @if($user['role']=='instructor')
+                           
                             <select class="form-control" name="instructor" >
                                 <option disabled selected>Please Select Instructor</option>
+                                @foreach($userss as $user)
+                            @if($user['role']=='instructor')
                                 <option value="{{$user['id']}}">{{$user["name"]}}</option>
-                               
-                            </select>
-                            @endif
+                                @endif
                             @endforeach
+                            </select>
+                           
                         </div>
                       
                     

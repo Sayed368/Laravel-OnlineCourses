@@ -6,6 +6,7 @@ use App\Models\feedback;
 use App\Models\Category;
 use App\Models\Course;
 use App\Models\CategoryCourse;
+use App\Models\CourseVideo;
 
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CourseController;
@@ -142,9 +143,14 @@ Route::get('/player', function () {
     return view('courses.video_player');
 });
 
-// end test routs
-Route::resource("courses",CourseController::class);
 
+
+
+// end test routs
+//Route::get('/courses/{id}', 'App\Http\Controllers\VideoController@index');
+
+Route::resource("courses",CourseController::class);
+Route::resource("videos" , App\Http\Controllers\VideoController::class);
 Route::resource("Viewcourses",ViewCourseController::class);
 // Route::get('/admin', function () {
 //     return view('admin.all_users');
@@ -257,6 +263,14 @@ Route::get('/admin/member_request', function () {
     return view('admin.view_member_request');
 })->name("membersRequest");
 
+Route::get('/admin/course/{id}/videos', function ($id) {
+    
+    $course=new Course;
+    $course=$course->findorfail($id);
+    $videos=$course->video;
+    // dd($videos);
+    return view('admin.viewVideos',["videos"=>$videos]);
+})->name("corsevideos");
 
 
 

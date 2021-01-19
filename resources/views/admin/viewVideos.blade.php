@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>All courses</title>
+  <title>All videos</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -200,54 +200,35 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="{{url('admin/courses')}}" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                All courses
+                
+              </p>
+            </a>
+          </li>
           
           
           <li class="nav-item">
-            <a href="{{url('admin/allcourses')}}" class="nav-link  active">
+            <a href="{{url('#')}}" class="nav-link  active">
               <i class="nav-icon fas fa-th"></i>
               <p>
-                 All courses
+                 All videos
                 
               </p>
             </a>
           </li>
 
-          <li class="nav-item">
-            <a href="{{url('admin/adduser')}}" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                Add user
-                
-              </p>
-            </a>
-          </li>
-          
-          
-          <li class="nav-item">
-            <a href="{{url('admin/addcategery')}}" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                 Add categery
-                
-              </p>
-            </a>
-          </li>
-
+        
+    
 
           <li class="nav-item">
-            <a href="/courses/create" class="nav-link">
+            <a href="/videos/create" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
-                 Add course
-                
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{url('admin/feedback')}}" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                 Feedbacks
+                 Add video
                 
               </p>
             </a>
@@ -277,112 +258,68 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>All Courses</h1>
+            <h1>All Videos</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">All Courses</li>
+              <li class="breadcrumb-item active">All Videos</li>
             </ol>
           </div>
         </div>
       </div><!-- /.container-fluid -->
     </section>
-    <?php
-    use App\Models\User;
-   
-    use App\Models\CourseVideo;
-    
-    ?>
+  
 
-    <div style="padding-top:10px; padding-left:40px ;" class="container-fluid">
+    <div style="padding-top:20px; padding-left:50px ;" class="container-fluid">
         <div class="row">
         
-            <div class="col-xs-12 sub">
+            <div class="col-12">
                 <div class="row">
-                    <div class="col-xs-12">
-                        <h3><span class="fa fa-graduation-cap"></span> Courses <button class="btn btn-success m-l-15"><span class="fa fa-plus"></span><a style="text-decoration: none ; color: white;" href="/courses/create">Add course</a></button></h3>
+                <div class="col-xs-12">
+                        <h3><span class="fa fa-graduation-cap"></span> Videos <button class="btn btn-success m-l-15"><span class="fa fa-plus"></span><a style="text-decoration: none ; color: white;" href="/videos/create">Add video</a></button></h3>
                         
                     </div>
-                    <div class="col-xs-12 col-sm-6 ">
-                        <div class="form-group p-t-20">
-                            <select class="form-control">
-                                <option selected disabled>Amount</option>
-                                <option value="10" selected>10</option>
-                                <option value="25">25</option>
-                                <option value="50">50</option>
-                                <option value="100">100</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6">
-                        
-                    </div>
-                   
-
-                   <div class="col-xs-12 ">
+                
+                    <br>
             <table class="table table-bordered table-striped bg-dark" style="color:white; border:none">
                             <thead>
                                 <tr class="text-center">
-                                    <th>#</th>
-                                    <th>Course Name</th>
-                                    <th>Description</th>
-                                    <th>Duration</th>
-                                    <th>Categery</th>
-                                    <th>Instructor</th>
-                                    <th>Image</th>
-                                    <th>Video</th>
-                                    
-                                    <th>Options</th>
+                                    <th class="text-center" >Course Name</th>
+                                    <th class="text-center" >Video</th>
+                                    <th class="text-center" >Options</th>
                                 </tr>
                             </thead>
                             <tbody style="color:black; font:blod; background:#ffff">
-                            @foreach($courses as $course)
-                            
+                           
+                              @foreach ($videos as $item)
+                                  
+                             
                             
                                 <tr>
-                                    <td>{{$course["id"]}}</td>
-                                    <td><a href="#"><b>{{$course["name"]}}</b></a></td>
-                                    <td>{{$course["description"]}}</td>
-                                    <td>{{$course["duration"]}}</td>
-                                    <td>
-                                      @foreach ($course["Category"] as $item)
-                                      {{$item["name"].','}}
-                                      @endforeach
-                                    </td>
-                                    <td>{{$course["instructor"]["name"]}}</td>
-                                    <td>
+                                    <td><b>{{$item['course']['name']}}</b></td>
+                                   <td>
+                                  <a href="#"><b>{{$item['video_url']}}</b></a>
                                     
-                                    <img src="{{ $course['image'] }}" class="rounded-circle" width="60" height="50" /></td>
                                     </td>
                                     <td>
-                                  <a href="{{route('corsevideos', $course['id'])}}"><b> Videos link </b></a>
-                                 
-                                    </td>
-                                    <td>
-                                        <a href="{{route('courses.edit',$course)}}"><span class="fa fa-edit"></span></a>
-                                        <a class="text-success m-l-5" href="{{route('courses.show',$course)}}"><span class="fa fa-eye xx" ></span></a>
-                                   
-                                        <form action="{{route('courses.destroy',$course)}}" method="Post" style="display:inline-block;">
-                      @csrf
-                      @method("delete")
-                     
-                      <button type="submit"  value="Delete"
-                      class="fa fa-trash"
-                              > </button>
-                
-                      
-                      <button type="submit" value="Delete"
-                              class="fa fa-trash"></button>
-                             
-                       </form>
-                
+                                    <a href=""><span class="fa fa-edit"></span></a>
+                                      
+                                        <form action="" method="Post" style="display:inline-block;">
+                                          @csrf
+                                          @method("delete")
+                                        
+                                          <button type="submit"  value="Delete"
+                                          class="fa fa-trash"
+                                                  > </button>
+                                                
+                                          </form>
                                    
                                     </td>
                                 </tr>
-                                
                               
                                 @endforeach
+                               
                             </tbody>
                         </table>
                     </div>
