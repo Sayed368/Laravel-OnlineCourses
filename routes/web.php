@@ -11,7 +11,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ViewCourseController;
-
+use App\Http\Controllers\AboutController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,6 +27,7 @@ use App\Http\Controllers\ViewCourseController;
 
 
 // test routs
+Route::post('about-create',[AboutController::class,'create']);
 
 Route::get('/', function () {
     return view('index');

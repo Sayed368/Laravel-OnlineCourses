@@ -41,13 +41,22 @@ class CategoryController extends Controller
     {
         //
         $request->validate([
-            "name"=>"required"
+            "name"=>"required" ,
+            "image"=>"required|image|mimes:jpeg,png,jpg,gif,svg|max:2048"
             
             
             ]);
-           
+            if($request->hasFile('image')) {
+                $image = $request->file('image');
+                $filename =rand() . '.' . $image->getClientOriginalExtension();
+                $image->move(public_path('categoryimg/'), $filename);
+                $filename='categoryimg/'.$filename;
+                
+            }
        Category::create([
         "name"=>$request["name"],
+        "image"=>$filename
+
         
        ]);
     
@@ -89,11 +98,21 @@ class CategoryController extends Controller
     public function update(Request $request, Category $category)
     {
         //
+        
+        
+        if($request->hasFile('image')) {
+            $image = $request->file('image');
+            $filename =rand() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('categoryimg/'), $filename);
+            $filename='categoryimg/'.$filename;
+            
+        }
         $category->update([
             "name"=>$request["name"],
-            
+        "image"=>$filename
+
         ]);
-        return redirect(route("categories.show",["category"=>$category]));
+        return redirect(route("categories.index",["category"=>$category]));
     }
 
     /**
