@@ -28,7 +28,7 @@
                 <div class="row">
                 <div class="col-xs-12">
               
-                        <h3><span class="fa fa-graduation-cap"></span> Videos <button class="btn btn-success m-l-15"><span class="fa fa-plus"></span><a style="text-decoration: none ; color: white;" href="{{route('createvideo', $course['id'])}}">Add video</a></button></h3>
+                        <h3><span class="fa fa-graduation-cap"></span> Videos <button class="btn btn-success m-l-15"><span class="fa fa-plus"></span><a style="text-decoration: none ; color: white;" href="{{route('videos.create')}}">Add video</a></button></h3>
                         
                     </div>
                 
@@ -37,7 +37,8 @@
                             <thead>
                                 <tr class="text-center">
                                     <th class="text-center" >Course Name</th>
-                                    <th class="text-center" >Video</th>
+                                    <th class="text-center" >Video Name</th>
+                                    <th class="text-center" >Video URL</th>
                                     <th class="text-center" >Options</th>
                                 </tr>
                             </thead>
@@ -50,12 +51,13 @@
                                 <tr>
                                 
                                     <td><b>{{$item['course']['name']}}</b></td>
+                                    <td><b>{{$item['name']}}</b></td>
                                    <td>
-                                  <a href="#"><b>{{$item['video_url']}}</b></a>
+                                   <a href="#"><b>{{$item['video_url']}}</b></a>
                                     
                                     </td>
                                     <td>
-                                    <span class="fa fa-plus"></span><a style="text-decoration: none ; color: black;" href="{{route('videos.create', $item['course_id'])}}">Add video</a>
+                                    {{-- <span class="fa fa-plus"></span><a style="text-decoration: none ; color: black;" href="{{route('videos.create', $item['course_id'])}}">Add video</a> --}}
                                     <a href=""><span class="fa fa-edit"></span></a>
                                       
                                         <form action="#" method="Post" style="display:inline-block;">

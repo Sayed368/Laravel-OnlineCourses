@@ -151,14 +151,14 @@ $categories= Category::all();
                 </div>
                 <div class="mr-auto search_area ">
                     <ul class="navbar-nav mx-auto d-flex">
-                        <li class="nav-item search_icon"><i class="search_btn flaticon-magnifier"></i>
+                        <!-- <li class="nav-item search_icon"><i class="search_btn flaticon-magnifier"></i>
                             <div id="search">
                                 <button type="button" class="close">×</button>
                                  <form>
                                      <input type="search" value="" placeholder="Search here...."  required/>
                                  </form>
                             </div>
-                        </li>
+                        </li> -->
                         <!-- <li class="nav-item cart_icon"><i class="flaticon-shopping-bag"><p>2</p></i> 
                     	 	<div class="cart_list">
                                 <div class="single_cart d-flex justify-content-between">

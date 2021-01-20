@@ -63,7 +63,7 @@
                         <div class="login_info">
                             @if (Route::has('login'))
                             @auth
-                            <img src=" {{ Auth::user()->profile_photo_path }}" class="rounded-circle" width="60" height="50" style="margin-right: 17px" />
+                            <!-- <img src=" {{ Auth::user()->profile_photo_path }}" class="rounded-circle" width="60" height="50" style="margin-right: 17px" /> -->
   <a style="color:white;" id="navbarDropdown" class="sign_up sign-in" href="/profile" >
                                     {{ Auth::user()->name }}
     </a>&nbsp;
@@ -151,14 +151,6 @@ $categories= Category::all();
                 </div>
                 <div class="mr-auto search_area ">
                     <ul class="navbar-nav mx-auto">
-                        <li class="nav-item"><i class="search_btn flaticon-magnifier"></i>
-                            <div id="search">
-                                <button type="button" class="close">×</button>
-                                 <form>
-                                     <input type="search" value="" placeholder="Search here...."  required/>
-                                 </form>
-                            </div>
-                        </li>
                     </ul>
                 </div>
             </nav><!-- END NAVBAR -->

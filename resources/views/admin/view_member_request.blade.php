@@ -65,6 +65,7 @@
                                     
                                     
                                     <td>
+                                      
                                         <a href="{{route('sendemail',$member['id'])}}" class="btn btn-success">Accept</a>
                                        
                                    

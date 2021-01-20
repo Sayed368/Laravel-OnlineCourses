@@ -41,6 +41,38 @@ class VideoController extends Controller
     public function store(Request $request )
     {
 
+        $request->validate([
+            "video_name"=>"required", 
+            "course"=>"required",
+            "video_url"=>"required"
+           
+            
+        ]);
+        
+       
+        
+        
+
+        if(isset($request["course"])&&isset($request["video_url"])&&isset($request["video_name"]))
+        {
+            
+            $url=$request["video_url"];
+            for ($i = 0; $i < sizeof($url) ; $i++) {
+                $CourseVideo=CourseVideo::create([
+                    "course_id"=>$request["course"],
+                    "video_url"=>$request["video_url"][$i],
+                    "name"=>$request["video_name"][$i],
+                    
+                ]);
+                
+            }
+            // dd($CourseVideo);
+
+            
+        }
+
+        
+
         // $course=new Course;
         // $course=$course->findorfail($id);
     //     $files = $request->file('video_url');
@@ -62,7 +94,7 @@ class VideoController extends Controller
     //    ]);
     //  //dd($videocourse);
       
-    //  return view('admin.addVideo');
+     return view('admin.addVideo');
        
     }
 
@@ -108,6 +140,6 @@ class VideoController extends Controller
      */
     public function destroy(CourseVideo $courseVideo)
     {
-        //
+        
     }
 }

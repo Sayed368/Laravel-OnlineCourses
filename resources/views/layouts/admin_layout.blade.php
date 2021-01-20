@@ -238,6 +238,16 @@
             </a>
           </li>
 
+          <li class="nav-item">
+            <a href="{{route('videos.create')}}" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                 Add Videos To Course
+                
+              </p>
+            </a>
+          </li>
+
 
           <li class="nav-item">
             <a href="/courses/create" class="nav-link">
@@ -285,5 +295,19 @@
     <!-- /.sidebar -->
   </aside>
   @yield('content')
+
+
+  <script src="{{asset('js/jquery-3.2.1.min.js')}}"></script>
+    <script src="{{asset('js/popper.min.js')}}"></script>
+ 
+    <script src="{{asset('js/jquery.magnific-popup.min.js')}}"></script>     
+   
+    <script src="{{asset('js/jquery.meanmenu.min.js')}}"></script>      
+  
+ 
+    <script src="{{asset('js/jquery.counterup.min.js')}}"></script>
+
+
+  <script src="{{asset('js/addfield.js')}}"></script>  
   </body>
 </html>

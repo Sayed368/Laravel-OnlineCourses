@@ -90,10 +90,10 @@
                             <label for="note">Image</label>
                             <input type="file" class="form-control"  name="image">
                         </div>
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <label for="note">Video</label>
                             <input type="text" class="form-control"  name="video_url" >
-                        </div>
+                        </div> --}}
 
                         <button type="submit" class="btn btn-primary pull-right">Submit</button>
                         <br><br><br><br>
