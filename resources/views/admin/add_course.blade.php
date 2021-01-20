@@ -351,9 +351,6 @@
                         </div>
                         
 
-                    
-                        
-
                         <div class="form-group">
                             <label for="note">Content</label>
                             <textarea class="form-control" rows="3" name="content" id="note" placeholder="Note About Course ..."></textarea>

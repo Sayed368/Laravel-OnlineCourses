@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
- use App\Models\Course;
+use App\Models\Course;
  use App\Models\User;
  use App\Models\CourseVideo;
  use App\Models\Category;

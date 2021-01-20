@@ -269,15 +269,16 @@
         </div>
       </div><!-- /.container-fluid -->
     </section>
-  
+ 
 
     <div style="padding-top:20px; padding-left:50px ;" class="container-fluid">
         <div class="row">
-        
+
             <div class="col-12">
                 <div class="row">
                 <div class="col-xs-12">
-                        <h3><span class="fa fa-graduation-cap"></span> Videos <button class="btn btn-success m-l-15"><span class="fa fa-plus"></span><a style="text-decoration: none ; color: white;" href="/videos/create">Add video</a></button></h3>
+              
+                        <h3><span class="fa fa-graduation-cap"></span> Videos <button class="btn btn-success m-l-15"><span class="fa fa-plus"></span><a style="text-decoration: none ; color: white;" href="#">Add video</a></button></h3>
                         
                     </div>
                 
@@ -293,30 +294,35 @@
                             <tbody style="color:black; font:blod; background:#ffff">
                            
                         
+                              
+                            @foreach ($videos as $item) 
+                             
                                 <tr>
-                                    <td><b>name</b></td>
+                                
+                                    <td><b>{{$item['course']['name']}}</b></td>
                                    <td>
-                                  <a href="#"><b> Video link </b></a>
+                                  <a href="#"><b>{{$item['video_url']}}</b></a>
                                     
                                     </td>
                                     <td>
+                                    <span class="fa fa-plus"></span><a style="text-decoration: none ; color: black;" href="{{route('videos.create', $item['course_id'])}}">Add video</a>
                                     <a href=""><span class="fa fa-edit"></span></a>
                                       
-                                        <form action="" method="Post" style="display:inline-block;">
-                      @csrf
-                      @method("delete")
-                     
-                      <button type="submit"  value="Delete"
-                      class="fa fa-trash"
-                              > </button>
-                             
-                       </form>
+                                        <form action="#" method="Post" style="display:inline-block;">
+                                          @csrf
+                                          @method("delete")
+                                        
+                                          <button type="submit"  value="Delete"
+                                          class="fa fa-trash"
+                                                  > </button>
+                                                
+                                          </form>
                                    
                                     </td>
                                 </tr>
                              
                               
-                              
+                                @endforeach
                                
                             </tbody>
                         </table>

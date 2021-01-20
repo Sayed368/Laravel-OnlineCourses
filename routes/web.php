@@ -6,6 +6,7 @@ use App\Models\feedback;
 use App\Models\Category;
 use App\Models\Course;
 use App\Models\CategoryCourse;
+use App\Models\CourseVideo;
 
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CourseController;
@@ -22,6 +23,16 @@ use App\Http\Middleware;
 
 
 
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
 
 
 
@@ -259,6 +270,17 @@ Route::get('/send-email/{id}', [MailController::class,'SendEmail'])->name("sende
 Route::get('/admin/member_request', function () {
     return view('admin.view_member_request');
 })->name("membersRequest");
+
+Route::get('/admin/course/{id}/videos', function ($id) {
+    
+    $course=new Course;
+    $course=$course->findorfail($id);
+    $videos=$course->video;
+    // dd($videos);
+    return view('admin.viewVideos',["videos"=>$videos]);
+})->name("corsevideos");
+
+
 
 
 
