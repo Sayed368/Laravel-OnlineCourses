@@ -73,8 +73,6 @@ class UserController extends Controller
             "gender"=>$request["gender"],
             "address"=>$request["address"],
             "phone"=>$request["phone"],
-            "university"=>$request["university"],
-            "university"=>$request["university"],
             "profile_photo_path"=>$filename,
             "specialist"=>$request["specialist"],
             "dob"=>$request["dob"],
