@@ -7,7 +7,7 @@ use App\Models\Category;
 use App\Models\Course;
 use App\Models\CategoryCourse;
 use App\Models\CourseVideo;
-
+use App\Models\StudentCourse;
 use App\Http\Controllers\UserController;
 
 use App\Http\Controllers\CourseController;
@@ -96,6 +96,14 @@ Route::post('/contact', function () {
     $feedback->comments=request("comments");
     $feedback->save();
     return redirect()->back()->with('message', 'Thanks for your Feedback!');
+});
+
+Route::post('/enroll', function () {
+    $stud_cour=new StudentCourse;
+    $stud_cour->student_id=request("student_id");
+    $stud_cour->course_id=request("course_id");
+    $stud_cour->save();
+    return redirect()->back();
 });
 
 Route::get('/admin/feedback', function () {
@@ -267,7 +275,7 @@ Route::resource("Viewcourses",ViewCourseController::class);
 
 Route::resource("categories",CategoryController::class);
 
-Route::resource("enroll",EnrollController::class);
+// Route::resource("enroll",EnrollController::class);
 // // resource routes
 
 //         // Route::resource('user', Usercontroller::class);

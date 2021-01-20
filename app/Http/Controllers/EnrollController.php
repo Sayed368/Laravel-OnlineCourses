@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\StudentCourse;
+use App\Models\Course;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 class EnrollController extends Controller
@@ -33,14 +34,17 @@ class EnrollController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($id)
     {
+        // $course = new Course;
+        // $course->find($id);
         // $user_id=Auth::id();
+        // dd($user_id);
 
-        // StudentCourse::create([
-        //     "course_id"=>request("title"),
-        //      "student_id"=>$user_id
-        //  ]);
+        // // StudentCourse::create([
+        // //     "course_id"=>$course['id'],
+        // //      "student_id"=>$user_id
+        // //  ]);
     }
 
     /**

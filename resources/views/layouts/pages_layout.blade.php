@@ -150,14 +150,6 @@ $categories= Category::all();
                 </div>
                 <div class="mr-auto search_area ">
                     <ul class="navbar-nav mx-auto">
-                        <li class="nav-item"><i class="search_btn flaticon-magnifier"></i>
-                            <div id="search">
-                                <button type="button" class="close">×</button>
-                                 <form>
-                                     <input type="search" value="" placeholder="Search here...."  required/>
-                                 </form>
-                            </div>
-                        </li>
                     </ul>
                 </div>
             </nav><!-- END NAVBAR -->
