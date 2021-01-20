@@ -208,8 +208,9 @@ $categories= Category::all();
 			<div class="row">        
 				 <div class="col-sm-12 col-md-8 col-lg-8">
 					<div class="intro_text">
-						<h1>Take The World's Best Courses Online.</h1>
-						<p>Ante amet vitae vulputate odio nulla vel pretium pulvinar aenean.<br> Poncus eget adipiscing etiam arcu Ultricies.</p>
+						<h1>Make the most of your online learning experience.</h1>
+						<p>Our Online Learning Resource Center has tips, tricks and inspiring <br>stories to help you learn while staying home.
+.</p>
 						{{-- <div class="intro_button">
 							<a href="#" class="nav-link">Start my free month</a>
 						</div> --}}
@@ -359,7 +360,7 @@ $categories= Category::all();
 					<div class="sub_title">
 						<h2>Become A Instractor</h2>
 						<p>Lorem ipsum dolor sit amet mollis felis dapibus arcu donec viverra. Pede phasellus eget. Etiam maecenas vel vici quis dictum rutrum nec nisi et.</p>  
-					</div><!-- ends: .section-header -->
+					</div>ends: .section-header -->
 					<!-- <div class="envent_all_view">
 						<a href="#" title="">Start my free month</a>
 					</div>

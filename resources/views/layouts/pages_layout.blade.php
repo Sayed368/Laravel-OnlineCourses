@@ -104,7 +104,7 @@ $categories= Category::all();
                             <ul class="navbar-nav nav mx-auto">
 
                                 @foreach ($categories as $item)
-                                <li class="nav-item"><a href="{{Route("categorycourses.show",$item['id'])}}" class="nav-link">{{$item['name']}}</a></li>
+                                <li class="nav-item"><a href="{{Route('categorycourses.show',$item['id'])}}" class="nav-link">{{$item['name']}}</a></li>
 
                                 @endforeach
 
