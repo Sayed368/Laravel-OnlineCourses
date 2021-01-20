@@ -46,13 +46,20 @@
                 @foreach ($course['video'] as $item)
                         
                     
-                    <a href="{{route('changevideo', $item)}}">
+                   
+                
                         <tr>
-                            <td><i class="fas fa-video fa-5x" style="padding-top: 5px;"></i></td>
-                            <td style="text-align: left;"><a class="mdl-navigation__link"> Video 1 </a></td>
+                            <td> 
+                                <a href="{{route('changevideo', $item)}}">
+                                <i class="fas fa-video fa-5x" style="padding-top: 5px;"></i>
+                                </a>
+                            </td>
+                            <td >
+                                <a href="{{route('changevideo', $item)}}" class="mdl-navigation__link"> Video 1 </a>
+                            </td>
                     
-                        </tr>gggggggg
-                    </a>
+                        
+                        </tr>
                 @endforeach
 
                 </tbody>

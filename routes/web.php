@@ -6,30 +6,23 @@ use App\Models\feedback;
 use App\Models\Category;
 use App\Models\Course;
 use App\Models\CategoryCourse;
-<<<<<<< HEAD
-=======
 use App\Models\CourseVideo;
 
->>>>>>> 0eb58237f613bc7136530fca970378af5e30aca6
 use App\Http\Controllers\UserController;
 
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ViewCourseController;
-<<<<<<< HEAD
+
 use App\Http\Controllers\EnrollController;
-=======
-<<<<<<< HEAD
+
 use App\Http\Controllers\UpdateStudentController;
-=======
->>>>>>> 6035f54838f69241d36c651bb25f543eac1a313a
 
 use App\Http\Controllers\MailController;
 use App\Mail\SendEmail;
 
 use App\Http\Controllers\AboutController;
 
->>>>>>> 0eb58237f613bc7136530fca970378af5e30aca6
 use App\Http\Middleware;
 
 
