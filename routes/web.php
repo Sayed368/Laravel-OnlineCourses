@@ -13,20 +13,32 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ViewCourseController;
+<<<<<<< HEAD
+
+use App\Http\Controllers\EnrollController;
 
 use App\Http\Controllers\UpdateStudentController;
+=======
+use App\Http\Controllers\UpdateStudentController;
+
+
 
 
 use App\Http\Controllers\EnrollController;
 
 
 
+>>>>>>> 74b719defac4ae6b593cadbfed77847bcfcc1fb6
 
 use App\Http\Controllers\MailController;
 use App\Mail\SendEmail;
 
 use App\Http\Controllers\AboutController;
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> 74b719defac4ae6b593cadbfed77847bcfcc1fb6
 use App\Http\Middleware;
 
 
@@ -301,9 +313,9 @@ Route::get('/admin/course/{id}/videos', function ($id) {
     
     $course=new Course;
     $course=$course->findorfail($id);
-    $videos=$course->video;
-    // dd($videos);
-    return view('admin.viewVideos',["videos"=>$videos]);
+  //  $videos=$course->video;
+    // dd($course);
+    return view('admin.viewVideos',["course"=>$course]);
 })->name("corsevideos");
 
 
@@ -332,6 +344,19 @@ Route::get('/course/videos/{id}', function ($id) {
     return view('courses.video_player',["course"=>$course,'video'=>$video]);
 })->name("changevideo");
 
+
+
+
+
+
+Route::get('/admin/videos/create/{id}', function ($id) {
+    //dd($id);
+    $course=new Course;
+    $course=$course->findorfail($id);
+  //  $videos=$course->video;
+    // dd($course);
+    return view('admin.addVideo',["course"=>$course]);
+})->name("createvideo");
 
 
 

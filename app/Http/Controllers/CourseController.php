@@ -76,18 +76,21 @@ class CourseController extends Controller
        ]);
 
 
-       $files = $request->file('video_url');
-       if($files){
-       foreach ($files as $file){
-        $video=new CourseVideo();
-           $videoname = rand().'.'.$file->getClientOriginalExtension();
-           $file->move(public_path('coursevideo/'), $videoname);
-           $video->video_url=$videoname;
-           $course->video()->save($video);
-       }
-       }
+    //    $files = $request->file('video_url');
+    //    if($files){
+    //    foreach ($files as $file){
+    //     $video=new CourseVideo();
+    //        $videoname = rand().'.'.$file->getClientOriginalExtension();
+    //        $file->move(public_path('coursevideo/'), $videoname);
+    //        $video->video_url=$videoname;
+    //        $course->video()->save($video);
+    //    }
+     //  }
        $course->Category()->attach($request["category"]);
-     
+       $video=new CourseVideo();
+           $video->video_url=$request['video_url'];
+           $course->video()->save($video);
+
        return redirect(route("courses.index"))->with('Success', 'Course Inserted Successfully');
     }
 
