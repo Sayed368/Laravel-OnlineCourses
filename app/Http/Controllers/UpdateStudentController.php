@@ -30,6 +30,7 @@ class UpdateStudentController extends Controller
     $users->email=request("email");
     $users->phone=request("phone");
     $users->address=request("address");
+    $users->gender=request("gender");
     $users->dob=request("dob");
     
    

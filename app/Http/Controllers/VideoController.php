@@ -16,12 +16,7 @@ class VideoController extends Controller
      */
     public function index()
     {
-        //   Course::all('id');
-        //   dd( $courses);
-        //   $coursev = CourseVideo::where('course_id',$course)->get();
-        //   dd( $coursev);
-        //   $courseVideo->course_id=$course;
-        
+       
         return view("admin.viewVideos");
      
     }
@@ -33,7 +28,7 @@ class VideoController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.addvideo');
     }
 
     /**
@@ -44,7 +39,30 @@ class VideoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+ 
+        // $course=new Course;
+        // $course=$course->findorfail($id);
+        $files = $request->file('video_url');
+        
+        if($files){
+        foreach ($files as $file){
+         $video=new CourseVideo();
+            $videoname = rand().'.'.$file->getClientOriginalExtension();
+            $file->move(public_path('coursevideo/'), $videoname);
+            $videourl=$videoname;
+          $video->video_url=$videourl;
+         //   $videocourse->course()->save($videourl);
+        }
+        }
+     // dd($videourl);
+       $videocourse=CourseVideo::create([
+           "video_url"=>$videourl,
+           "course_id"=>54
+       ]);
+     //dd($videocourse);
+      
+     return view('admin.addVideo');
+       
     }
 
     /**

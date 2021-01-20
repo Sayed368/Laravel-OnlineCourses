@@ -12,10 +12,6 @@
 
 @section('main')
 
-<?php
-    use App\Models\Course;
-    $courses= Course::all();
-?>
 
 
 <!--Start Courses Area Section-->
@@ -23,7 +19,7 @@
     <div class="container"> 
         <div class="row">
 
-            @foreach ($courses as $item)
+            @foreach ($data as $item)
                 
             
             <div class="col-12 col-sm-6 col-md-6 col-lg-4">

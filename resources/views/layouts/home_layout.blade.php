@@ -8,7 +8,7 @@
 	<meta name="keywords" content="HTML,CSS,XML,JavaScript">
 	<meta name="author" content="Ecology Theme">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Eduwise </title>
+	<title>Educavo</title>
 	<link rel="shortcut icon" href="{{asset('images/favicon.ico')}}" type="image/x-icon">
 	<!-- Goole Font -->
 	<link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet">
@@ -53,7 +53,7 @@
 						<div class="contact_info">                   
 							<ul class="list-unstyled">
                                 <li><i class="flaticon-phone-receiver"></i>+02-01010-75270</li>
-        						<li><i class="flaticon-mail-black-envelope-symbol"></i>Info@Eduwise.com</li>
+        						<li><i class="flaticon-mail-black-envelope-symbol"></i>Info@Educavo.com</li>
         					</ul>                
 						</div>
 						<div class="login_info">
@@ -218,7 +218,7 @@ $categories= Category::all();
 				<div class="col-sm-12 col-md-12 col-lg-12">
 					<div class="search_wrapper">
 						<div class="search-option" >
-							<form action="#">
+							<form action="{{url('/search')}}" type="get">
 								<div class="dropdown dropdown-toggle"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 									<div class="all-categories "><span>Categories</span> <i class="cat_icon flaticon-down-arrow"></i></div>
 									<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -235,7 +235,7 @@ $categories= Category::all();
 									</ul>
 								</div>
 								<div class="form-group d-flex">
-									<input placeholder="What do you want to learn today?" type="email" required="">
+									<input placeholder="What do you want to learn today ?" type="text" name="query" required="">
 								</div>
 								<div class="submit-btn">
 									<button type="submit" class="text-center">Search</button>
@@ -404,7 +404,7 @@ $categories= Category::all();
 						<p>Ante amet vitae vulputate odio nulla vel pretium aenean.</p>
 						<div class="contact_info">
 							<span>+02-01010-752703</span> 
-							<span class="email">Info@Eduwise.com</span>
+							<span class="email">Info@Educavo.com</span>
 						</div>
 						<ul class="social_items d-flex list-unstyled">
 							<li><a href="#"><i class="fab fa-facebook-f fb-icon"></i></a></li>

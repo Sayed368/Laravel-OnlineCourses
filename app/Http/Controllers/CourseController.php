@@ -63,7 +63,6 @@ class CourseController extends Controller
             $filename =rand() . '.' . $image->getClientOriginalExtension();
             $image->move(public_path('courseimg/'), $filename);
             $filename='courseimg/'.$filename;
-            
         }
        
     
@@ -83,9 +82,8 @@ class CourseController extends Controller
         $video=new CourseVideo();
            $videoname = rand().'.'.$file->getClientOriginalExtension();
            $file->move(public_path('coursevideo/'), $videoname);
-           $videourl='coursevideo/'.$videoname;
-           $video->video_url=$videourl;
-           $course->video()->save($videourl);
+           $video->video_url=$videoname;
+           $course->video()->save($video);
        }
        }
        $course->Category()->attach($request["category"]);
@@ -133,7 +131,6 @@ class CourseController extends Controller
             $filename='courseimg/'.$filename;
         }
       
-
         $course->update([
             "name"=>$request["name"],
             "description"=>$request["description"],
