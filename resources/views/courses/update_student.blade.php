@@ -47,12 +47,16 @@ $courses=$course->all();
                                     <h3>Name :</h3>
                             <input type="text" class="form-control" name="name" placeholder="Enter Name" required
                             value="{{ Auth::user()->name }}">
+                            <label class="text-danger"> {{$errors->first("name")}}</label>
+
                             </li>
                             <li>
                             <h3>Email :</h3>
                             <input type="email" class="form-control" id="email" placeholder="Enter email"  name="email" required
                             value="{{ Auth::user()->email }}"
                             >
+                            <label class="text-danger"> {{$errors->first("email")}}</label>
+
                                    
                                 </li>
                                 <li>
@@ -88,6 +92,16 @@ $courses=$course->all();
                                 <li>
                             <label for="note">upload profile image</label>
                             <input type="file" class="form-control" id="img" name="profile_photo_path" required>
+                            </li>
+                            <li>
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Password" >
+                            <label class="text-danger"> {{$errors->first("password")}}</label>
+                            </li>
+                            <li>
+                            <label for="password_confirm">Password Confirmation</label>
+                            <input type="password" class="form-control" id="password_confirm" name="password_confirmation" placeholder="Password Confirmation" required>
+                            <label class="text-danger"> {{$errors->first("password_confirmation")}}</label>
                             </li>
                             <li style="padding-left:321px">
                             <button type="submit" class="btn btn-primary pull-right">update</button>

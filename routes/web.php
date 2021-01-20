@@ -14,9 +14,12 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ViewCourseController;
 
+
 use App\Http\Controllers\EnrollController;
 
 use App\Http\Controllers\UpdateStudentController;
+
+
 
 use App\Http\Controllers\MailController;
 use App\Mail\SendEmail;
@@ -24,6 +27,7 @@ use App\Mail\SendEmail;
 use App\Http\Controllers\AboutController;
 
 use App\Http\Middleware;
+
 
 
 
@@ -58,6 +62,13 @@ Route::get('/course', function () {
     })->middleware('auth');
     
 
+
+Route::get('/search', function () {
+        $serchtxt=$_GET['query'];
+        $courses=Course::where('name','LIKE','%'. $serchtxt.'%')->get();
+        return view('courses.search',["data"=>$courses]);
+       
+    });
 // Route::get('/course-details', function () {
 //     return view('courses.course-details');
 // });
@@ -124,6 +135,13 @@ Route::get('/category/{id}/courses', function ($id) {
     
     return view('courses.related-courses',["courses"=>$courses]);
 })->name("categorycourses.show");
+
+
+
+
+
+
+
 
 
 
@@ -274,9 +292,9 @@ Route::get('/admin/course/{id}/videos', function ($id) {
     
     $course=new Course;
     $course=$course->findorfail($id);
-    $videos=$course->video;
-    // dd($videos);
-    return view('admin.viewVideos',["videos"=>$videos]);
+  //  $videos=$course->video;
+    // dd($course);
+    return view('admin.viewVideos',["course"=>$course]);
 })->name("corsevideos");
 
 
@@ -304,6 +322,19 @@ Route::get('/course/videos/{id}', function ($id) {
     // dd($course);
     return view('courses.video_player',["course"=>$course,'video'=>$video]);
 })->name("changevideo");
+
+
+
+// Route::get('/admin/videos/create/{id}', function ($id) {
+//     //dd($id);
+//     $course=new Course;
+//     $course=$course->findorfail($id);
+//   //  $videos=$course->video;
+//     dd($course);
+//     return view('admin.addVideo',["course"=>$course]);
+// })->name("createvideo");
+
+// Route::get("/user/{user}/posts",'App\Http\Controllers\CourseController@addVideos')->name("videoadd");
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

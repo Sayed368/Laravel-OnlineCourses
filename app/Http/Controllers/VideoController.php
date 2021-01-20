@@ -16,12 +16,7 @@ class VideoController extends Controller
      */
     public function index()
     {
-        //   Course::all('id');
-        //   dd( $courses);
-        //   $coursev = CourseVideo::where('course_id',$course)->get();
-        //   dd( $coursev);
-        //   $courseVideo->course_id=$course;
-        
+       
         return view("admin.viewVideos");
      
     }
@@ -31,9 +26,10 @@ class VideoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(  )
     {
-        //
+    //   dd($course);
+        return view('admin.addvideo');
     }
 
     /**
@@ -42,9 +38,64 @@ class VideoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request )
     {
-        //
+
+        $request->validate([
+            "video_name"=>"required", 
+            "course"=>"required",
+            "video_url"=>"required"
+           
+            
+        ]);
+        
+       
+        
+        
+
+        if(isset($request["course"])&&isset($request["video_url"])&&isset($request["video_name"]))
+        {
+            
+            $url=$request["video_url"];
+            for ($i = 0; $i < sizeof($url) ; $i++) {
+                $CourseVideo=CourseVideo::create([
+                    "course_id"=>$request["course"],
+                    "video_url"=>$request["video_url"][$i],
+                    "name"=>$request["video_name"][$i],
+                    
+                ]);
+                
+            }
+            // dd($CourseVideo);
+
+            
+        }
+
+        
+
+        // $course=new Course;
+        // $course=$course->findorfail($id);
+    //     $files = $request->file('video_url');
+        
+    //     if($files){
+    //     foreach ($files as $file){
+    //      $video=new CourseVideo();
+    //         $videoname = rand().'.'.$file->getClientOriginalExtension();
+    //         $file->move(public_path('coursevideo/'), $videoname);
+    //         $videourl=$videoname;
+    //       $video->video_url=$videourl;
+    //      //   $videocourse->course()->save($videourl);
+    //     }
+    //     }
+    //  // dd($videourl);
+    //    $videocourse=CourseVideo::create([
+    //        "video_url"=>$videourl,
+    //        "course_id"=>54
+    //    ]);
+    //  //dd($videocourse);
+      
+     return view('admin.addVideo');
+       
     }
 
     /**
@@ -89,6 +140,6 @@ class VideoController extends Controller
      */
     public function destroy(CourseVideo $courseVideo)
     {
-        //
+        
     }
 }

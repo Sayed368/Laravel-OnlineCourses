@@ -1,7 +1,7 @@
 @extends('layouts.pages_layout')
 
 @section('intro_text')
-<h1>Courese Page</h1>
+<h1>Courses Page</h1>
 <div class="pages_links">
     <a href="#" title="">Home</a>
     <a href="#" title="" class="active">Course Page</a>

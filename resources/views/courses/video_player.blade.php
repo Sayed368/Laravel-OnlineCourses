@@ -55,7 +55,7 @@
                                 </a>
                             </td>
                             <td >
-                                <a href="{{route('changevideo', $item)}}" class="mdl-navigation__link"> Video 1 </a>
+                                <a href="{{route('changevideo', $item)}}" class="mdl-navigation__link"> {{$item['name']}}</a>
                             </td>
                     
                         
