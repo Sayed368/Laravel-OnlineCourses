@@ -71,10 +71,10 @@
                                 <input type="date" class="form-control" id="dob" name="dob" required style="margin-top: 13px;">
                                 
                             </div>
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                             <label for="note">image</label>
                             <input type="file" class="form-control" id="profile_photo_path" name="profile_photo_path" required style="margin-top: 13px;">
-                        </div>
+                        </div> -->
             @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
                 <div class="mt-4">
                     <x-jet-label for="terms">

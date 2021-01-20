@@ -101,14 +101,7 @@
                       <button type="submit"  value="Delete"
                       class="fa fa-trash"
                               > </button>
-<<<<<<< HEAD
-                
-                      
-
-                
-=======
        
->>>>>>> 74b719defac4ae6b593cadbfed77847bcfcc1fb6
                              
                        </form>
                 

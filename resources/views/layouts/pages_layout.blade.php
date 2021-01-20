@@ -63,7 +63,7 @@
                         <div class="login_info">
                             @if (Route::has('login'))
                             @auth
-                            <img src=" {{ Auth::user()->profile_photo_path }}" class="rounded-circle" width="60" height="50" style="margin-right: 17px" />
+                            <!-- <img src=" {{ Auth::user()->profile_photo_path }}" class="rounded-circle" width="60" height="50" style="margin-right: 17px" /> -->
   <a style="color:white;" id="navbarDropdown" class="sign_up sign-in" href="/profile" >
                                     {{ Auth::user()->name }}
     </a>&nbsp;
