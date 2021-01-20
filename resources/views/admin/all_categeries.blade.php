@@ -41,7 +41,7 @@
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-6">
-                        <table class="table table-responsive table-hover table-condensed">
+                        <table class="table table-bordered table-striped bg-dark" style="color:white; border:none">
                                 <thead>
                                     <tr>
                                         <th>#</th>
@@ -50,7 +50,7 @@
                                         <th>Options</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody style="color:black; font:blod; background:#ffff">
                                 @foreach($categories as $category)
                                     <tr>
                                         <td>{{$category["id"]}}</td>
