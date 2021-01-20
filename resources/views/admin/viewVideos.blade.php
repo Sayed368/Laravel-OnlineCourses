@@ -278,7 +278,7 @@
                 <div class="row">
                 <div class="col-xs-12">
               
-                        <h3><span class="fa fa-graduation-cap"></span> Videos <button class="btn btn-success m-l-15"><span class="fa fa-plus"></span><a style="text-decoration: none ; color: white;" href="#">Add video</a></button></h3>
+                        <h3><span class="fa fa-graduation-cap"></span> Videos <button class="btn btn-success m-l-15"><span class="fa fa-plus"></span><a style="text-decoration: none ; color: white;" href="{{route('createvideo', $course['id'])}}">Add video</a></button></h3>
                         
                     </div>
                 
@@ -295,7 +295,7 @@
                            
                         
                               
-                            @foreach ($videos as $item) 
+                            @foreach ($course['video'] as $item) 
                              
                                 <tr>
                                 

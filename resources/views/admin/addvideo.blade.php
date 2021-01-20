@@ -302,13 +302,9 @@
         <div class="row">
             <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                 <div class="row">
-                    <form method="POST" action="{{route('videos.store')}}" enctype="multipart/form-data">
+                    <form method="POST" action="{{route('videos.store',$course)}}" enctype="multipart/form-data">
                     @csrf
-                        <div style="width: 600px;" class="form-group">
-
-                            <input type="hidden" maxlength="100" class="form-control"  name="id" >
-                        </div>
-
+                      
                     
                         <div class="form-group">
                             <label for="note">Video</label>

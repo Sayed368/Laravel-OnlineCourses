@@ -362,7 +362,7 @@
                         </div>
                         <div class="form-group">
                             <label for="note">Video</label>
-                            <input type="file" class="form-control"  name="video_url[]" multiple>
+                            <input type="text" class="form-control"  name="video_url" >
                         </div>
 
                         <button type="submit" class="btn btn-primary pull-right">Submit</button>
