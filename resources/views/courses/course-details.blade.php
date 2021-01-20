@@ -48,7 +48,10 @@
                                 <span class="courses_price">Free</span>
                             </div>
                             <div class="buy_btn single_items">
-                                <a href="/player" title="">Start Now</a>
+                                <a href="{{route('viewcourse', $course['id'])}}" title="">Enroll</a>
+                            </div>
+                            <div class="buy_btn single_items">
+                                <a href="{{route('viewcourse', $course['id'])}}" title="">Start Now</a>
                             </div>
                         </div>
                         <div class="details-img-bxo">

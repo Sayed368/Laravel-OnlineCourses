@@ -9,7 +9,7 @@
     <meta name="keywords" content="HTML,CSS,XML,JavaScript">
     <meta name="author" content="Ecology Theme">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eduwise - Education HTML5 Template</title>
+    <title>Educavo</title>
     <link rel="shortcut icon" href="{{asset('images/favicon.ico')}}" type="{{asset('image/x-icon')}}">
     <link rel="shortcut icon" href="{{asset('images/favicon.ico')}}" type="image/x-icon">
     <!-- Goole Font -->
@@ -57,7 +57,7 @@
                         <div class="contact_info">                   
                             <ul class="list-unstyled">
                                 <li><i class="flaticon-phone-receiver"></i>+02-01010-752703</li>
-                                <li><i class="flaticon-mail-black-envelope-symbol"></i>Info@Eduwise.com</li>
+                                <li><i class="flaticon-mail-black-envelope-symbol"></i>Info@Educavo.com</li>
                             </ul>                    
                         </div>
                         <div class="login_info">
@@ -328,7 +328,7 @@ $categories= Category::all();
                         <p>Ante amet vitae vulputate odio nulla vel pretium aenean.</p>
                         <div class="contact_info">
                             <span>+02-01010-752703</span> 
-                            <span class="email">Info@Eduwise.com</span>
+                            <span class="email">Info@Educavo.com</span>
                         </div>
                         <ul class="social_items d-flex list-unstyled">
                             <li><a href="#"><i class="fab fa-facebook-f fb-icon"></i></a></li>

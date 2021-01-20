@@ -6,18 +6,30 @@ use App\Models\feedback;
 use App\Models\Category;
 use App\Models\Course;
 use App\Models\CategoryCourse;
+<<<<<<< HEAD
+=======
 use App\Models\CourseVideo;
 
+>>>>>>> 0eb58237f613bc7136530fca970378af5e30aca6
 use App\Http\Controllers\UserController;
+
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ViewCourseController;
+<<<<<<< HEAD
+use App\Http\Controllers\EnrollController;
+=======
+<<<<<<< HEAD
+use App\Http\Controllers\UpdateStudentController;
+=======
+>>>>>>> 6035f54838f69241d36c651bb25f543eac1a313a
 
 use App\Http\Controllers\MailController;
 use App\Mail\SendEmail;
 
 use App\Http\Controllers\AboutController;
 
+>>>>>>> 0eb58237f613bc7136530fca970378af5e30aca6
 use App\Http\Middleware;
 
 
@@ -147,9 +159,9 @@ Route::get('/become-a-teacher', function () {
 
 
 
-Route::get('/player', function () {
-    return view('courses.video_player');
-});
+// Route::get('/player', function () {
+//     return view('courses.video_player');
+// });
 
 
 
@@ -251,7 +263,7 @@ Route::resource("Viewcourses",ViewCourseController::class);
 
 Route::resource("categories",CategoryController::class);
 
-
+Route::resource("enroll",EnrollController::class);
 // // resource routes
 
 //         // Route::resource('user', Usercontroller::class);
@@ -265,7 +277,9 @@ Route::resource('users', Usercontroller::class);
 
 Route::get('/send-email/{id}', [MailController::class,'SendEmail'])->name("sendemail");
 
+Route::post('/edituser/{id}',"App\Http\Controllers\UpdateStudentController@update");
 
+Route::get('/edituser/{id}',"App\Http\Controllers\UpdateStudentController@edit");
 
 Route::get('/admin/member_request', function () {
     return view('admin.view_member_request');
@@ -281,6 +295,30 @@ Route::get('/admin/course/{id}/videos', function ($id) {
 })->name("corsevideos");
 
 
+Route::get('/course/{id}/videos', function ($id) {
+    
+    $course=new Course;
+    $course=$course->findorfail($id);
+    if(isset($course['video'][0]))
+    {
+        $video=$course['video'][0]['video_url'];
+    }
+    else{
+        $video=0;
+    }
+    return view('courses.video_player',["course"=>$course,'video'=>$video]);
+})->name("viewcourse");
+
+
+Route::get('/course/videos/{id}', function ($id) {
+    $video=new CourseVideo;
+    $course=new Course;
+    $video=$video->findorfail($id);
+    $course=$course->findorfail($video['course_id']);
+    $video=$video['video_url'];
+    // dd($course);
+    return view('courses.video_player',["course"=>$course,'video'=>$video]);
+})->name("changevideo");
 
 
 
