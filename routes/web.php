@@ -13,18 +13,15 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ViewCourseController;
-<<<<<<< HEAD
 use App\Http\Controllers\UpdateStudentController;
-=======
 
-use App\Http\Controllers\UpdateStudentController;
+
 
 
 use App\Http\Controllers\EnrollController;
 
 
 
->>>>>>> 6f2fe642f8fe965bbb6cc3ee77407e1f8c639ad2
 
 use App\Http\Controllers\MailController;
 use App\Mail\SendEmail;
