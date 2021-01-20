@@ -46,7 +46,7 @@ class UserController extends Controller
             "name"=>"required|min:3", 
             
             "email"=>"required",
-            "password"=>"required",
+            "password"=>"min:6|required|confirmed",
             "role"=>"required",
             "gender"=>"required",
             "address"=>"required",
@@ -127,6 +127,22 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         //
+        $request->validate([
+            "name"=>"required|min:3", 
+            
+            "email"=>"required",
+            "password"=>"min:6|required|confirmed",
+            "role"=>"required",
+            "gender"=>"required",
+            "address"=>"required",
+            "phone"=>"required",
+            "university"=>"required",
+            "password_confirmation"=>"required",
+             "profile_photo_path"=>"required|image|mimes:jpeg,png,jpg,gif,svg|max:2048"
+
+
+
+            ]);
         if($request->hasFile('profile_photo_path')) {
             $image = $request->file('profile_photo_path');
             $filename =rand() . '.' . $image->getClientOriginalExtension();

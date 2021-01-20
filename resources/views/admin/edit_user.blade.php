@@ -293,7 +293,7 @@
       </div><!-- /.container-fluid -->
     </section>
 
-    <div style="padding-top:10px; padding-left:400px ;" class="container-fluid">
+    <div style="padding-top:10px; padding-left:208px;" class="container-fluid">
         <div class="row">
             <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-3">
                 <div style="width: 200px;" class="row">
@@ -303,6 +303,8 @@
                             <label for="first_name">Name</label>
                             <input type="text" class="form-control" name="name" placeholder="Enter Name" required
                             value="{{$user['name']}}">
+                            <label class="text-danger"> {{$errors->first("name")}}</label>
+
                             
                         </div>
 
@@ -313,6 +315,8 @@
                             <input type="email" class="form-control" id="email" placeholder="Enter email"  name="email" required
                             value="{{$user['email']}}"
                             >
+                            <label class="text-danger"> {{$errors->first("email")}}</label>
+
                         </div>
 
                         <div class="form-group">
@@ -322,11 +326,15 @@
                           required
                          
                           >
+                          <label class="text-danger"> {{$errors->first("password")}}</label>
+
                         </div>
 
                         <div class="form-group">
                             <label for="password_confirm">Password Confirmation</label>
                             <input type="password" class="form-control" id="password_confirm" name="password_confirmation" placeholder="Password Confirmation" required>
+                            <label class="text-danger"> {{$errors->first("password_confirmation")}}</label>
+
                         </div>
 
                         <div class="form-group">
@@ -336,6 +344,8 @@
                                 <option value="instructor">instructor</option>
                                 <option value="student">student</option>
                             </select>
+                            <label class="text-danger"> {{$errors->first("role")}}</label>
+
                         </div>
 
                         <div class="form-group">
@@ -343,6 +353,8 @@
                             <input type="text" class="form-control" id="address" name="address" placeholder="User Address ..." required
                             value="{{$user['address']}}"
                             >
+                            <label class="text-danger"> {{$errors->first("address")}}</label>
+
                         </div>
 
                         <div class="form-group">
@@ -350,17 +362,22 @@
                             <input type="text" class="form-control" id="phone" name="phone" placeholder="User Phone Number ..." require
                             value="{{$user['phone']}}" 
                             >
+                            <label class="text-danger"> {{$errors->first("phone")}}</label>
+
                         </div>
 
                         <div class="form-group">
                             <label>Gender</label>
                             <label class="radio-inline m-l-15"><input type="radio" name="gender" value="male" checked>Male</label>
                             <label class="radio-inline"><input type="radio" name="gender" value="female">Female</label>
+                        
                         </div>
                         <div class="form-group">
                         <label for="university">university</label>
                             <input type="text" class="form-control" id="university" name="university" placeholder="user university ..."
                             value="{{$user['university']}}" >
+                            <label class="text-danger"> {{$errors->first("university")}}</label>
+
                         </div>
 
                         <div class="form-group">
