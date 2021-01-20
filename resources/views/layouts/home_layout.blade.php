@@ -235,7 +235,7 @@ $categories= Category::all();
 									</ul>
 								</div>
 								<div class="form-group d-flex">
-									<input placeholder="What do you want to learn today?" type="text" name="query" required="">
+									<input placeholder="What do you want to learn today ?" type="text" name="query" required="">
 								</div>
 								<div class="submit-btn">
 									<button type="submit" class="text-center">Search</button>
