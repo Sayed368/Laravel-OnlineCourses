@@ -13,17 +13,32 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ViewCourseController;
+<<<<<<< HEAD
 
 use App\Http\Controllers\EnrollController;
 
 use App\Http\Controllers\UpdateStudentController;
+=======
+use App\Http\Controllers\UpdateStudentController;
+
+
+
+
+use App\Http\Controllers\EnrollController;
+
+
+
+>>>>>>> 74b719defac4ae6b593cadbfed77847bcfcc1fb6
 
 use App\Http\Controllers\MailController;
 use App\Mail\SendEmail;
 
 use App\Http\Controllers\AboutController;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 74b719defac4ae6b593cadbfed77847bcfcc1fb6
 use App\Http\Middleware;
 
 
@@ -60,6 +75,13 @@ Route::get('/course', function () {
     })->middleware('auth');
     
 
+
+Route::get('/search', function () {
+        $serchtxt=$_GET['query'];
+        $courses=Course::where('name','LIKE','%'. $serchtxt.'%')->get();
+        return view('courses.search',["data"=>$courses]);
+       
+    });
 // Route::get('/course-details', function () {
 //     return view('courses.course-details');
 // });

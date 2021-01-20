@@ -25,7 +25,7 @@ $users=User::all();
             <div class="col-sm-5 teacher-detail-left">
                 <div class="teacher_info_wrapper">
                     <div class="teacger-image">
-                        <img src="{{asset('userimg/user.png')}}" alt="" class="img-fluid">
+                        <img src="{{ Auth::user()->profile_photo_path }}" alt="" class="img-fluid">
                     </div>
                     <div class="social_wraper">
                         <ul class="social-items d-flex list-unstyled">
