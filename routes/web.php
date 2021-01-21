@@ -13,35 +13,21 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ViewCourseController;
-<<<<<<< HEAD
-=======
 
 use App\Http\Controllers\EnrollController;
 
 use App\Http\Controllers\UpdateStudentController;
 
 
->>>>>>> a869e7b62209740be84be2950ef58b8002250e4c
 
 
-
-use App\Http\Controllers\UpdateStudentController;
-
-
-<<<<<<< HEAD
-=======
-
->>>>>>> a869e7b62209740be84be2950ef58b8002250e4c
 
 use App\Http\Controllers\MailController;
 use App\Mail\SendEmail;
 
 use App\Http\Controllers\AboutController;
 
-<<<<<<< HEAD
-=======
 
->>>>>>> a869e7b62209740be84be2950ef58b8002250e4c
 use App\Http\Middleware;
 
 
@@ -122,12 +108,16 @@ Route::post('/enroll', function () {
     $stud_cour->student_id=request("student_id");
     $stud_cour->course_id=request("course_id");
     $stud_cour->save();
-    return redirect()->back();
+
+    $course=request("course_id");
+
+    // return redirect()->back();
+    return redirect(route('viewcourse', $course));
 });
 
 Route::get('/admin/feedback', function () {
     return view('admin.feedbacks');
-});
+})->name('feedback.index');
 
 
 Route::get('/event', function () {
@@ -200,8 +190,8 @@ Route::get('/become-a-teacher', function () {
 // end test routs
 //Route::get('/courses/{id}', 'App\Http\Controllers\VideoController@index');
 
-Route::resource("courses",CourseController::class);
-Route::resource("videos" , App\Http\Controllers\VideoController::class);
+Route::resource("admin/courses",CourseController::class);
+Route::resource("admin/videos" , App\Http\Controllers\VideoController::class);
 Route::resource("Viewcourses",ViewCourseController::class);
 // Route::get('/admin', function () {
 //     return view('admin.all_users');
@@ -292,7 +282,7 @@ Route::resource("Viewcourses",ViewCourseController::class);
 // });
 
 
-Route::resource("categories",CategoryController::class);
+Route::resource("admin/categories",CategoryController::class);
 
 // Route::resource("enroll",EnrollController::class);
 // // resource routes
@@ -303,7 +293,7 @@ Route::resource("categories",CategoryController::class);
 
 //         // Route::resource('user', CategoryController::class);
 
-Route::resource('users', Usercontroller::class);
+Route::resource('admin/users', Usercontroller::class);
 
 
 Route::get('/send-email/{id}', [MailController::class,'SendEmail'])->name("sendemail");
@@ -314,7 +304,7 @@ Route::get('/edituser/{id}',"App\Http\Controllers\UpdateStudentController@edit")
 
 Route::get('/admin/member_request', function () {
     return view('admin.view_member_request');
-})->name("membersRequest");
+})->name("membersRequest")->middleware('auth');
 
 Route::get('/admin/course/{id}/videos', function ($id) {
     
@@ -323,7 +313,7 @@ Route::get('/admin/course/{id}/videos', function ($id) {
   //  $videos=$course->video;
     // dd($course);
     return view('admin.viewVideos',["course"=>$course]);
-})->name("corsevideos");
+})->name("corsevideos")->middleware("auth");
 
 
 Route::get('/course/{id}/videos', function ($id) {
@@ -333,36 +323,43 @@ Route::get('/course/{id}/videos', function ($id) {
     if(isset($course['video'][0]))
     {
         $video=$course['video'][0]['video_url'];
+
+        $video_id=$course['video'][0]['id'];
     }
     else{
         $video=0;
+        $video_id=0;
     }
-    return view('courses.video_player',["course"=>$course,'video'=>$video]);
-})->name("viewcourse");
 
 
-Route::get('/course/videos/{id}', function ($id) {
+
+    
+    return view('courses.video_player',["course"=>$course,'video'=>$video,'video_id'=>$video_id]);
+})->name("viewcourse")->middleware("auth");
+
+
+
+Route::get('/course/{course}/video/{id}', function ($course_id,$id) {
+
+    
     $video=new CourseVideo;
     $course=new Course;
     $video=$video->findorfail($id);
     $course=$course->findorfail($video['course_id']);
+    
+    $next = CourseVideo::where('id', '>', $id)->where('course_id','=',$course['id'])->orderBy('id','asc')->first();
+    $previous = CourseVideo::where('id', '<', $id)->where('course_id','=',$course['id'])->orderBy('id','desc')->first();
     $video=$video['video_url'];
-    // dd($course);
-    return view('courses.video_player',["course"=>$course,'video'=>$video]);
-})->name("changevideo");
+    // dd($next);
+    
 
 
 
-// Route::get('/admin/videos/create/{id}', function ($id) {
-//     //dd($id);
-//     $course=new Course;
-//     $course=$course->findorfail($id);
-//   //  $videos=$course->video;
-//     dd($course);
-//     return view('admin.addVideo',["course"=>$course]);
-// })->name("createvideo");
+    return view('courses.video_player',["course"=>$course,'video'=>$video,'next'=>$next,'previous'=>$previous]);
+})->name("changevideo")->middleware("auth");
 
-// Route::get("/user/{user}/posts",'App\Http\Controllers\CourseController@addVideos')->name("videoadd");
+
+
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

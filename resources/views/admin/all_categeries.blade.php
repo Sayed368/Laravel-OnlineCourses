@@ -57,7 +57,7 @@
                                         <td>{{$category["name"]}}</td>
                                         <td>
                                     
-                                    <img src="{{ $category['image'] }}" class="rounded-circle" width="60" height="50" /></td>
+                                    <img src="{{ asset($category['image']) }}" class="rounded-circle" width="60" height="50" /></td>
                                     </td>
                                         <td>
                                             <a href="{{route('categories.edit',$category)}}"><span class="fa fa-edit"></span></a>

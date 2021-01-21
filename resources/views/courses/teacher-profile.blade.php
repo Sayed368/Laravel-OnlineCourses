@@ -140,7 +140,7 @@ $courses=$course->all();
                                 <li><i class="fa fa-user"></i> {{$course['duration']}} Hours</li>
                                 <li><i class="fa fa-comment"></i>60 Students</li>
                             </ul>
-                            <a href="../Viewcourses/{{$course['id']}}" class="cart_btn">View details</a>
+                            <a href="{{route("Viewcourses.show",$course['id'])}}" class="cart_btn">View details</a>
                          
                         </div>
                     </div>

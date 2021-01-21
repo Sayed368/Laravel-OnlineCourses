@@ -84,7 +84,7 @@
                                     <td>{{$course["instructor"]["name"]}}</td>
                                     <td>
                                     
-                                    <img src="{{ $course['image'] }}" class="rounded-circle" width="60" height="50" /></td>
+                                    <img src="{{asset( $course['image'] )}}" class="rounded-circle" width="60" height="50" /></td>
                                     </td>
                                     <td>
                                   <a href="{{route('corsevideos', $course['id'])}}"><b> Videos link </b></a>
@@ -101,13 +101,10 @@
                       <button type="submit"  value="Delete"
                       class="fa fa-trash"
                               > </button>
-<<<<<<< HEAD
                 
                       
 
                 
-=======
->>>>>>> a869e7b62209740be84be2950ef58b8002250e4c
        
                              
                        </form>
