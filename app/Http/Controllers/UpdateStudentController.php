@@ -17,10 +17,9 @@ class UpdateStudentController extends Controller
    
     function update(Request $request , $id, User $user){
         $request->validate([
-            "name"=>"required|min:3", 
-            
-            "email"=>"required",
-            "password"=>"min:6|required|confirmed",
+            "name"=>"|min:3", 
+           
+            "password"=>"required|confirmed",
             "password_confirmation"=>"required",
             ]);
             if($request->hasFile('profile_photo_path')) {
