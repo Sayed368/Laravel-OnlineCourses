@@ -76,6 +76,9 @@
                                  @endforeach
                                 </tbody>
                             </table>
+                            <div class="container">  
+                        {{ $categories->links() }} 
+                        </div> 
                         </div>
                         <div class="col-xs-12">
                            

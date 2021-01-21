@@ -104,12 +104,15 @@
                 
                       
 
+<<<<<<< HEAD
                 
+=======
+
+>>>>>>> ddaf671f51865b6824ce7901e524aa1a4fcf66ec
        
                              
                        </form>
                 
-                                   
                                     </td>
                                 </tr>
                                 
@@ -117,10 +120,18 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        <div class="container">  
+                        {{ $courses->links() }} 
+                        </div> 
+
+
                     </div>
                 </div> 
-            </div>            
+            </div>         
+          
         </div>
     </div>
+
+
 
 @endsection('content')

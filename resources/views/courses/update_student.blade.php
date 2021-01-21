@@ -12,7 +12,11 @@ use App\Models\Course;
 $course=new Course ;
 $courses=$course->all();
 ?>
-
+<?php  
+use App\Models\User;
+$user=new Course ;
+$user->all();
+?>
 
 <section class="teachers_profile">
     <div class="container">
@@ -45,14 +49,14 @@ $courses=$course->all();
 
                             <li>
                                     <h3>Name :</h3>
-                            <input type="text" class="form-control" name="name" placeholder="Enter Name" required
+                            <input type="text" class="form-control" name="name" placeholder="Enter Name" 
                             value="{{ Auth::user()->name }}">
                             <label class="text-danger"> {{$errors->first("name")}}</label>
 
                             </li>
                             <li>
                             <h3>Email :</h3>
-                            <input type="email" class="form-control" id="email" placeholder="Enter email"  name="email" required
+                            <input type="email" class="form-control" id="email" placeholder="Enter email"  name="email" 
                             value="{{ Auth::user()->email }}"
                             >
                             <label class="text-danger"> {{$errors->first("email")}}</label>
@@ -62,7 +66,7 @@ $courses=$course->all();
                                 <li>
                                     <h3>Phone :</h3>
                                    
-                            <input type="text" class="form-control" id="phone" name="phone" placeholder="User Phone Number ..." require
+                            <input type="text" class="form-control" id="phone" name="phone" placeholder="User Phone Number ..." 
                             value="{{ Auth::user()->phone }}" 
                             >
     
@@ -70,7 +74,7 @@ $courses=$course->all();
                                 <li>
                                     <h3>Address :</h3>
                                   
-                            <input type="text" class="form-control" id="address" name="address" placeholder="User Address ..." required
+                            <input type="text" class="form-control" id="address" name="address" placeholder="User Address ..." 
                             value="{{ Auth::user()->address }}"
                             >
                                    
@@ -78,37 +82,29 @@ $courses=$course->all();
                                 <li>
                                     <h3>Data of birthday :</h3>
                                     
-                                <input type="date" class="form-control" id="dob" name="dob" required
+                                <input type="date" class="form-control" id="dob" name="dob" 
                                 value="{{ Auth::user()->dob }}">
                                    
                                 </li>
                                 <li>
-                                    <h3>gender :</h3>
+                                    <!-- <h3>gender :</h3>
                                     
                             <label class="radio-inline m-l-15"><input type="radio" name="gender" value="male" >Male</label>
                             <label class="radio-inline"><input type="radio" name="gender" value="female">Female</label>
                                     
-                                </li>
+                                </li> -->
                                 <li>
                             <label for="note">upload profile image</label>
-                            <input type="file" class="form-control" id="img" name="profile_photo_path" required>
+                            <input type="file" class="form-control" id="img" name="profile_photo_path" >
                             </li>
-                            <li>
-                            <label for="password">Password</label>
-                            <input type="password" class="form-control" id="password" name="password" placeholder="Password" >
-                            <label class="text-danger"> {{$errors->first("password")}}</label>
-                            </li>
-                            <li>
-                            <label for="password_confirm">Password Confirmation</label>
-                            <input type="password" class="form-control" id="password_confirm" name="password_confirmation" placeholder="Password Confirmation" required>
-                            <label class="text-danger"> {{$errors->first("password_confirmation")}}</label>
-                            </li>
+                         
                             <li style="padding-left:321px">
                             <button type="submit" class="btn btn-primary pull-right">update</button>
 
                             </li>
                            
                             </form>
+   
                         </div>
                                    
                                

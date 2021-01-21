@@ -27,7 +27,21 @@ $studs=$stud->all();
             <div class="col-sm-5 teacher-detail-left">
                 <div class="teacher_info_wrapper">
                     <div class="teacger-image">
-                        <img src="{{ Auth::user()->profile_photo_path }}" alt="No photo selected yet" class="img-fluid">
+                        
+                    <img src="{{ Auth::user()->profile_photo_path }}" alt="" class="img-fluid">
+                    @if(Auth::user()->profile_photo_path==null)
+                    <img src="{{asset('userimg/user.png')}} " alt="" class="img-fluid">
+                    <form action ="{{ action('App\Http\Controllers\UpdateProfilePictureController@update', Auth::user()->id) }}" method="post" enctype="multipart/form-data">
+                            @csrf
+                   
+                            <input type="hidden" class="form-control" name="name"  
+                            value="{{ Auth::user()->name }}" >       
+                <input type="file" class="form-control" id="img" name="profile_photo_path" >
+                <div style="padding-left:348px; padding-top:25px">
+                <button type="submit" class="btn btn-primary pull-right" >add a picture</button>
+                </div>
+                </from>
+                @endif
                     </div>
                     <div class="social_wraper">
                         <ul class="social-items d-flex list-unstyled">
@@ -44,11 +58,11 @@ $studs=$stud->all();
                 <div class="row">
                     <div class="col-sm-8">
                         <div class="teacher-info">
+                        <button type="submit" class="btn btn-info" href = "/edituser/{{Auth::user()->id}}"><a style="text-decoration: none ; color: white;"href = "/edituser/{{Auth::user()->id}}">update Info<a></button>
+                        <button type="submit" class="btn btn-warning" href = "/editpassword/{{Auth::user()->id}}"><a style="text-decoration: none ; color: white;"href = "/editpassword/{{Auth::user()->id}}">update password<a></button>
+<br><br>
                             <ul class="list-unstyled">
-                            <li style="padding-left:270px">
                            
-                            <button type="submit" class="btn btn-info" href = "/edituser/{{Auth::user()->id}}"><a style="text-decoration: none ; color: white;"href = "/edituser/{{Auth::user()->id}}">update Info<a></button>
-                                </li>
                             <li>
                                     <h3>Name :</h3>
                                     <span> {{ Auth::user()->name }}</span>
@@ -138,7 +152,7 @@ $studs=$stud->all();
                         </div>
                     </div>
                 </div><!-- Ends: .single courses -->
-            </div><!-- Ends: . -->    
+            </div><!-- Ends: . -->   
             @endif 
             @endforeach   
             @endforeach                                        

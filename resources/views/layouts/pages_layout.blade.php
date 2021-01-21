@@ -104,7 +104,7 @@ $categories= Category::all();
                             <ul class="navbar-nav nav mx-auto">
 
                                 @foreach ($categories as $item)
-                                <li class="nav-item"><a href="{{Route("categorycourses.show",$item['id'])}}" class="nav-link">{{$item['name']}}</a></li>
+                                <li class="nav-item"><a href="{{Route('categorycourses.show',$item['id'])}}" class="nav-link">{{$item['name']}}</a></li>
 
                                 @endforeach
 
@@ -288,7 +288,7 @@ $categories= Category::all();
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="footer_single_col footer_intro">
                         <img src="{{asset('images/logo2.png')}}" alt="" class="f_logo">
-                        <p>Ante amet vitae vulputate odio nulla vel pretium pulvinar aenean. Rhoncus eget adipiscing etiam arcu. Ultricies justo ipsum nec amet.</p>
+                        <p>Our Online Learning Resource Center has tips, tricks and inspiring <br>stories to help you learn while staying home.</p>
                     </div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-2">
