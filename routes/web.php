@@ -316,6 +316,11 @@ Route::post('/edituser/{id}',"App\Http\Controllers\UpdateStudentController@updat
 
 Route::get('/edituser/{id}',"App\Http\Controllers\UpdateStudentController@edit");
 
+Route::post('/editpassword/{id}',"App\Http\Controllers\UpdatePasswordController@update");
+Route::post('/editpicture/{id}',"App\Http\Controllers\UpdateProfilePictureController@update");
+
+Route::get('/editpassword/{id}',"App\Http\Controllers\UpdatePasswordController@editpass");
+
 Route::get('/admin/member_request', function () {
     return view('admin.view_member_request');
 })->name("membersRequest");

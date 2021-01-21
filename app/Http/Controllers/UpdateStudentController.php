@@ -18,9 +18,10 @@ class UpdateStudentController extends Controller
     function update(Request $request , $id, User $user){
         $request->validate([
             "name"=>"|min:3", 
+            "profile_photo_path"=>"required|image|mimes:jpeg,png,jpg,gif,svg|max:2048"
+
            
-            "password"=>"required|confirmed",
-            "password_confirmation"=>"required",
+           
             ]);
             if($request->hasFile('profile_photo_path')) {
                 $image = $request->file('profile_photo_path');
@@ -46,11 +47,10 @@ class UpdateStudentController extends Controller
     $users->update([
         "name"=>$request["name"],
         "email"=>$request["email"],
-        "password"=>Hash::make ($request["password"]),
-        "gender"=>$request["gender"],
+        
         "address"=>$request["address"],
         "phone"=>$request["phone"],
-        "password_confirmation"=>$request["password_confirmation"],
+       
         "profile_photo_path"=>$filename,
         
         "dob"=>$request["dob"],
