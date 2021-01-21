@@ -49,7 +49,7 @@ class CreateNewUser implements CreatesNewUsers
             'gender' => $input['gender'],
             'dob' => $input['dob'],
             'address' => $input['address'],
-            "profile_photo_path"=>$input['profile_photo_path'],
+            // "profile_photo_path"=>$input['profile_photo_path'],
         ]);
         
     }

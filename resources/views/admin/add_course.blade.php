@@ -37,17 +37,20 @@
                     @csrf
                         <div style="width: 600px;" class="form-group">
                             <label for="course_name">Course Name</label>
-                            <input type="text" maxlength="100" class="form-control" id="course_name" name="name" placeholder="Enter Course Name" required="true">
+                            <input type="text" maxlength="100" class="form-control" id="course_name" name="name" placeholder="Enter Course Name" >
+                            <label class="text-danger"> {{$errors->first("name")}}</label>
                         </div>
 
                         <div class="form-group">
                             <label for="description">Description</label>
-                            <textarea class="form-control" rows="3" name="description" id="description" placeholder="Course Description ..." required></textarea>
+                            <textarea class="form-control" rows="3" name="description" id="description" placeholder="Course Description ..." ></textarea>
+                            <label class="text-danger"> {{$errors->first("description")}}</label>
                         </div>
 
                         <div class="form-group">
                             <label for="total_hours">Total Hours</label>
                             <input type="number" class="form-control" id="total_hours" name="duration" placeholder="Enter Total Course Hours ..." max="100">
+                            <label class="text-danger"> {{$errors->first("duration")}}</label>
                         </div>
                         <div class="form-group">
                             <label for="role">Category Name</label>
@@ -59,7 +62,7 @@
                                 <option value="{{$cat['id']}}">{{$cat["name"]}}</option>
                                 @endforeach
                             </select>
-                            
+                            <label class="text-danger"> {{$errors->first("category[]")}}</label>
                            
                         </div>
 
@@ -77,23 +80,25 @@
                                 @endforeach
                             </select>
                             
-                           
+                            <label class="text-danger"> {{$errors->first("instructor")}}</label>
                         </div>
                         
 
                         <div class="form-group">
                             <label for="note">Content</label>
                             <textarea class="form-control" rows="3" name="content" id="note" placeholder="Note About Course ..."></textarea>
+                            <label class="text-danger"> {{$errors->first("content")}}</label>
                         </div>
 
                         <div class="form-group">
                             <label for="note">Image</label>
                             <input type="file" class="form-control"  name="image">
+                            <label class="text-danger"> {{$errors->first("image")}}</label>
                         </div>
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <label for="note">Video</label>
-                            <input type="file" class="form-control"  name="video_url[]" multiple>
-                        </div>
+                            <input type="text" class="form-control"  name="video_url" >
+                        </div> --}}
 
                         <button type="submit" class="btn btn-primary pull-right">Submit</button>
                         <br><br><br><br>

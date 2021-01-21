@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<!-- Required meta tags -->
+	<!-- Required meta tags -->    
 	<meta charset="UTF-8">
 	<meta name="description" content="">
 	<meta name="keywords" content="HTML,CSS,XML,JavaScript">
@@ -98,23 +98,23 @@ $categories= Category::all();
 
                         <li class="nav-item"><a href="/" class="nav-link active">Home</a></li>
                         
-                        <li class="nav-item"><a href="/course" class="nav-link">Courses</a>
-                            <ul class="navbar-nav nav mx-auto">
+                        <li class="nav-item"><a href="/course" class="nav-link">Courses</a></li>
+                        
+						{{-- <li class="nav-item"><a href="/course" class="nav-link">Categories</a>
+                             
+                        </li> --}}
+                        <li class="nav-item"><a href="/team" class="nav-link">Categories</a>
+                              <ul class="navbar-nav nav mx-auto">
 
 
                                 
                                 @foreach ($categories as $item)
-                                <li class="nav-item"><a href="{{Route("categorycourses.show",$item['id'])}}" value="{{$item['id']}}" class="nav-link">{{$item['name']}}</a></li>
+                                <li class="nav-item"><a href="{{Route('categorycourses.show',$item['id'])}}" value="{{$item['id']}}" class="nav-link">{{$item['name']}}</a></li>
 
                                 @endforeach
 								
                             </ul>
                         </li>
-                        
-						{{-- <li class="nav-item"><a href="/course" class="nav-link">Categories</a>
-                             
-                        </li> --}}
-
                         <li class="nav-item"><a href="/team" class="nav-link">Instractors</a></li>
                         <li class="nav-item"><a href="/blog" class="nav-link">Blog</a></li>
                         <!-- <li class="nav-item"><a href="#" class="nav-link">Pages</a>
@@ -132,7 +132,7 @@ $categories= Category::all();
                                     </ul>    
                                 </li>                                
                                 <li class="nav-item"><a href="#" class="nav-link dropdown_icon">Blog</a>
-                                    <!-- <ul class="navbar-nav nav mx-auto">
+                                     <ul class="navbar-nav nav mx-auto">
                                         
                                         <li class="nav-item"><a href="blog.html" class="nav-link">Blog Grid One</a></li> 
                                         
@@ -151,14 +151,14 @@ $categories= Category::all();
                 </div>
                 <div class="mr-auto search_area ">
                     <ul class="navbar-nav mx-auto d-flex">
-                        <li class="nav-item search_icon"><i class="search_btn flaticon-magnifier"></i>
+                        <!-- <li class="nav-item search_icon"><i class="search_btn flaticon-magnifier"></i>
                             <div id="search">
                                 <button type="button" class="close">×</button>
                                  <form>
                                      <input type="search" value="" placeholder="Search here...."  required/>
                                  </form>
                             </div>
-                        </li>
+                        </li> -->
                         <!-- <li class="nav-item cart_icon"><i class="flaticon-shopping-bag"><p>2</p></i> 
                     	 	<div class="cart_list">
                                 <div class="single_cart d-flex justify-content-between">
@@ -208,11 +208,10 @@ $categories= Category::all();
 			<div class="row">        
 				 <div class="col-sm-12 col-md-8 col-lg-8">
 					<div class="intro_text">
-						<h1>Take The World's Best Courses Online.</h1>
-						<p>Ante amet vitae vulputate odio nulla vel pretium pulvinar aenean.<br> Poncus eget adipiscing etiam arcu Ultricies.</p>
-						{{-- <div class="intro_button">
-							<a href="#" class="nav-link">Start my free month</a>
-						</div> --}}
+						<h1>Make the most of your online learning experience.</h1>
+						<p>Our Online Learning Resource Center has tips, tricks and inspiring <br>stories to help you learn while staying home.
+</p>
+						
 					</div>
 				</div>				
 				<div class="col-sm-12 col-md-12 col-lg-12">
@@ -359,7 +358,7 @@ $categories= Category::all();
 					<div class="sub_title">
 						<h2>Become A Instractor</h2>
 						<p>Lorem ipsum dolor sit amet mollis felis dapibus arcu donec viverra. Pede phasellus eget. Etiam maecenas vel vici quis dictum rutrum nec nisi et.</p>  
-					</div><!-- ends: .section-header -->
+					</div>ends: .section-header -->
 					<!-- <div class="envent_all_view">
 						<a href="#" title="">Start my free month</a>
 					</div>
@@ -371,30 +370,19 @@ $categories= Category::all();
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="footer_single_col footer_intro">
 						<img src="images/logo2.png" alt="" class="f_logo">
-						<p>Ante amet vitae vulputate odio nulla vel pretium pulvinar aenean. Rhoncus eget adipiscing etiam arcu. Ultricies justo ipsum nec amet.</p>
+						<p>Our Online Learning Resource Center has tips, tricks and inspiring stories to help<br> you learn while staying home.</p>
 					</div>
 				</div>
-				<div class="col-12 col-md-6 col-lg-2">
-					<div class="footer_single_col">
-						<h3>Useful Links</h3>
-						<ul class="quick_inf0">
-							<li><a href="#">Leadereship</a></li>
-							<li><a href="#">Company</a></li>
-							<li><a href="#">Diversity</a></li>
-							<li><a href="#">Jobs</a></li>
-							<li><a href="#">Press</a></li>
-						</ul>                         
-					</div>
-				</div>
+				
 				<div class="col-12 col-md-6 col-lg-2">
 					<div class="footer_single_col information">
 						<h3>information</h3>
 						<ul class="quick_inf0">
-							<li><a href="#">Leadereship</a></li>
-							<li><a href="#">Company</a></li>
-							<li><a href="#">Diversity</a></li>
-							<li><a href="#">Jobs</a></li>
-							<li><a href="#">Press</a></li>
+							<li><a href="http://127.0.0.1:8000/">HOME</a></li>
+							<li><a href="/course">COUSRSES</a></li>
+							<li><a href="/team">INSTRACTORS</a></li>
+							<li><a href="/blog">BLOG</a></li>
+							<li><a href="/about">ABOUT US</a></li>
 						</ul>
 					</div>
 				</div>

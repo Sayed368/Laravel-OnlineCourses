@@ -63,6 +63,10 @@
                         <div class="login_info">
                             @if (Route::has('login'))
                             @auth
+<<<<<<< HEAD
+=======
+                            <!-- <img src=" {{ Auth::user()->profile_photo_path }}" class="rounded-circle" width="60" height="50" style="margin-right: 17px" /> -->
+>>>>>>> 2fea893ca74e086c2c782e8a3cc04224800ecea5
   <a style="color:white;" id="navbarDropdown" class="sign_up sign-in" href="/profile" >
                                     {{ Auth::user()->name }}
     </a>&nbsp;
@@ -103,7 +107,7 @@ $categories= Category::all();
                             <ul class="navbar-nav nav mx-auto">
 
                                 @foreach ($categories as $item)
-                                <li class="nav-item"><a href="{{Route("categorycourses.show",$item['id'])}}" class="nav-link">{{$item['name']}}</a></li>
+                                <li class="nav-item"><a href="{{Route('categorycourses.show',$item['id'])}}" class="nav-link">{{$item['name']}}</a></li>
 
                                 @endforeach
 
@@ -150,14 +154,6 @@ $categories= Category::all();
                 </div>
                 <div class="mr-auto search_area ">
                     <ul class="navbar-nav mx-auto">
-                        <li class="nav-item"><i class="search_btn flaticon-magnifier"></i>
-                            <div id="search">
-                                <button type="button" class="close">×</button>
-                                 <form>
-                                     <input type="search" value="" placeholder="Search here...."  required/>
-                                 </form>
-                            </div>
-                        </li>
                     </ul>
                 </div>
             </nav><!-- END NAVBAR -->
@@ -295,7 +291,7 @@ $categories= Category::all();
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="footer_single_col footer_intro">
                         <img src="{{asset('images/logo2.png')}}" alt="" class="f_logo">
-                        <p>Ante amet vitae vulputate odio nulla vel pretium pulvinar aenean. Rhoncus eget adipiscing etiam arcu. Ultricies justo ipsum nec amet.</p>
+                        <p>Our Online Learning Resource Center has tips, tricks and inspiring <br>stories to help you learn while staying home.</p>
                     </div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-2">

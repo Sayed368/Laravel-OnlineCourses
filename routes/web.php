@@ -7,18 +7,32 @@ use App\Models\Category;
 use App\Models\Course;
 use App\Models\CategoryCourse;
 use App\Models\CourseVideo;
-
+use App\Models\StudentCourse;
 use App\Http\Controllers\UserController;
 
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ViewCourseController;
-use App\Http\Controllers\UpdateStudentController;
+
+
+
+
+use App\Http\Controllers\AboutController;
 
 
 
 
 use App\Http\Controllers\EnrollController;
+
+use App\Http\Controllers\UpdateStudentController;
+
+
+
+
+
+
+
+
 
 
 
@@ -26,7 +40,11 @@ use App\Http\Controllers\EnrollController;
 use App\Http\Controllers\MailController;
 use App\Mail\SendEmail;
 
-use App\Http\Controllers\AboutController;
+
+
+
+
+
 
 use App\Http\Middleware;
 
@@ -44,9 +62,11 @@ use App\Http\Middleware;
 |
 */
 
+Route::get('/admin', function () {
+    return view('admin.feedbacks');
+});
 
-
-
+           
 // test routs
 Route::post('about-create',[AboutController::class,'create']);
 
@@ -89,6 +109,8 @@ Route::get('/contact', function () {
 });
 
 
+
+
 Route::post('/contact', function () {
     $feedback=new feedback;
     $feedback->name=request("name");
@@ -97,6 +119,14 @@ Route::post('/contact', function () {
     $feedback->comments=request("comments");
     $feedback->save();
     return redirect()->back()->with('message', 'Thanks for your Feedback!');
+});
+
+Route::post('/enroll', function () {
+    $stud_cour=new StudentCourse;
+    $stud_cour->student_id=request("student_id");
+    $stud_cour->course_id=request("course_id");
+    $stud_cour->save();
+    return redirect()->back();
 });
 
 Route::get('/admin/feedback', function () {
@@ -268,7 +298,7 @@ Route::resource("Viewcourses",ViewCourseController::class);
 
 Route::resource("categories",CategoryController::class);
 
-Route::resource("enroll",EnrollController::class);
+// Route::resource("enroll",EnrollController::class);
 // // resource routes
 
 //         // Route::resource('user', Usercontroller::class);
@@ -294,9 +324,9 @@ Route::get('/admin/course/{id}/videos', function ($id) {
     
     $course=new Course;
     $course=$course->findorfail($id);
-    $videos=$course->video;
-    // dd($videos);
-    return view('admin.viewVideos',["videos"=>$videos]);
+  //  $videos=$course->video;
+    // dd($course);
+    return view('admin.viewVideos',["course"=>$course]);
 })->name("corsevideos");
 
 
@@ -327,6 +357,16 @@ Route::get('/course/videos/{id}', function ($id) {
 
 
 
+// Route::get('/admin/videos/create/{id}', function ($id) {
+//     //dd($id);
+//     $course=new Course;
+//     $course=$course->findorfail($id);
+//   //  $videos=$course->video;
+//     dd($course);
+//     return view('admin.addVideo',["course"=>$course]);
+// })->name("createvideo");
+
+// Route::get("/user/{user}/posts",'App\Http\Controllers\CourseController@addVideos')->name("videoadd");
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
