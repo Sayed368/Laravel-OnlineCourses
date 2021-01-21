@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Course;
+use App\Http\Controllers\Redirect;
 
 use App\Models\CourseVideo;
 use Illuminate\Http\Request;
@@ -41,6 +42,38 @@ class VideoController extends Controller
     public function store(Request $request )
     {
 
+        $request->validate([
+            "video_name"=>"required", 
+            "course"=>"required",
+            "video_url"=>"required"
+           
+            
+        ]);
+        
+       
+        
+        
+
+        if(isset($request["course"])&&isset($request["video_url"])&&isset($request["video_name"]))
+        {
+            
+            $url=$request["video_url"];
+            for ($i = 0; $i < sizeof($url) ; $i++) {
+                $CourseVideo=CourseVideo::create([
+                    "course_id"=>$request["course"],
+                    "video_url"=>$request["video_url"][$i],
+                    "name"=>$request["video_name"][$i],
+                    
+                ]);
+                
+            }
+            // dd($CourseVideo);
+
+            
+        }
+
+        
+
         // $course=new Course;
         // $course=$course->findorfail($id);
     //     $files = $request->file('video_url');
@@ -62,7 +95,7 @@ class VideoController extends Controller
     //    ]);
     //  //dd($videocourse);
       
-    //  return view('admin.addVideo');
+     return view('admin.addVideo');
        
     }
 
@@ -83,9 +116,12 @@ class VideoController extends Controller
      * @param  \App\Models\CourseVideo  $courseVideo
      * @return \Illuminate\Http\Response
      */
-    public function edit(CourseVideo $courseVideo)
+    public function edit( $id)
     {
-        //
+        $video=new CourseVideo;
+        $video=$video->findorfail($id);
+        // dd($item);
+        return view("admin.editvideo",["video"=>$video]);
     }
 
     /**
@@ -95,9 +131,23 @@ class VideoController extends Controller
      * @param  \App\Models\CourseVideo  $courseVideo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, CourseVideo $courseVideo)
+    public function update(Request $request, CourseVideo $video)
     {
-        //
+       // dd($video);
+       $request->validate([
+        "video_name"=>"required", 
+        "video_url"=>"required"
+       
+        
+    ]);
+    $video->update([
+        "name"=>$request["video_name"],
+        "video_url"=>$request["video_url"],
+    ]);
+   
+   return redirect(route("courses.index"));
+  
+    
     }
 
     /**
@@ -106,8 +156,13 @@ class VideoController extends Controller
      * @param  \App\Models\CourseVideo  $courseVideo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CourseVideo $courseVideo)
+    public function destroy($id)
     {
-        //
+        $video=new CourseVideo;
+        $video=$video->findorfail($id);
+        $video->delete();
+     return redirect(route("courses.index"));
+    
+    
     }
 }

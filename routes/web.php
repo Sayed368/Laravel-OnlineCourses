@@ -14,6 +14,14 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ViewCourseController;
 
+
+
+
+use App\Http\Controllers\AboutController;
+
+
+
+
 use App\Http\Controllers\EnrollController;
 
 use App\Http\Controllers\UpdateStudentController;
@@ -24,10 +32,21 @@ use App\Http\Controllers\UpdateStudentController;
 
 
 
+<<<<<<< HEAD
+=======
+
+
+
+
+
+>>>>>>> 450b90673e1fc8a2556efac94b42a5886145cf98
 use App\Http\Controllers\MailController;
 use App\Mail\SendEmail;
 
-use App\Http\Controllers\AboutController;
+
+
+
+
 
 
 use App\Http\Middleware;
@@ -50,7 +69,7 @@ Route::get('/admin', function () {
     return view('admin.index');
 });
 
-
+           
 // test routs
 Route::post('about-create',[AboutController::class,'create']);
 
@@ -300,6 +319,11 @@ Route::post('/edituser/{id}',"App\Http\Controllers\UpdateStudentController@updat
 
 Route::get('/edituser/{id}',"App\Http\Controllers\UpdateStudentController@edit");
 
+Route::post('/editpassword/{id}',"App\Http\Controllers\UpdatePasswordController@update");
+Route::post('/editpicture/{id}',"App\Http\Controllers\UpdateProfilePictureController@update");
+
+Route::get('/editpassword/{id}',"App\Http\Controllers\UpdatePasswordController@editpass");
+
 Route::get('/admin/member_request', function () {
     return view('admin.view_member_request');
 })->name("membersRequest");
@@ -341,19 +365,16 @@ Route::get('/course/videos/{id}', function ($id) {
 
 
 
+// Route::get('/admin/videos/create/{id}', function ($id) {
+//     //dd($id);
+//     $course=new Course;
+//     $course=$course->findorfail($id);
+//   //  $videos=$course->video;
+//     dd($course);
+//     return view('admin.addVideo',["course"=>$course]);
+// })->name("createvideo");
 
-
-
-Route::get('/admin/videos/create/{id}', function ($id) {
-    //dd($id);
-    $course=new Course;
-    $course=$course->findorfail($id);
-  //  $videos=$course->video;
-    // dd($course);
-    return view('admin.addVideo',["course"=>$course]);
-})->name("createvideo");
-
-
+// Route::get("/user/{user}/posts",'App\Http\Controllers\CourseController@addVideos')->name("videoadd");
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

@@ -89,12 +89,14 @@ class CourseController extends Controller
     //    }
      //  }
        $course->Category()->attach($request["category"]);
-       $video=new CourseVideo();
-           $video->video_url=$request['video_url'];
-           $course->video()->save($video);
+        //     $video=new CourseVideo();
+        //    $video->video_url=$request['video_url'];
+        //    $course->video()->save($video);
 
        return redirect(route("courses.index"))->with('Success', 'Course Inserted Successfully');
     }
+
+
 
     /**
      * Display the specified resource.
