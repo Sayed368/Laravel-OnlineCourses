@@ -11,13 +11,10 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ViewCourseController;
-<<<<<<< HEAD
 use App\Http\Controllers\AboutController;
-=======
 
 use App\Http\Middleware;
 
->>>>>>> 4c1e0c3baaf3f2644d89cec391edb4ad136d41b8
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,7 +28,7 @@ use App\Http\Middleware;
 
 
 
-
+           
 // test routs
 Route::post('about-create',[AboutController::class,'create']);
 
