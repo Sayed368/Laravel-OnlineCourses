@@ -101,6 +101,9 @@
                                     
                                 </tbody>
                             </table>
+                            <div class="container">  
+                        {{ $users->links() }} 
+                        </div> 
                         </div>
                     </div>
                 </div>            

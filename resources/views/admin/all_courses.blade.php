@@ -105,7 +105,6 @@
                              
                        </form>
                 
-                                   
                                     </td>
                                 </tr>
                                 
@@ -113,10 +112,18 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        <div class="container">  
+                        {{ $courses->links() }} 
+                        </div> 
+
+
                     </div>
                 </div> 
-            </div>            
+            </div>         
+          
         </div>
     </div>
+
+
 
 @endsection('content')

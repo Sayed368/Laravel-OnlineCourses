@@ -24,7 +24,7 @@
     use App\Models\MemberRequest;
 
         $members=new MemberRequest;
-        $members=MemberRequest::all();
+        $members=MemberRequest::paginate(5);
         
     
     ?>
@@ -87,6 +87,10 @@
                             @endforeach
                             </tbody>
                         </table>
+
+                        <div class="container">  
+                        {{ $members->links() }} 
+                        </div> 
                     </div>
                 </div>
             </div>            

@@ -138,7 +138,7 @@ $studs=$stud->all();
                         </div>
                     </div>
                 </div><!-- Ends: .single courses -->
-            </div><!-- Ends: . -->    
+            </div><!-- Ends: . -->   
             @endif 
             @endforeach   
             @endforeach                                        

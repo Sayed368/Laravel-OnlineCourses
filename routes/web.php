@@ -24,8 +24,6 @@ use App\Http\Controllers\UpdateStudentController;
 
 
 
-
-
 use App\Http\Controllers\MailController;
 use App\Mail\SendEmail;
 
@@ -49,7 +47,7 @@ use App\Http\Middleware;
 */
 
 Route::get('/admin', function () {
-    return view('admin.feedbacks');
+    return view('admin.index');
 });
 
 
