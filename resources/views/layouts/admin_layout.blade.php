@@ -1,3 +1,5 @@
+{{-- @can('isAdmin') --}}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -312,3 +314,5 @@
   <script src="{{asset('js/addfield.js')}}"></script>  
   </body>
 </html>
+
+{{-- @endcan --}}

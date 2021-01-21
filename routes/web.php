@@ -13,17 +13,11 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ViewCourseController;
-<<<<<<< HEAD
-=======
 
 
 
 
 use App\Http\Controllers\AboutController;
-
-
-
->>>>>>> ddaf671f51865b6824ce7901e524aa1a4fcf66ec
 
 use App\Http\Controllers\EnrollController;
 
@@ -31,33 +25,18 @@ use App\Http\Controllers\UpdateStudentController;
 
 
 
-
-
-<<<<<<< HEAD
-=======
-
-
-<<<<<<< HEAD
-=======
-
-
-
-
-
->>>>>>> 450b90673e1fc8a2556efac94b42a5886145cf98
->>>>>>> ddaf671f51865b6824ce7901e524aa1a4fcf66ec
 use App\Http\Controllers\MailController;
 use App\Mail\SendEmail;
 
 
 
-<<<<<<< HEAD
-=======
 
 
 
 
->>>>>>> ddaf671f51865b6824ce7901e524aa1a4fcf66ec
+
+
+
 use App\Http\Middleware;
 
 
@@ -84,7 +63,7 @@ Route::post('about-create',[AboutController::class,'create']);
 
 Route::get('/', function () {
     return view('index');
-});
+})->name('home');
 
 
 Route::get('/course', function () {
