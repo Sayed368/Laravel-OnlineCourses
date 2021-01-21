@@ -8,10 +8,17 @@
 
 
 <?php  
+use App\Models\StudentCourse;
 use App\Models\Course;
 $course=new Course ;
-$courses=$course->all();
+$courses=$course->all(); 
+$stud= new StudentCourse;
+$studs=$stud->all();
 ?>
+
+
+
+
 
 
 <section class="teachers_profile">
@@ -20,7 +27,7 @@ $courses=$course->all();
             <div class="col-sm-5 teacher-detail-left">
                 <div class="teacher_info_wrapper">
                     <div class="teacger-image">
-                        <img src="{{asset('userimg/user.png')}}" alt="" class="img-fluid">
+                        <img src="{{ Auth::user()->profile_photo_path }}" alt="No photo selected yet" class="img-fluid">
                     </div>
                     <div class="social_wraper">
                         <ul class="social-items d-flex list-unstyled">
@@ -39,7 +46,8 @@ $courses=$course->all();
                         <div class="teacher-info">
                             <ul class="list-unstyled">
                             <li style="padding-left:270px">
-                            <button type="button" class="btn btn-info">update Info</button>
+                           
+                            <button type="submit" class="btn btn-info" href = "/edituser/{{Auth::user()->id}}"><a style="text-decoration: none ; color: white;"href = "/edituser/{{Auth::user()->id}}">update Info<a></button>
                                 </li>
                             <li>
                                     <h3>Name :</h3>
@@ -95,17 +103,20 @@ $courses=$course->all();
 
 
 
+
 <!--Start Courses Area Section-->
 <section class="popular_courses">
     <div class="container"> 
         <div class="row">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="sub_title">
-                    <h2>Courses</h2>
-                    <p>Lorem ipsum dolor sit amet mollis felis dapibus arcu donec viverra. Pede phasellus eget. Etiam maecenas vel vici quis dictum rutrum nec nisi et.</p>  
+                    <h2>My Courses</h2>
+                  
                 </div><!-- ends: .section-header -->
             </div>
-            @foreach ($courses->slice(2,5) as $course)
+            @foreach ($courses as $course)
+            @foreach ($studs as $stud)
+            @if(Auth::user()->id == $stud['student_id'] && $stud['course_id']==$course['id'])
             <div class="col-12 col-sm-6 col-md-4 col-lg-4">
                 <div class="single-courses">
                     <div class="courses_banner_wrapper">
@@ -123,11 +134,13 @@ $courses=$course->all();
                                 <li><i class="fa fa-user"></i> {{$course['duration']}} Days</li>
                                 <li><i class="fa fa-comment"></i>60 Students</li>
                             </ul>
-                            <a href="../Viewcourses/{{$course['id']}}" class="cart_btn">View details</a>
+                            <a href="../Viewcourses/{{$course['id']}}" class="cart_btn">View</a>
                         </div>
                     </div>
                 </div><!-- Ends: .single courses -->
-            </div><!-- Ends: . -->       
+            </div><!-- Ends: . -->    
+            @endif 
+            @endforeach   
             @endforeach                                        
         </div>
 

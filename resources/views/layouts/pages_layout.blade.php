@@ -9,7 +9,7 @@
     <meta name="keywords" content="HTML,CSS,XML,JavaScript">
     <meta name="author" content="Ecology Theme">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eduwise - Education HTML5 Template</title>
+    <title>Educavo</title>
     <link rel="shortcut icon" href="{{asset('images/favicon.ico')}}" type="{{asset('image/x-icon')}}">
     <link rel="shortcut icon" href="{{asset('images/favicon.ico')}}" type="image/x-icon">
     <!-- Goole Font -->
@@ -57,16 +57,17 @@
                         <div class="contact_info">                   
                             <ul class="list-unstyled">
                                 <li><i class="flaticon-phone-receiver"></i>+02-01010-752703</li>
-                                <li><i class="flaticon-mail-black-envelope-symbol"></i>Info@Eduwise.com</li>
+                                <li><i class="flaticon-mail-black-envelope-symbol"></i>Info@Educavo.com</li>
                             </ul>                    
                         </div>
                         <div class="login_info">
                             @if (Route::has('login'))
                             @auth
+                            <!-- <img src=" {{ Auth::user()->profile_photo_path }}" class="rounded-circle" width="60" height="50" style="margin-right: 17px" /> -->
   <a style="color:white;" id="navbarDropdown" class="sign_up sign-in" href="/profile" >
                                     {{ Auth::user()->name }}
     </a>&nbsp;
-    <a style="color:white;" class="dropdown-item" href="{{ route('logout') }}"
+    <a style="color:white;" class="dropdown-item" href="{{ route('logout') }}" 
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
@@ -76,8 +77,8 @@
                                         @csrf
                                     </form>
                             @else
-                        <a style="color:white;" href="/register" title="" class="sign_up sign-in">Sign Up</a>
-                        <a style="color:white;" class="nav-link" href="{{ route('login') }}">Login</a>
+                        <a style="color:white;" href="/register" title="" class="sign_up sign-in"><i class="flaticon-user-male-black-shape-with-plus-sign"></i>&nbsp;Sign Up</a>
+                        <a style="color:white;" class="nav-link" href="{{ route('login') }}"><i class="flaticon-padlock"></i>&nbsp;Login</a>
                     @endauth
                     @endif
 						</div>
@@ -103,7 +104,7 @@ $categories= Category::all();
                             <ul class="navbar-nav nav mx-auto">
 
                                 @foreach ($categories as $item)
-                                <li class="nav-item"><a href="{{Route("categorycourses.show",$item['id'])}}" class="nav-link">{{$item['name']}}</a></li>
+                                <li class="nav-item"><a href="{{Route('categorycourses.show',$item['id'])}}" class="nav-link">{{$item['name']}}</a></li>
 
                                 @endforeach
 
@@ -150,14 +151,6 @@ $categories= Category::all();
                 </div>
                 <div class="mr-auto search_area ">
                     <ul class="navbar-nav mx-auto">
-                        <li class="nav-item"><i class="search_btn flaticon-magnifier"></i>
-                            <div id="search">
-                                <button type="button" class="close">×</button>
-                                 <form>
-                                     <input type="search" value="" placeholder="Search here...."  required/>
-                                 </form>
-                            </div>
-                        </li>
                     </ul>
                 </div>
             </nav><!-- END NAVBAR -->
@@ -328,7 +321,7 @@ $categories= Category::all();
                         <p>Ante amet vitae vulputate odio nulla vel pretium aenean.</p>
                         <div class="contact_info">
                             <span>+02-01010-752703</span> 
-                            <span class="email">Info@Eduwise.com</span>
+                            <span class="email">Info@Educavo.com</span>
                         </div>
                         <ul class="social_items d-flex list-unstyled">
                             <li><a href="#"><i class="fab fa-facebook-f fb-icon"></i></a></li>
@@ -383,7 +376,7 @@ $categories= Category::all();
         <div class="switched-options">
             <div class="config-title">
                 <a class="navbar-brand" href="index-2.html"><img src="{{asset('images/logo.png')}}" alt="logo"></a>
-                <p>Education Template</p>
+                {{-- <p>ITI Students</p> --}}
                 
             </div>
             <div class="demos">

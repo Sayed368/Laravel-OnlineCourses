@@ -6,15 +6,66 @@ use App\Models\feedback;
 use App\Models\Category;
 use App\Models\Course;
 use App\Models\CategoryCourse;
-
+use App\Models\CourseVideo;
+use App\Models\StudentCourse;
 use App\Http\Controllers\UserController;
+
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ViewCourseController;
+<<<<<<< HEAD
+use App\Http\Controllers\AboutController;
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> f00c479de8a0a8ef2688db4a918fc1c102c528dc
+
+use App\Http\Controllers\EnrollController;
+
+use App\Http\Controllers\UpdateStudentController;
+
+
+>>>>>>> a869e7b62209740be84be2950ef58b8002250e4c
+
+
+
+use App\Http\Controllers\UpdateStudentController;
+
+
+<<<<<<< HEAD
+
+
+=======
+<<<<<<< HEAD
+=======
+
+>>>>>>> a869e7b62209740be84be2950ef58b8002250e4c
+>>>>>>> f00c479de8a0a8ef2688db4a918fc1c102c528dc
+
+use App\Http\Controllers\MailController;
+use App\Mail\SendEmail;
+
 use App\Http\Controllers\AboutController;
 
+<<<<<<< HEAD
+
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> 76ff8d037af0d1b9fae69003c386ca415610cc0e
+
+>>>>>>> a869e7b62209740be84be2950ef58b8002250e4c
+>>>>>>> f00c479de8a0a8ef2688db4a918fc1c102c528dc
 use App\Http\Middleware;
 
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> 76ff8d037af0d1b9fae69003c386ca415610cc0e
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,7 +77,9 @@ use App\Http\Middleware;
 |
 */
 
-
+Route::get('/admin', function () {
+    return view('admin.feedbacks');
+});
 
            
 // test routs
@@ -46,6 +99,13 @@ Route::get('/course', function () {
     })->middleware('auth');
     
 
+
+Route::get('/search', function () {
+        $serchtxt=$_GET['query'];
+        $courses=Course::where('name','LIKE','%'. $serchtxt.'%')->get();
+        return view('courses.search',["data"=>$courses]);
+       
+    });
 // Route::get('/course-details', function () {
 //     return view('courses.course-details');
 // });
@@ -64,6 +124,8 @@ Route::get('/contact', function () {
 });
 
 
+
+
 Route::post('/contact', function () {
     $feedback=new feedback;
     $feedback->name=request("name");
@@ -73,6 +135,19 @@ Route::post('/contact', function () {
     $feedback->save();
     return redirect()->back()->with('message', 'Thanks for your Feedback!');
 });
+
+Route::post('/enroll', function () {
+    $stud_cour=new StudentCourse;
+    $stud_cour->student_id=request("student_id");
+    $stud_cour->course_id=request("course_id");
+    $stud_cour->save();
+    return redirect()->back();
+});
+
+Route::get('/admin/feedback', function () {
+    return view('admin.feedbacks');
+});
+
 
 Route::get('/event', function () {
     return view('courses.event');
@@ -110,6 +185,13 @@ Route::get('/category/{id}/courses', function ($id) {
 
 
 
+
+
+
+
+
+
+
 // Route::get('/teacher-profile', function () {
 //     return view('courses.teacher-profile');
 // });
@@ -127,13 +209,18 @@ Route::get('/become-a-teacher', function () {
 
 
 
-Route::get('/player', function () {
-    return view('courses.video_player');
-});
+// Route::get('/player', function () {
+//     return view('courses.video_player');
+// });
+
+
+
 
 // end test routs
-Route::resource("courses",CourseController::class);
+//Route::get('/courses/{id}', 'App\Http\Controllers\VideoController@index');
 
+Route::resource("courses",CourseController::class);
+Route::resource("videos" , App\Http\Controllers\VideoController::class);
 Route::resource("Viewcourses",ViewCourseController::class);
 // Route::get('/admin', function () {
 //     return view('admin.all_users');
@@ -226,7 +313,7 @@ Route::resource("Viewcourses",ViewCourseController::class);
 
 Route::resource("categories",CategoryController::class);
 
-
+// Route::resource("enroll",EnrollController::class);
 // // resource routes
 
 //         // Route::resource('user', Usercontroller::class);
@@ -238,14 +325,63 @@ Route::resource("categories",CategoryController::class);
 Route::resource('users', Usercontroller::class);
 
 
+Route::get('/send-email/{id}', [MailController::class,'SendEmail'])->name("sendemail");
+
+Route::post('/edituser/{id}',"App\Http\Controllers\UpdateStudentController@update");
+
+Route::get('/edituser/{id}',"App\Http\Controllers\UpdateStudentController@edit");
+
+Route::get('/admin/member_request', function () {
+    return view('admin.view_member_request');
+})->name("membersRequest");
+
+Route::get('/admin/course/{id}/videos', function ($id) {
+    
+    $course=new Course;
+    $course=$course->findorfail($id);
+  //  $videos=$course->video;
+    // dd($course);
+    return view('admin.viewVideos',["course"=>$course]);
+})->name("corsevideos");
+
+
+Route::get('/course/{id}/videos', function ($id) {
+    
+    $course=new Course;
+    $course=$course->findorfail($id);
+    if(isset($course['video'][0]))
+    {
+        $video=$course['video'][0]['video_url'];
+    }
+    else{
+        $video=0;
+    }
+    return view('courses.video_player',["course"=>$course,'video'=>$video]);
+})->name("viewcourse");
+
+
+Route::get('/course/videos/{id}', function ($id) {
+    $video=new CourseVideo;
+    $course=new Course;
+    $video=$video->findorfail($id);
+    $course=$course->findorfail($video['course_id']);
+    $video=$video['video_url'];
+    // dd($course);
+    return view('courses.video_player',["course"=>$course,'video'=>$video]);
+})->name("changevideo");
 
 
 
+// Route::get('/admin/videos/create/{id}', function ($id) {
+//     //dd($id);
+//     $course=new Course;
+//     $course=$course->findorfail($id);
+//   //  $videos=$course->video;
+//     dd($course);
+//     return view('admin.addVideo',["course"=>$course]);
+// })->name("createvideo");
 
-
-
-
-
+// Route::get("/user/{user}/posts",'App\Http\Controllers\CourseController@addVideos')->name("videoadd");
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

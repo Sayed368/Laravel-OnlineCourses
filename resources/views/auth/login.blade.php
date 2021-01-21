@@ -1,6 +1,6 @@
 <style> 
 .min-h-screen{
-    background-image: url("images/360_F_239399223_tthRTvt26El5ccmyQIck9ySsHKgX5YBo_1_1250x426.jpg");
+    background-image: url("images/pngtree-business-fashion-3c-product-course-stationery-notebook-advertising-background-image_135387_2_1366x500.jpg");
     background-repeat: no-repeat;
   background-size: cover;
 }

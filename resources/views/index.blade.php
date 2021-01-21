@@ -35,7 +35,7 @@ $courses= Course::all();
 
 			<div class="col-12 col-sm-6 col-md-4 col-lg-4 single_features_wrapper">
 				<div class="feature_single feature_single_3">
-					<img src="images/features/courses_provide_3.jpg" alt="">
+					<img src="{{$item['image']}}" alt="">
 					<div class="feature_content">
 						<a href="{{Route("categorycourses.show",$item['id'])}}" title=""><h3>{{$item['name']}}</h3></a>
 						<p>Over 450 Courses</p>
@@ -130,7 +130,10 @@ $courses= Course::all();
 
 
 
-<!-- <section class="video_online">
+
+
+{{-- 
+<section class="video_online">
 	<div class="container">
 		<div class="row">
 			<div class="col-12 col-sm-12 col-md-12 col-lg-12">
@@ -185,7 +188,11 @@ $courses= Course::all();
 	</div>
 	<div class="bg_shapes">
 	</div>
-</section>End ONline Video -->
+</section>End ONline Video  --}}
+
+
+
+
 <?php
 use App\Models\feedback;
 $feedback=new feedback;

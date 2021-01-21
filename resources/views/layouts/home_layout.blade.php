@@ -8,7 +8,7 @@
 	<meta name="keywords" content="HTML,CSS,XML,JavaScript">
 	<meta name="author" content="Ecology Theme">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Eduwise </title>
+	<title>Educavo</title>
 	<link rel="shortcut icon" href="{{asset('images/favicon.ico')}}" type="image/x-icon">
 	<!-- Goole Font -->
 	<link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet">
@@ -53,7 +53,7 @@
 						<div class="contact_info">                   
 							<ul class="list-unstyled">
                                 <li><i class="flaticon-phone-receiver"></i>+02-01010-75270</li>
-        						<li><i class="flaticon-mail-black-envelope-symbol"></i>Info@Eduwise.com</li>
+        						<li><i class="flaticon-mail-black-envelope-symbol"></i>Info@Educavo.com</li>
         					</ul>                
 						</div>
 						<div class="login_info">
@@ -151,14 +151,14 @@ $categories= Category::all();
                 </div>
                 <div class="mr-auto search_area ">
                     <ul class="navbar-nav mx-auto d-flex">
-                        <li class="nav-item search_icon"><i class="search_btn flaticon-magnifier"></i>
+                        <!-- <li class="nav-item search_icon"><i class="search_btn flaticon-magnifier"></i>
                             <div id="search">
                                 <button type="button" class="close">×</button>
                                  <form>
                                      <input type="search" value="" placeholder="Search here...."  required/>
                                  </form>
                             </div>
-                        </li>
+                        </li> -->
                         <!-- <li class="nav-item cart_icon"><i class="flaticon-shopping-bag"><p>2</p></i> 
                     	 	<div class="cart_list">
                                 <div class="single_cart d-flex justify-content-between">
@@ -208,17 +208,18 @@ $categories= Category::all();
 			<div class="row">        
 				 <div class="col-sm-12 col-md-8 col-lg-8">
 					<div class="intro_text">
-						<h1>Take The World's Best Courses Online.</h1>
-						<p>Ante amet vitae vulputate odio nulla vel pretium pulvinar aenean.<br> Poncus eget adipiscing etiam arcu Ultricies.</p>
-						<div class="intro_button">
+						<h1>Make the most of your online learning experience.</h1>
+						<p>Our Online Learning Resource Center has tips, tricks and inspiring <br>stories to help you learn while staying home.
+.</p>
+						{{-- <div class="intro_button">
 							<a href="#" class="nav-link">Start my free month</a>
-						</div>
+						</div> --}}
 					</div>
 				</div>				
 				<div class="col-sm-12 col-md-12 col-lg-12">
 					<div class="search_wrapper">
 						<div class="search-option" >
-							<form action="#">
+							<form action="{{url('/search')}}" type="get">
 								<div class="dropdown dropdown-toggle"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 									<div class="all-categories "><span>Categories</span> <i class="cat_icon flaticon-down-arrow"></i></div>
 									<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -235,7 +236,7 @@ $categories= Category::all();
 									</ul>
 								</div>
 								<div class="form-group d-flex">
-									<input placeholder="What do you want to learn today?" type="email" required="">
+									<input placeholder="What do you want to learn today ?" type="text" name="query" required="">
 								</div>
 								<div class="submit-btn">
 									<button type="submit" class="text-center">Search</button>
@@ -359,7 +360,7 @@ $categories= Category::all();
 					<div class="sub_title">
 						<h2>Become A Instractor</h2>
 						<p>Lorem ipsum dolor sit amet mollis felis dapibus arcu donec viverra. Pede phasellus eget. Etiam maecenas vel vici quis dictum rutrum nec nisi et.</p>  
-					</div><!-- ends: .section-header -->
+					</div>ends: .section-header -->
 					<!-- <div class="envent_all_view">
 						<a href="#" title="">Start my free month</a>
 					</div>
@@ -393,7 +394,7 @@ $categories= Category::all();
 						<p>Ante amet vitae vulputate odio nulla vel pretium aenean.</p>
 						<div class="contact_info">
 							<span>+02-01010-752703</span> 
-							<span class="email">Info@Eduwise.com</span>
+							<span class="email">Info@Educavo.com</span>
 						</div>
 						<ul class="social_items d-flex list-unstyled">
 							<li><a href="#"><i class="fab fa-facebook-f fb-icon"></i></a></li>
@@ -446,7 +447,7 @@ $categories= Category::all();
         <a id="toggle-switcher" class="switch-button" title="Change Styles"><span class="fa fa-cog fa-spin"></span></a>
         <div class="switched-options">
             <div class="config-title">
-                <a class="navbar-brand" href="index-2.html"><img src="images/logo.png" alt="logo"></a>
+                <a class="navbar-brand" href="/index"><img src="images/logo.png" alt="logo"></a>
                 
                 
             </div>
