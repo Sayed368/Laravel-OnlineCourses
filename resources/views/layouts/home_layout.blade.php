@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<!-- Required meta tags -->
+	<!-- Required meta tags -->    
 	<meta charset="UTF-8">
 	<meta name="description" content="">
 	<meta name="keywords" content="HTML,CSS,XML,JavaScript">
@@ -98,8 +98,13 @@ $categories= Category::all();
 
                         <li class="nav-item"><a href="/" class="nav-link active">Home</a></li>
                         
-                        <li class="nav-item"><a href="/course" class="nav-link">Courses</a>
-                            <ul class="navbar-nav nav mx-auto">
+                        <li class="nav-item"><a href="/course" class="nav-link">Courses</a></li>
+                        
+						{{-- <li class="nav-item"><a href="/course" class="nav-link">Categories</a>
+                             
+                        </li> --}}
+                        <li class="nav-item"><a href="/team" class="nav-link">Categories</a>
+                              <ul class="navbar-nav nav mx-auto">
 
 
                                 
@@ -110,11 +115,6 @@ $categories= Category::all();
 								
                             </ul>
                         </li>
-                        
-						{{-- <li class="nav-item"><a href="/course" class="nav-link">Categories</a>
-                             
-                        </li> --}}
-
                         <li class="nav-item"><a href="/team" class="nav-link">Instractors</a></li>
                         <li class="nav-item"><a href="/blog" class="nav-link">Blog</a></li>
                         <!-- <li class="nav-item"><a href="#" class="nav-link">Pages</a>
@@ -373,27 +373,16 @@ $categories= Category::all();
 						<p>Our Online Learning Resource Center has tips, tricks and inspiring stories to help<br> you learn while staying home.</p>
 					</div>
 				</div>
-				<div class="col-12 col-md-6 col-lg-2">
-					<div class="footer_single_col">
-						<h3>Useful Links</h3>
-						<ul class="quick_inf0">
-							<li><a href="#">Leadereship</a></li>
-							<li><a href="#">Company</a></li>
-							<li><a href="#">Diversity</a></li>
-							<li><a href="#">Jobs</a></li>
-							<li><a href="#">Press</a></li>
-						</ul>                         
-					</div>
-				</div>
+				
 				<div class="col-12 col-md-6 col-lg-2">
 					<div class="footer_single_col information">
 						<h3>information</h3>
 						<ul class="quick_inf0">
-							<li><a href="#">Leadereship</a></li>
-							<li><a href="#">Company</a></li>
-							<li><a href="#">Diversity</a></li>
-							<li><a href="#">Jobs</a></li>
-							<li><a href="#">Press</a></li>
+							<li><a href="http://127.0.0.1:8000/">HOME</a></li>
+							<li><a href="/course">COUSRSES</a></li>
+							<li><a href="/team">INSTRACTORS</a></li>
+							<li><a href="/blog">BLOG</a></li>
+							<li><a href="/about">ABOUT US</a></li>
 						</ul>
 					</div>
 				</div>

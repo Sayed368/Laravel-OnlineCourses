@@ -13,8 +13,19 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ViewCourseController;
+<<<<<<< HEAD
 
 
+=======
+<<<<<<< HEAD
+use App\Http\Controllers\AboutController;
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> f00c479de8a0a8ef2688db4a918fc1c102c528dc
+>>>>>>> 1783aef52d015462eaebeaed7b73e4c592a9db95
 
 use App\Http\Controllers\EnrollController;
 
@@ -37,12 +48,22 @@ use App\Mail\SendEmail;
 use App\Http\Controllers\AboutController;
 
 
+<<<<<<< HEAD
+=======
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> 76ff8d037af0d1b9fae69003c386ca415610cc0e
+>>>>>>> 1783aef52d015462eaebeaed7b73e4c592a9db95
 
 use App\Http\Middleware;
 
+<<<<<<< HEAD
+=======
 
 
 
+>>>>>>> 76ff8d037af0d1b9fae69003c386ca415610cc0e
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -58,7 +79,7 @@ Route::get('/admin', function () {
     return view('admin.feedbacks');
 });
 
-
+           
 // test routs
 Route::post('about-create',[AboutController::class,'create']);
 
