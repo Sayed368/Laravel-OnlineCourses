@@ -18,7 +18,10 @@ use App\Http\Controllers\EnrollController;
 use App\Http\Controllers\UpdateStudentController;
 use App\Http\Controllers\MailController;
 use App\Mail\SendEmail;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 64574fcaedfb3f70217615cd4ee3804bff34ec08
 use App\Http\Middleware;
 
 

@@ -24,7 +24,7 @@
             <div class="col-12 col-sm-12 col-md-7 col-lg-7">
                 <div class="about_title">
                     <span>About Us</span>
-                    <h2>The most gorgeous online schools are built Eduwise.</h2>
+                    <h2>Improving Lives Through Learning</h2>
                  </div>
             </div>
             <div class="col-12 col-sm-12 col-md-5 col-lg-5 p-0">
@@ -41,9 +41,8 @@
             </div>
             <div class="col-12 col-sm-12 col-md-7 col-lg-7">
                 <div class="about_content">
-<p>By connecting students all over the world to the best instructors, Udemy is helping individuals reach their goals and pursue their dream 
-    we  helps organizations of all kinds prepare for the ever-evolving future of work. Our curated collection of top-rated business and technical courses gives companies, governments, and nonprofits the power to develop in-house expertise and satisfy employees’ hunger for learning and development.
-</p>                    <a href="#" title="">Read More About Us <i class="fas fa-angle-right"></i></a>
+<h3>We’ve got the solution: world-class training and development programs developed by top universities and companies. All on Educavo for Business.
+</h3>                    
                  </div>
             </div>
         </div>
@@ -57,8 +56,8 @@
         <div class="row">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="sub_title">
-                    <h2>Unlimited Possibilities</h2>
-                    <p>Lorem ipsum dolor sit amet mollis felis dapibus arcu donec viverra. Pede phasellus eget. Etiam maecenas vel vici quis dictum rutrum nec nisi et.</p>  
+                    <h2>The leading global marketplace for learning and instruction</h2>
+                    <p>By connecting students all over the world to the best instructors, Udemy is helping individuals reach their goals and pursue their dreams</p>  
                 </div><!-- ends: .section-header -->
             </div>
             <div class="col-12 col-sm-6 col-md-4 col-lg-4">
@@ -67,8 +66,8 @@
                         <i class="flaticon-student"></i>
                     </div>
                     <div class="blog_title">
-                        <h3><a href="#" title="">Learn anywhere</a></h3> 
-                        <p>Lorem ipsum dolor consectetur sed do tempor incididunt ut laboris ut aliquip ex commodo nt ut laboris ut aliquip ex commodo conquat.</p>                    
+                        <h3><a href="#" title="">Learn the latest skills</a></h3> 
+                        <p>like business analytics, graphic design, Python, and more..</p>                    
                     </div>   
                 </div>
             </div>
@@ -78,8 +77,8 @@
                         <i class="flaticon-university"></i>
                     </div>
                     <div class="blog_title">
-                        <h3><a href="#" title="">Our Mission</a></h3> 
-                        <p>Lorem ipsum dolor consectetur sed do tempor incididunt ut laboris ut aliquip ex commodo nt ut laboris ut aliquip ex commodo conquat.</p>                    
+                        <h3><a href="#" title="">Learn on your schedule</a></h3> 
+                        <p>Self-paced learning - whenever and wherever you want. .</p>                    
                     </div>   
                 </div>
             </div>
@@ -90,7 +89,7 @@
                     </div>
                     <div class="blog_title">
                         <h3><a href="#" title="">Diploma Course</a></h3> 
-                        <p>Lorem ipsum dolor consectetur sed do tempor incididunt ut laboris ut aliquip ex commodo nt ut laboris ut aliquip ex commodo conquat.</p>
+                        <p>with on-demand training and development programs</p>
                     </div>   
                 </div>
             </div>            
@@ -101,7 +100,8 @@
                     </div>
                     <div class="blog_title">
                         <h3><a href="#" title="">Physical Activity</a></h3> 
-                        <p>Lorem ipsum dolor consectetur sed do tempor incididunt ut laboris ut aliquip ex commodo nt ut laboris ut aliquip ex commodo conquat.</p>                    
+                        <p>
+ physical activity as any bodily movement produced by skeletal muscles that requires energy expenditure. </p>                    
                     </div>   
                 </div>
             </div>
@@ -112,7 +112,7 @@
                     </div>
                     <div class="blog_title">
                         <h3><a href="#" title="">Book Library</a></h3> 
-                        <p>Lorem ipsum dolor consectetur sed do tempor incididunt ut laboris ut aliquip ex commodo nt ut laboris ut aliquip ex commodo conquat.</p>                    
+                        <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic</p>                    
                     </div>   
                 </div>
             </div>
@@ -123,7 +123,8 @@
                     </div>
                     <div class="blog_title">
                         <h3><a href="#" title="">Love & Care</a></h3> 
-                        <p>Lorem ipsum dolor consectetur sed do tempor incididunt ut laboris ut aliquip ex commodo nt ut laboris ut aliquip ex commodo conquat.</p>
+                        <p>Reach out to our mentors and have your questions answered quickly.
+                        your questions answered quickly</p>
                     </div>   
                 </div>
             </div>             
@@ -183,7 +184,7 @@
             </div>
             <div class="col-12 col-sm-12 col-md-7 col-lg-7 form-content">
                 <h2>All study opportunities<br>in one single place</h2>
-                <p>Lorem ipsum dolor sit amet mollis felis dapibus arcu donec viverra. Pede phasellus<br> eget.felis dapibus arcu donec viverra. Pede phasellus eget. Etiam maecenas vel<br> vici quis dictum rutrum nec nisi et.</p>
+                <p>Educavo helps organizations of all kinds prepare for the ever-evolving future of work. Our curated collection of top-rated business and technical courses gives companies, governments, and nonprofits the power to develop in-house expertise and satisfy employees’ hunger for learning and development..</p>
                 <div class="count_student">
                     <div class="single_count">
                         <span class="counter">54000</span>
@@ -213,8 +214,8 @@
         <div class="row">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="sub_title">
-                    <h2>Everything Is Eduwise</h2>
-                    <p>Lorem ipsum dolor sit amet mollis felis dapibus arcu donec viverra. Pede phasellus eget. Etiam maecenas vel vici quis dictum rutrum nec nisi et.</p>  
+                    <h2>Everything Is Educavo</h2>
+                    <p>Educavo is the leading global marketplace for teaching and learning, connecting millions of students to the skills they need to succeed..</p>  
                 </div><!-- ends: .section-header -->
             </div>
         </div>
@@ -265,7 +266,6 @@
             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="sub_title">
                     <h2>Frequently asked Questions</h2>
-                    <p>Lorem ipsum dolor sit amet mollis felis dapibus arcu donec viverra. Pede phasellus eget. Etiam maecenas vel vici quis dictum rutrum nec nisi et.</p>  
                 </div><!-- ends: .section-header -->
             </div>
         </div>           
@@ -273,29 +273,22 @@
             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="faq_wrapper">
                     <div class="single_faq">
-                        <h3><span>1</span>What is the refund policy?</h3>
-                        <p>Lorem ipsum dolor sit amet mollis felis dapibus arcu donec viverra. Pede phasellus eget maecLorem ipsum dolor sit amet mollis felis dapibus arcu donec viverra. Pede phasellus eget maecenas.</p>  
+                        <h3><span>1</span>What Leadership Skills do Business People Need?</h3>
+                        <p>Our world is constantly changing. If businesses are to survive, they need to change, too. While many factors influence an organization’s suc...</p>  
                     </div>                    
                     <div class="single_faq">
-                        <h3><span>2</span>What is the refund policy?</h3>
-                        <p>Lorem ipsum dolor sit amet mollis felis dapibus arcu donec viverra. Pedsum dolor sit amet mollis felis dapibus arcu donec viverra. Pede phasellus eget maecenas.</p>   
+                        <h3><span>2</span>Why You need Learn Python</h3>
+                        <p>LPython is one of the most loved programming languages by developers, data scientists, software engineers and even hackers because of its versatility, flexibility,and object-oriented features...</p>   
                     </div>                   
                      <div class="single_faq">
-                        <h3><span>3</span>What is the refund policy?</h3>
-                        <p>Lorem ipsum dolor sit amet mollis felis dapibus arcu donec viverra. Pede phaselsit amet mollis felis dapibus arcu donec viverra. Pede phasellus eget maecenas.</p>  
+                        <h3><span>3</span>What is UX Design and Why Study it?</h3>
+                        <p>Have you ever thought about what goes into the creation of a brand? If you are interested in working with companies to help develop a product from start to finish as well as get it into the..</p>  
                     </div>
                     <div class="single_faq">
-                        <h3><span>4</span>What is the refund policy?</h3>
+                        <h3><span>4</span>How to become a UX designer?</h3>
                         <p>Lorem ipsum dolor sit amet mollis felis dapibus arcu donec viverra. Pede phaseamet mollis felis dapibus arcu donec viverra. Pede phasellus eget maecenas.</p>  
                     </div>                    
-                    <div class="single_faq">
-                        <h3><span>5</span>What is the refund policy?</h3>
-                        <p>Lorem ipsum dolor sit amet mollis felis dapibus arcu donec viverra. Pede phasellus egelis felis dapibus arcu donec viverra. Pede phasellus eget maecenas.</p>   
-                    </div>                   
-                     <div class="single_faq">
-                        <h3><span>6</span>What is the refund policy?</h3>
-                        <p>Lorem ipsum dolor sit amet mollis felis dapibus arcu donec viverra. Pede phasellus eget sit amet mollis felis dapibus arcu donec viverra. Pede phasellus eget maecenas.</p>  
-                    </div>
+                    
                  </div>
             </div>
         </div>
