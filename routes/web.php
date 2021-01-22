@@ -55,7 +55,7 @@ use App\Http\Middleware;
 
 Route::get('/admin', function () {
     return view('admin.index');
-});
+})->middleware("auth")->middleware("is_admin");
 
            
 // test routs
@@ -126,7 +126,7 @@ Route::post('/enroll', function () {
 
 Route::get('/admin/feedback', function () {
     return view('admin.feedbacks');
-})->name('feedback.index');
+})->name('feedback.index')->middleware("auth")->middleware("is_admin");
 
 
 Route::get('/event', function () {
@@ -320,6 +320,7 @@ Route::get('/admin/member_request', function () {
     return view('admin.view_member_request');
 })->name("membersRequest")->middleware('auth');
 
+
 Route::get('/admin/course/{id}/videos', function ($id) {
     
     $course=new Course;
@@ -332,23 +333,35 @@ Route::get('/admin/course/{id}/videos', function ($id) {
 
 Route::get('/course/{id}/videos', function ($id) {
     
+
     $course=new Course;
     $course=$course->findorfail($id);
-    if(isset($course['video'][0]))
-    {
-        $video=$course['video'][0]['video_url'];
 
+    
+
+    if(sizeof($course['video']))
+    {
+        
+        $next = CourseVideo::where('id', '>', $course['video'][0]['id'])->where('course_id','=',$course['id'])->orderBy('id','asc')->first();
+        $previous = CourseVideo::where('id', '<', $course['video'][0]['id'])->where('course_id','=',$course['id'])->orderBy('id','desc')->first();
+    
+        $video=$course['video'][0]['video_url'];
         $video_id=$course['video'][0]['id'];
+        // dd($video);
     }
     else{
+        
         $video=0;
+        $next=0;
+        $previous =0;
         $video_id=0;
+        // dd($next);
     }
 
 
 
     
-    return view('courses.video_player',["course"=>$course,'video'=>$video,'video_id'=>$video_id]);
+    return view('courses.video_player',["course"=>$course,'video'=>$video,'next'=>$next,'previous'=>$previous]);
 })->name("viewcourse")->middleware("auth");
 
 

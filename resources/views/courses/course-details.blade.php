@@ -180,7 +180,7 @@
                         <div class="archives-items">
                             <ul class="list-unstyled">
                                 @foreach ($categories as $item)
-                                <li><a href="#" title="">{{$item['name']}} </a></li>
+                                <li><a href="{{Route('categorycourses.show',$item['id'])}}" title="">{{$item['name']}} </a></li>
                                 @endforeach
                                 {{-- <li><a href="#" title="">Art & Design </a></li>
                                 <li><a href="#" title="">Busness</a></li>

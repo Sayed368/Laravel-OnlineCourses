@@ -60,7 +60,7 @@
                             @if (Route::has('login'))
                             @auth
   <a id="navbarDropdown" class="sign_up sign-in" href="/profile" >
-                                    {{ Auth::user()->name }}
+                                  Hello:{{ Auth::user()->name }}
     </a>&nbsp;
     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
