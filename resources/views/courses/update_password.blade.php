@@ -42,7 +42,7 @@ $user->all();
                     <div class="col-sm-8">
                         <div class="teacher-info">
                             <ul class="list-unstyled">
-                            <li><h2>here you can update your information..</h2></li>
+                            <li><h2>here you can update your password...</h2></li>
                             
                             <form action ="{{ action('App\Http\Controllers\UpdatePasswordController@update', Auth::user()->id) }}" method="post" enctype="multipart/form-data">
                             @csrf
