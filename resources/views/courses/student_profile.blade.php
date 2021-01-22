@@ -141,14 +141,15 @@ $studs=$stud->all();
                     </div>
                     <div class="courses_info_wrapper">
                         <div class="courses_title">
-                            <h3><a href="#">{{$course['name']}}</a></h3>
+                            <h3><a href="{{route('Viewcourses.show',$course['id'])}}">{{$course['name']}}</a></h3>
+                            <div class="teachers_name">Teacher - <a href="#" title="">{{$course['instructor']['name']}}</a></div>
                         </div>
                         <div class="courses_info">
                             <ul class="list-unstyled">
                                 <li><i class="fa fa-user"></i> {{$course['duration']}} Days</li>
                                 <li><i class="fa fa-comment"></i>60 Students</li>
                             </ul>
-                            <a href="../Viewcourses/{{$course['id']}}" class="cart_btn">View</a>
+                            <a href="{{route('Viewcourses.show',$course['id'])}}" class="cart_btn">View Details</a>
                         </div>
                     </div>
                 </div><!-- Ends: .single courses -->

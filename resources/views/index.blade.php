@@ -108,7 +108,7 @@ $courses= Course::all();
                     </div>
                     <div class="courses_info_wrapper">
                         <div class="courses_title">
-                            <h3><a href="#">{{$item['name']}}</a></h3>
+                            <h3><a href="{{route('Viewcourses.show',$item['id'])}}">{{$item['name']}}</a></h3>
                             <div class="teachers_name">Teacher - <a href="#" title="">{{$item['instructor']['name']}}</a></div>
                         </div>
                         <div class="courses_info">
