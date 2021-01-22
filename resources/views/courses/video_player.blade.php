@@ -14,6 +14,8 @@
 
 
 
+@if ($video!==0)
+    
 
 
 <!-- video player -->
@@ -90,6 +92,20 @@
 
 </div>
 <!-- End video player -->
+
+@else
+
+<div class="container">
+    <div class="row m-5">
+        <div class="col">
+            <h1 class="text-danger text-center">No Videos Found</h1>
+        </div>
+    </div>
+</div>
+
+
+    
+@endif
 
 
 
