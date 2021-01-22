@@ -130,68 +130,7 @@ $courses= Course::all();
 
 
 
-
-
-{{-- 
-<section class="video_online">
-	<div class="container">
-		<div class="row">
-			<div class="col-12 col-sm-12 col-md-12 col-lg-12">
-				<div class="sub_title">
-					<h2>Watch Online Video</h2>
-				</div>
-			</div>
-			<div class="col-12 col-sm-12 col-md-12 col-lg-12">
-				<div class="video_wrapper">
-				   <div class="video_banner">
-					   <img src="images/banner/video_mockup.png" alt="">
-						<div class="video_view_btn">
-							<a href="https://www.youtube.com/watch?v=zoQ8C0r6Djw" class="video-iframe"><i class="flaticon-play-button"></i></a>
-						</div>
-				   </div>
-				   <div class="shape_video">
-				   		<img src="images/shapes/video_1.png" alt="" class="shape_1"> 
-				   		<img src="images/shapes/video_2.png" alt="" class="shape_2">        
-				   </div>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-6 col-sm-6 col-md-3 col-lg-3 counter_single_wrapper">
-				<div class="section count_single">
-					<div class="project-count counter">7096</div>
-					<span>Active students</span>
-				</div>
-			</div>
-
-			<div class="col-6 col-sm-6 col-md-3 col-lg-3 counter_single_wrapper">
-				<div class="section count_single">
-					<div class="project-count counter">508</div>
-					<span>Online Courses</span>
-				</div>  
-			</div>  
-
-			<div class="col-6 col-sm-6 col-md-3 col-lg-3 counter_single_wrapper">
-				<div class="section count_single">
-					<div class="project-count"><span class="counter">100</span><span class="count_icon">%</span></div>
-					<span>Satisfaction</span>
-				</div>
-			</div>
-
-			<div class="col-6 col-sm-6 col-md-3 col-lg-3 counter_single_wrapper">
-				<div class="section count_single">
-					<div class="project-count counter">70</div>
-					<span>Fraduates</span>
-				</div>  
-			</div>  
-		</div>
-	</div>
-	<div class="bg_shapes">
-	</div>
-</section>End ONline Video  --}}
-
-
-
+ 
 
 <?php
 use App\Models\feedback;
@@ -252,7 +191,7 @@ $feedbacks=$feedback->all();
 			</div>
 		</div>      
 		<div class="row">
-@foreach ($users->slice(0,6) as $user)
+@foreach ($users->slice(0,7) as $user)
 @if($user['role']=='instructor')
 			<div class="col-12 col-sm-6 col-md-6 col-lg-4">
 				<div class="testimonial_single">

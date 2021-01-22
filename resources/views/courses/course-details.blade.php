@@ -70,7 +70,7 @@
                            @endauth
                             @endif --}}
 
-                            
+
                             </div>
 
 
@@ -104,7 +104,6 @@
                                     <li>Use Express and MongoDB to create full-stack JS applications.</li>
                                 </ul>                              
                                 <h3>Learning Outcomes <span>:</span></h3>
-                                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
                                 <ul class="step_point">
                                     <li>Over 37 lectures and 55.5 hours of content!</li>
                                     <li>LIVE PROJECT End to End Software Testing Training Included.</li>
@@ -160,14 +159,14 @@
                         </div>
                         <div class="features_items">
                             <ul class="list-unstyled">
-                                <li><a href="#" title=""><i class="flaticon-page"></i> Lessons </a><span>69</span></li>
+                                <li><a href="#" title=""><i class="flaticon-page"></i> Lessons </a><span>{{$course['content']}}</span></li>
                                 <li><a href="#" title=""><i class="flaticon-eye-open"></i> Viewers</a><span>56</span></li>
-                                <li><a href="#" title=""><i class="flaticon-clock-circular-outline"></i> Duration</a><span>5H</span></li>
+                                <li><a href="#" title=""><i class="flaticon-clock-circular-outline"></i> Duration</a><span>{{$course['duration']}} Hours</span></li>
                                 <li><a href="#" title=""><i class="flaticon-padlock"></i> Prequisite</a><span>No</span></li>
-                                <li><a href="#" title=""><i class="flaticon-diploma"></i> Certificate</a><span>Yes</span></li>                                
+                                <li><a href="#" title=""><i class="flaticon-diploma"></i> Certificate</a><span>NO</span></li>                                
                                 <li><a href="#" title=""><i class="flaticon-language"></i> Language</a><span>Eng</span></li>                                
                                 <li><a href="#" title=""><i class="flaticon-thumbs-up-hand-symbol"></i> Skills</a><span>Any</span></li>                                
-                                <li><a href="#" title=""><i class="flaticon-edit"></i> Assessments</a><span>Yes</span></li>
+                                <li><a href="#" title=""><i class="flaticon-edit"></i> Assessments</a><span>NO</span></li>
                             </ul>
                         </div>
                         <img src="{{asset('images/shapes/testimonial_2_shpe_2.png')}}" alt="" class="courses_feaures_shpe">
@@ -192,12 +191,7 @@
                                 @foreach ($categories as $item)
                                 <li><a href="{{Route('categorycourses.show',$item['id'])}}" title="">{{$item['name']}} </a></li>
                                 @endforeach
-                                {{-- <li><a href="#" title="">Art & Design </a></li>
-                                <li><a href="#" title="">Busness</a></li>
-                                <li><a href="#" title="">IT & Software</a></li>
-                                <li><a href="#" title="">Languages</a></li>
-                                <li><a href="#" title="">Programming</a></li>                                
-                                <li><a href="#" title="">Technology</a></li> --}}
+                                 
                             </ul>
                         </div>
                     </div>  
@@ -260,113 +254,7 @@
                     @endforeach
 
 
-{{-- 
-                    <div class="single-courses">
-                        <div class="courses_banner_wrapper">
-                            <div class="courses_banner"><a href="#"><img src="{{asset('images/courses/courses_2.jpg')}}" alt="" class="img-fluid"></a></div>
-                            <div class="purchase_price">
-                                <a href="#" class="read_more-btn">Free</a>
-                            </div>
-                        </div>
-                        <div class="courses_info_wrapper">
-                            <div class="courses_title">
-                                <h3><a href="#">How To Be A Speaker</a></h3>
-                                <div class="teachers_name">Teacher - <a href="#" title="">Denise Wood</a></div>
-                            </div>
-                            <div class="courses_info">
-                                <ul class="list-unstyled">
-                                    <li><i class="fa fa-user"></i> 180 Days</li>
-                                    <li><i class="fa fa-comment"></i>50 Students</li>
-                                </ul>
-                                <a href="#" class="cart_btn">Add to Cart</a>
-                            </div>
-                        </div>
-                    </div><!-- Ends: .single courses -->
-
-                    <div class="single-courses">
-                        <div class="courses_banner_wrapper">
-                            <div class="courses_banner"><a href="#"><img src="{{asset('images/courses/courses_3.jpg')}}" alt="" class="img-fluid"></a></div>
-                            <div class="purchase_price">
-                                <a href="#" class="read_more-btn">Free</a>
-                            </div>
-                        </div>
-                        <div class="courses_info_wrapper">
-                            <div class="courses_title">
-                                <h3><a href="#">Network Introductions</a></h3>
-                                <div class="teachers_name">Teacher - <a href="#" title="">Preston Marshall</a></div>
-                            </div>
-                            <div class="courses_info">
-                                <ul class="list-unstyled">
-                                    <li><i class="fa fa-user"></i> 140 Days</li>
-                                    <li><i class="fa fa-comment"></i>60 Students</li>
-                                </ul>
-                                <a href="#" class="cart_btn">Add to Cart</a>
-                            </div>
-                        </div>
-                    </div>                     
-                    <div class="single-courses">
-                        <div class="courses_banner_wrapper">
-                            <div class="courses_banner"><a href="#"><img src="{{asset('images/courses/courses_3.jpg')}}" alt="" class="img-fluid"></a></div>
-                            <div class="purchase_price">
-                                <a href="#" class="read_more-btn">Free</a>
-                            </div>
-                        </div>
-                        <div class="courses_info_wrapper">
-                            <div class="courses_title">
-                                <h3><a href="#">Network Introductions</a></h3>
-                                <div class="teachers_name">Teacher - <a href="#" title="">Preston Marshall</a></div>
-                            </div>
-                            <div class="courses_info">
-                                <ul class="list-unstyled">
-                                    <li><i class="fa fa-user"></i> 140 Days</li>
-                                    <li><i class="fa fa-comment"></i>60 Students</li>
-                                </ul>
-                                <a href="#" class="cart_btn">Add to Cart</a>
-                            </div>
-                        </div>
-                    </div>                     
-                    <div class="single-courses">
-                        <div class="courses_banner_wrapper">
-                            <div class="courses_banner"><a href="#"><img src="{{asset('images/courses/courses_3.jpg')}}" alt="" class="img-fluid"></a></div>
-                            <div class="purchase_price">
-                                <a href="#" class="read_more-btn">Free</a>
-                            </div>
-                        </div>
-                        <div class="courses_info_wrapper">
-                            <div class="courses_title">
-                                <h3><a href="#">Network Introductions</a></h3>
-                                <div class="teachers_name">Teacher - <a href="#" title="">Preston Marshall</a></div>
-                            </div>
-                            <div class="courses_info">
-                                <ul class="list-unstyled">
-                                    <li><i class="fa fa-user"></i> 140 Days</li>
-                                    <li><i class="fa fa-comment"></i>60 Students</li>
-                                </ul>
-                                <a href="#" class="cart_btn">Add to Cart</a>
-                            </div>
-                        </div>
-                    </div>                     
-                    <div class="single-courses">
-                        <div class="courses_banner_wrapper">
-                            <div class="courses_banner"><a href="#"><img src="{{asset('images/courses/courses_3.jpg')}}" alt="" class="img-fluid"></a></div>
-                            <div class="purchase_price">
-                                <a href="#" class="read_more-btn">Free</a>
-                            </div>
-                        </div>
-                        <div class="courses_info_wrapper">
-                            <div class="courses_title">
-                                <h3><a href="#">Network Introductions</a></h3>
-                                <div class="teachers_name">Teacher - <a href="#" title="">Preston Marshall</a></div>
-                            </div>
-                            <div class="courses_info">
-                                <ul class="list-unstyled">
-                                    <li><i class="fa fa-user"></i> 140 Days</li>
-                                    <li><i class="fa fa-comment"></i>60 Students</li>
-                                </ul>
-                                <a href="#" class="cart_btn">Add to Cart</a>
-                            </div>
-                        </div>
-                    </div>     --}}
+ 
                 </div><!-- Ends: .single courses -->
             </div><!-- Ends: . -->                                       
         </div>

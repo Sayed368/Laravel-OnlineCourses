@@ -94,7 +94,7 @@ $studs=$stud->all();
                         <div class="courses_tab_wrapper">  
                             <div class="courses_details_nav_tabs">     
                                 <ul class="nav nav-tabs" role="tablist">
-                                    <li class="nav-item"><a class="nav-link active" href="#information" role="tab" data-toggle="tab"><i class="flaticon-info-sign"></i>About Student</a></li>
+                                    {{-- <li class="nav-item"><a class="nav-link active" href="#information" role="tab" data-toggle="tab"><i class="flaticon-info-sign"></i>About Student</a></li> --}}
                         
                                 </ul>
                             </div>   
@@ -121,13 +121,20 @@ $studs=$stud->all();
 <!--Start Courses Area Section-->
 <section class="popular_courses">
     <div class="container"> 
+        
         <div class="row">
+            
             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="sub_title">
                     <h2>My Courses</h2>
                   
                 </div><!-- ends: .section-header -->
             </div>
+                                                 
+        </div>
+        <div class="row">
+            
+           
             @foreach ($courses as $course)
             @foreach ($studs as $stud)
             @if(Auth::user()->id == $stud['student_id'] && $stud['course_id']==$course['id'])

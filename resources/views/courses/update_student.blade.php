@@ -87,16 +87,7 @@ $user->all();
                                    
                                 </li>
                                 <li>
-                                    <!-- <h3>gender :</h3>
-                                    
-                            <label class="radio-inline m-l-15"><input type="radio" name="gender" value="male" >Male</label>
-                            <label class="radio-inline"><input type="radio" name="gender" value="female">Female</label>
-                                    
-                                </li> -->
-                                <!-- <li>
-                            <label for="note">upload profile image</label>
-                            <input type="file" class="form-control" id="img" name="profile_photo_path" >
-                            </li> -->
+                                
                          
                             <li style="padding-left:321px">
                             <button type="submit" class="btn btn-primary pull-right">update</button>

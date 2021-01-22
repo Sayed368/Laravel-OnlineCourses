@@ -6,7 +6,11 @@ use Illuminate\Http\Request;
 use App\Models\User;
 class UpdatePasswordController extends Controller
 {
-    //
+    public function __construct(){
+           
+        $this->middleware("auth");
+         
+    }
     function editpass($id){
         $user=new User;
         $users=$user->find($id);

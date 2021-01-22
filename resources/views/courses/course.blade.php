@@ -14,7 +14,8 @@
 
 <?php
     use App\Models\Course;
-    $courses= Course::all();
+    $course=new Course;
+    $courses=$course->paginate(6);
 ?>
 
 
@@ -55,12 +56,13 @@
 
 
             
-            <div class="pagination_blog">
-                <ul>
-                    <li><a href="#">1</a></li>
-                    <li class="current"><a href="#">2</a></li>
-                    <li><a href="#" class=""><i class='flaticon-right-arrow'></i></a></li>
-                </ul>
+            <div style="display: flex;
+ 
+ justify-content: center;
+width: 100%;">
+     
+                {{ $courses->links() }} 
+               
             </div>                                       
         </div>
 

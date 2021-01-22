@@ -8,10 +8,11 @@ use App\Models\MemberRequest;
 
 class MailController extends Controller
 {
-    // public function __construct(){
+    public function __construct(){
            
-    //     $this->middleware("auth");
-    // }
+        $this->middleware("auth");
+        $this->middleware("is_admin");
+    }
 
     
    public function sendEmail($id)
