@@ -60,7 +60,7 @@
                             @if (Route::has('login'))
                             @auth
   <a id="navbarDropdown" class="sign_up sign-in" href="/profile" >
-                                    {{ Auth::user()->name }}
+                                  Hello:{{ Auth::user()->name }}
     </a>&nbsp;
     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
@@ -109,7 +109,7 @@ $categories= Category::all();
 
                                 
                                 @foreach ($categories as $item)
-                                <li class="nav-item"><a href="{{Route("categorycourses.show",$item['id'])}}" value="{{$item['id']}}" class="nav-link">{{$item['name']}}</a></li>
+                                <li class="nav-item"><a href="{{Route('categorycourses.show',$item['id'])}}" value="{{$item['id']}}" class="nav-link">{{$item['name']}}</a></li>
 
                                 @endforeach
 								
@@ -132,7 +132,7 @@ $categories= Category::all();
                                     </ul>    
                                 </li>                                
                                 <li class="nav-item"><a href="#" class="nav-link dropdown_icon">Blog</a>
-                                    <!-- <ul class="navbar-nav nav mx-auto">
+                                     <ul class="navbar-nav nav mx-auto">
                                         
                                         <li class="nav-item"><a href="blog.html" class="nav-link">Blog Grid One</a></li> 
                                         
@@ -210,10 +210,8 @@ $categories= Category::all();
 					<div class="intro_text">
 						<h1>Make the most of your online learning experience.</h1>
 						<p>Our Online Learning Resource Center has tips, tricks and inspiring <br>stories to help you learn while staying home.
-.</p>
-						{{-- <div class="intro_button">
-							<a href="#" class="nav-link">Start my free month</a>
-						</div> --}}
+</p>
+						
 					</div>
 				</div>				
 				<div class="col-sm-12 col-md-12 col-lg-12">
@@ -372,7 +370,7 @@ $categories= Category::all();
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="footer_single_col footer_intro">
 						<img src="images/logo2.png" alt="" class="f_logo">
-						<p>Ante amet vitae vulputate odio nulla vel pretium pulvinar aenean. Rhoncus eget adipiscing etiam arcu. Ultricies justo ipsum nec amet.</p>
+						<p>Our Online Learning Resource Center has tips, tricks and inspiring stories to help<br> you learn while staying home.</p>
 					</div>
 				</div>
 				

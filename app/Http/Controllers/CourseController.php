@@ -7,9 +7,16 @@ use App\Models\Course;
  use App\Models\CourseVideo;
  use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use session;
 
 class CourseController extends Controller
 {
+
+    public function __construct(){
+           
+        $this->middleware("is_admin");
+    }
     /**
      * Display a listing of the resource.
      *
@@ -20,7 +27,7 @@ class CourseController extends Controller
         
         $cat=new  Category;
         $cats=$cat->all();
-        $courses= Course::all();
+        $courses= Course::paginate(5);
        
         return view('admin.all_courses',["courses"=>$courses,"cats"=>$cats]);
         

@@ -37,7 +37,7 @@ $courses= Course::all();
 				<div class="feature_single feature_single_3">
 					<img src="{{$item['image']}}" alt="">
 					<div class="feature_content">
-						<a href="{{Route("categorycourses.show",$item['id'])}}" title=""><h3>{{$item['name']}}</h3></a>
+						<a href="{{Route('categorycourses.show',$item['id'])}}" title=""><h3>{{$item['name']}}</h3></a>
 						<p>Over 450 Courses</p>
 					</div>
 				</div>
@@ -67,15 +67,15 @@ $courses= Course::all();
 					<h2>Doing The Right Thing At The Right Time.</h2>
 					<div class="step_services">
 						<h3><span>01.</span>Exprerience</h3>
-						<p>Lorem ipsum dolor sit amet mollis felis dapibus arcu donec viverra. Pede phasellus eget maecenas.</p>  
+						<p>Our Online Learning Resource Center has tips, tricks and inspiring stories to help you learn while staying home.</p>  
 					</div>                    
 					<div class="step_services">
 						<h3><span>02.</span>Education</h3>
-						<p>Lorem ipsum dolor sit amet mollis felis dapibus arcu donec viverra. Pede phasellus eget maecenas.</p>   
+						<p>Our Online Learning Resource Center has tips, tricks and inspiring stories to help you learn while staying home.</p>   
 					</div>                   
 					 <div class="step_services">
 						<h3><span>03.</span>Certificate</h3>
-						<p>Lorem ipsum dolor sit amet mollis felis dapibus arcu donec viverra. Pede phasellus eget maecenas.</p>  
+						<p>Our Online Learning Resource Center has tips, tricks and inspiring stories to help you learn while staying home.</p>  
 					</div>
 				 </div>
 			</div>
@@ -91,7 +91,7 @@ $courses= Course::all();
 			<div class="col-12 col-sm-12 col-md-12 col-lg-12">
 				<div class="sub_title">
 					<h2>Our Popular Courses</h2>
-					<p>Lorem ipsum dolor sit amet mollis felis dapibus arcu donec viverra. Pede phasellus eget. Etiam maecenas vel vici quis dictum rutrum nec nisi et.</p>  
+					<p>Our Online Learning Resource Center has tips, tricks and inspiring stories to help you learn while staying home.</p>  
 				</div><!-- ends: .section-header -->
 			</div>
 			
@@ -116,7 +116,7 @@ $courses= Course::all();
                                 <li><i class="fas fa-calendar-alt"></i>{{$item['duration']}} Hours</li>
                                 <li><i class="fas fa-user"></i>30 Students</li>
                             </ul>
-                            <a href="{{route("Viewcourses.show",$item['id'])}}" class="cart_btn">View Details</a>
+                            <a href="{{route('Viewcourses.show',$item['id'])}}" class="cart_btn">View Details</a>
                         </div>
                     </div>
                 </div><!-- Ends: .single courses -->
@@ -206,7 +206,7 @@ $feedbacks=$feedback->all();
 			<div class="col-12 col-sm-12 col-md-12 col-lg-12">
 				<div class="sub_title">
 					<h2>Student Say About Us</h2>
-					<p>Lorem ipsum dolor sit amet mollis felis dapibus arcu donec viverra. Pede phasellus eget. Etiam maecenas vel vici quis dictum rutrum nec nisi et.</p>  
+					<p>Our Online Learning Resource Center has tips, tricks and inspiring stories to help you learn while staying home.</p>  
 				</div><!-- ends: .section-header -->
 			</div>
 		</div>
@@ -243,7 +243,7 @@ $feedbacks=$feedback->all();
 				<div class="meet_team_wrapper">  
 					<div class="sub_title">
 						<h2>Meet Our Instractor</h2>
-						<p>Lorem ipsum dolor sit amet mollis felis dapibus arcu donec viverra. Pede phasellus eget. Etiam maecenas vel vici quis dictum rutrum nec nisi et.</p>  
+						<p>Our Online Learning Resource Center has tips, tricks and inspiring stories to help you learn while staying home.</p>  
 					</div><!-- ends: .section-header -->
 					<div class="envent_all_view">
 						<a href="/team" title="">View All</a>
@@ -287,7 +287,7 @@ $feedbacks=$feedback->all();
             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="sub_title">
                     <h2>Our Latest Blog</h2>
-                    <p>Lorem ipsum dolor sit amet mollis felis dapibus arcu donec viverra. Pede phasellus eget. Etiam maecenas vel vici quis dictum rutrum nec nisi et.</p>  
+                    <p>Our Online Learning Resource Center has tips, tricks and inspiring stories to help you learn while staying home.</p>  
                 </div><!-- ends: .section-header -->
             </div>
             <div class="col-12 col-sm-6 col-md-4 col-lg-4">

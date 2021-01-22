@@ -1,3 +1,4 @@
+document.getElementsByTagName('iframe').contentWindow.getElementsByClassName('ytp-watch-later-button').style.display = 'none';
 var player = (function() {//Namespace todo lo que esta aqui dentro es privado
     var play        = document.getElementById("play"),
         fullscreen  = document.getElementById("expand"),

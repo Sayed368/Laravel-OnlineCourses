@@ -33,6 +33,7 @@
                     </div>
                 
                     <br>
+                   
             <table class="table table-bordered table-striped bg-dark" style="color:white; border:none">
                             <thead>
                                 <tr class="text-center">
@@ -44,8 +45,7 @@
                             </thead>
                             <tbody style="color:black; font:blod; background:#ffff">
                            
-                        
-                              
+                     
                             @foreach ($course['video'] as $item) 
                              
                                 <tr>
@@ -58,9 +58,9 @@
                                     </td>
                                     <td>
                                     {{-- <span class="fa fa-plus"></span><a style="text-decoration: none ; color: black;" href="{{route('videos.create', $item['course_id'])}}">Add video</a> --}}
-                                    <a href=""><span class="fa fa-edit"></span></a>
+                                    <a href="{{route('videos.edit',$item['id'])}}"><span class="fa fa-edit"></span></a>
                                       
-                                        <form action="#" method="Post" style="display:inline-block;">
+                                        <form action="{{route('videos.destroy',$item['id'])}}" method="Post" style="display:inline-block;">
                                           @csrf
                                           @method("delete")
                                         
@@ -72,8 +72,7 @@
                                    
                                     </td>
                                 </tr>
-                             
-                              
+                            
                                 @endforeach
                                
                             </tbody>

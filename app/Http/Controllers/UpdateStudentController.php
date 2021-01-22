@@ -8,6 +8,10 @@ use App\Models\User;
 class UpdateStudentController extends Controller
 
 {
+    public function __construct(){
+           
+        $this->middleware("auth");
+    }
     function edit($id){
         $user=new User;
         $users=$user->find($id);
@@ -17,19 +21,19 @@ class UpdateStudentController extends Controller
    
     function update(Request $request , $id, User $user){
         $request->validate([
-            "name"=>"required|min:3", 
-            
-            "email"=>"required",
-            "password"=>"min:6|required|confirmed",
-            "password_confirmation"=>"required",
+            "name"=>"|min:3", 
+            // "profile_photo_path"=>"required|image|mimes:jpeg,png,jpg,gif,svg|max:2048"
+
+           
+           
             ]);
-            if($request->hasFile('profile_photo_path')) {
-                $image = $request->file('profile_photo_path');
-                $filename =rand() . '.' . $image->getClientOriginalExtension();
-                $image->move(public_path('userimg/'), $filename);
-                $filename='userimg/'.$filename;
+            // if($request->hasFile('profile_photo_path')) {
+            //     $image = $request->file('profile_photo_path');
+            //     $filename =rand() . '.' . $image->getClientOriginalExtension();
+            //     $image->move(public_path('userimg/'), $filename);
+            //     $filename='userimg/'.$filename;
                
-            }
+            // }
     $user=new User;
     // $users=$user->find($id);
     // $users->name=request("name");
@@ -47,12 +51,11 @@ class UpdateStudentController extends Controller
     $users->update([
         "name"=>$request["name"],
         "email"=>$request["email"],
-        "password"=>Hash::make ($request["password"]),
-        "gender"=>$request["gender"],
+        
         "address"=>$request["address"],
         "phone"=>$request["phone"],
-        "password_confirmation"=>$request["password_confirmation"],
-        "profile_photo_path"=>$filename,
+       
+        // "profile_photo_path"=>$filename,
         
         "dob"=>$request["dob"],
        

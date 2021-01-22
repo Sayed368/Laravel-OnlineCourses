@@ -65,9 +65,9 @@
                             @auth
                             <!-- <img src=" {{ Auth::user()->profile_photo_path }}" class="rounded-circle" width="60" height="50" style="margin-right: 17px" /> -->
   <a style="color:white;" id="navbarDropdown" class="sign_up sign-in" href="/profile" >
-                                    {{ Auth::user()->name }}
+                                   Hello: {{ Auth::user()->name }}
     </a>&nbsp;
-    <a style="color:white;" class="dropdown-item" href="{{ route('logout') }}" 
+    <a style="color:white;" class="sign_up sign-in mx-5 nav-link"  href="{{ route('logout') }}" 
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
@@ -284,7 +284,7 @@ $categories= Category::all();
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="footer_single_col footer_intro">
                         <img src="{{asset('images/logo2.png')}}" alt="" class="f_logo">
-                        <p>Ante amet vitae vulputate odio nulla vel pretium pulvinar aenean. Rhoncus eget adipiscing etiam arcu. Ultricies justo ipsum nec amet.</p>
+                        <p>Our Online Learning Resource Center has tips, tricks and inspiring <br>stories to help you learn while staying home.</p>
                     </div>
                 </div>
                 

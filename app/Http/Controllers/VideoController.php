@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Course;
+use App\Http\Controllers\Redirect;
 
 use App\Models\CourseVideo;
 use Illuminate\Http\Request;
@@ -9,6 +10,10 @@ use Illuminate\Support\facades\Auth;
 
 class VideoController extends Controller
 {
+    public function __construct(){
+           
+        $this->middleware("is_admin");
+    }
     /**
      * Display a listing of the resource.
      *
@@ -115,9 +120,12 @@ class VideoController extends Controller
      * @param  \App\Models\CourseVideo  $courseVideo
      * @return \Illuminate\Http\Response
      */
-    public function edit(CourseVideo $courseVideo)
+    public function edit( $id)
     {
-        //
+        $video=new CourseVideo;
+        $video=$video->findorfail($id);
+        // dd($item);
+        return view("admin.editvideo",["video"=>$video]);
     }
 
     /**
@@ -127,9 +135,23 @@ class VideoController extends Controller
      * @param  \App\Models\CourseVideo  $courseVideo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, CourseVideo $courseVideo)
+    public function update(Request $request, CourseVideo $video)
     {
-        //
+       // dd($video);
+       $request->validate([
+        "video_name"=>"required", 
+        "video_url"=>"required"
+       
+        
+    ]);
+    $video->update([
+        "name"=>$request["video_name"],
+        "video_url"=>$request["video_url"],
+    ]);
+   
+   return redirect(route("courses.index"));
+  
+    
     }
 
     /**
@@ -138,8 +160,13 @@ class VideoController extends Controller
      * @param  \App\Models\CourseVideo  $courseVideo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CourseVideo $courseVideo)
+    public function destroy($id)
     {
-        
+        $video=new CourseVideo;
+        $video=$video->findorfail($id);
+        $video->delete();
+     return redirect(route("courses.index"));
+    
+    
     }
 }

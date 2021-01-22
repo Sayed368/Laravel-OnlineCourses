@@ -32,7 +32,7 @@
             <div class="col-xs-12 sub">
                 <div class="row">
                     <div class="col-xs-12">
-                        <h3><span class="fa fa-graduation-cap"></span> Courses <button class="btn btn-success m-l-15"><span class="fa fa-plus"></span><a style="text-decoration: none ; color: white;" href="/courses/create">Add course</a></button></h3>
+                        <h3><span class="fa fa-graduation-cap"></span> Courses <button class="btn btn-success m-l-15"><span class="fa fa-plus"></span><a style="text-decoration: none ; color: white;" href="{{route("courses.create")}}">Add course</a></button></h3>
                         
                     </div>
                     <div class="col-xs-12 col-sm-6 ">
@@ -84,7 +84,7 @@
                                     <td>{{$course["instructor"]["name"]}}</td>
                                     <td>
                                     
-                                    <img src="{{ $course['image'] }}" class="rounded-circle" width="60" height="50" /></td>
+                                    <img src="{{asset( $course['image'] )}}" class="rounded-circle" width="60" height="50" /></td>
                                     </td>
                                     <td>
                                   <a href="{{route('corsevideos', $course['id'])}}"><b> Videos link </b></a>
@@ -105,16 +105,11 @@
                       
 
                 
-<<<<<<< HEAD
-=======
-=======
->>>>>>> a869e7b62209740be84be2950ef58b8002250e4c
->>>>>>> f00c479de8a0a8ef2688db4a918fc1c102c528dc
+
        
                              
                        </form>
                 
-                                   
                                     </td>
                                 </tr>
                                 
@@ -122,10 +117,18 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        <div class="container">  
+                        {{ $courses->links() }} 
+                        </div> 
+
+
                     </div>
                 </div> 
-            </div>            
+            </div>         
+          
         </div>
     </div>
+
+
 
 @endsection('content')

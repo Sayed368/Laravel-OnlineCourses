@@ -38,17 +38,20 @@
                      @method("put")
                         <div style="width: 600px;" class="form-group">
                             <label for="course_name">Course Name</label>
-                            <input type="text" maxlength="100" class="form-control"  value="{{$course['name']}}"  name="name"  required="true">
+                            <input type="text" maxlength="100" class="form-control"  value="{{$course['name']}}"  name="name"  >
+                            <label class="text-danger"> {{$errors->first("name")}}</label>
                         </div>
 
                         <div class="form-group">
                             <label for="description">Description</label>
-                            <input class="form-control" value="{{$course['description']}}" rows="3"  name="description"  placeholder="Course Description ..." required></input>
+                            <input class="form-control" value="{{$course['description']}}" rows="3"  name="description"  placeholder="Course Description ..." ></input>
+                            <label class="text-danger"> {{$errors->first("description")}}</label>
                         </div>
 
                         <div class="form-group">
                             <label for="total_hours">Total Hours</label>
                             <input type="number" class="form-control" value="{{$course['duration']}}"  name="duration" placeholder="Enter Total Course Hours ..." max="100">
+                            <label class="text-danger"> {{$errors->first("duration")}}</label>
                         </div>
                         <div class="form-group">
                             <label for="role">Category Name</label>
@@ -82,11 +85,13 @@
                         <div class="form-group">
                             <label for="note">Content</label>
                             <input class="form-control" rows="3" name="content" value="{{$course['content']}}" placeholder="Note About Course ..."></input>
+                            <label class="text-danger"> {{$errors->first("content")}}</label>
                         </div>
 
                         <div class="form-group">
                             <label for="note">image</label>
                             <input type="file" class="form-control"  name="image">
+                            <label class="text-danger"> {{$errors->first("image")}}</label>
                         </div>
 
                         <button type="submit" class="btn btn-primary pull-right">Submit</button>

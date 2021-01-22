@@ -29,11 +29,13 @@
                      @method("put")
                         <div  style="width: 600px;"  class="form-group">
                             <label for="first_name">Categery name</label>
-                            <input type="text" class="form-control" value="{{$category['name']}}" name="name" placeholder="Enter Categery Name" required>
+                            <input type="text" class="form-control" value="{{$category['name']}}" name="name" placeholder="Enter Categery Name" >
+                            <label class="text-danger"> {{$errors->first("name")}}</label>
                           </div>
                           <div  style="width: 600px;"  class="form-group">
                             <label>Categery image</label>
-                            <input type="file" class="form-control"  name="image"  required>
+                            <input type="file" class="form-control"  name="image"  >
+                            <label class="text-danger"> {{$errors->first("image")}}</label>
                           </div>
                         <button type="submit" class="btn btn-primary pull-right">Submit</button>
 <br><br><br><br>
