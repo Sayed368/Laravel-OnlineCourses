@@ -67,16 +67,13 @@ $courses= Course::all();
 					<h2>Doing The Right Thing At The Right Time.</h2>
 					<div class="step_services">
 						<h3><span>01.</span>Exprerience</h3>
-						<p>Our Online Learning Resource Center has tips, tricks and inspiring stories to help you learn while staying home.</p>  
+						<p>Discover the fastest, most effective way to gain job-ready expertise for the careers of the future.</p>  
 					</div>                    
 					<div class="step_services">
 						<h3><span>02.</span>Education</h3>
 						<p>Our Online Learning Resource Center has tips, tricks and inspiring stories to help you learn while staying home.</p>   
 					</div>                   
-					 <div class="step_services">
-						<h3><span>03.</span>Certificate</h3>
-						<p>Our Online Learning Resource Center has tips, tricks and inspiring stories to help you learn while staying home.</p>  
-					</div>
+					
 				 </div>
 			</div>
 		</div>
@@ -91,7 +88,7 @@ $courses= Course::all();
 			<div class="col-12 col-sm-12 col-md-12 col-lg-12">
 				<div class="sub_title">
 					<h2>Our Popular Courses</h2>
-					<p>Our Online Learning Resource Center has tips, tricks and inspiring stories to help you learn while staying home.</p>  
+					<p>most popular courses demonstrate a continued demand for AI-related content across professions and lifestyles. Employers and employees alike are realizing the crucial role technical skills will have</p>  
 				</div><!-- ends: .section-header -->
 			</div>
 			
@@ -206,7 +203,9 @@ $feedbacks=$feedback->all();
 			<div class="col-12 col-sm-12 col-md-12 col-lg-12">
 				<div class="sub_title">
 					<h2>Student Say About Us</h2>
-					<p>Our Online Learning Resource Center has tips, tricks and inspiring stories to help you learn while staying home.</p>  
+					<p>Read our student profiles to discover first-hand what it's like to study with us.
+
+.</p>  
 				</div><!-- ends: .section-header -->
 			</div>
 		</div>
@@ -243,7 +242,7 @@ $feedbacks=$feedback->all();
 				<div class="meet_team_wrapper">  
 					<div class="sub_title">
 						<h2>Meet Our Instractor</h2>
-						<p>Our Online Learning Resource Center has tips, tricks and inspiring stories to help you learn while staying home.</p>  
+						<p>Meet Your Instructor and ask all about yo need...</p>  
 					</div><!-- ends: .section-header -->
 					<div class="envent_all_view">
 						<a href="/team" title="">View All</a>
@@ -287,7 +286,9 @@ $feedbacks=$feedback->all();
             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="sub_title">
                     <h2>Our Latest Blog</h2>
-                    <p>Our Online Learning Resource Center has tips, tricks and inspiring stories to help you learn while staying home.</p>  
+                    <p>Read about important educational news, career information, and student experiences..
+
+</p>  
                 </div><!-- ends: .section-header -->
             </div>
             <div class="col-12 col-sm-6 col-md-4 col-lg-4">
