@@ -9,15 +9,22 @@ use App\Models\CategoryCourse;
 use App\Models\CourseVideo;
 use App\Models\StudentCourse;
 use App\Http\Controllers\UserController;
-
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ViewCourseController;
 
+<<<<<<< HEAD
+use App\Http\Controllers\AboutController;
+
+
+
+=======
 
 
 
 use App\Http\Controllers\AboutController;
+>>>>>>> 505872f81bf2a7e18ba1823f5753c471ca172108
 
 use App\Http\Controllers\EnrollController;
 
@@ -34,6 +41,25 @@ use App\Mail\SendEmail;
 
 
 
+<<<<<<< HEAD
+
+
+
+
+
+=======
+>>>>>>> 505872f81bf2a7e18ba1823f5753c471ca172108
+
+
+
+<<<<<<< HEAD
+
+
+
+
+
+
+<<<<<<< HEAD
 
 
 
@@ -42,9 +68,10 @@ use App\Mail\SendEmail;
 
 
 
-
-
-
+=======
+=======
+>>>>>>> 505872f81bf2a7e18ba1823f5753c471ca172108
+>>>>>>> 220aa86bb049d1301df1d6ae18fedfc384b385e3
 use App\Http\Middleware;
 
 
@@ -120,17 +147,45 @@ Route::post('/contact', function () {
     return redirect()->back()->with('message', 'Thanks for your Feedback!');
 });
 
-Route::post('/enroll', function () {
-    $stud_cour=new StudentCourse;
-    $stud_cour->student_id=request("student_id");
-    $stud_cour->course_id=request("course_id");
-    $stud_cour->save();
+// Route::post('/enroll', function () {
+//      $stud_cour=new StudentCourse;
+//     $stud_cour->student_id=request("student_id");
+//     $stud_cour->course_id=request("course_id");
+//     $stud_cour->save();
 
-    $course=request("course_id");
+//     $course=request("course_id");
 
-    // return redirect()->back();
+   
+//     return redirect(route('viewcourse', $course));
+// })->middleware("auth");
+
+
+Route::any('course/{id}/enroll', function ($course) {
+    $enrolled = new StudentCourse;
+    $enrolled=$enrolled->all();
+    $user_id=Auth::id();
+    $enrolled = $enrolled->where('student_id', '=', $user_id)->where('course_id','=',$course);
+    // dd(!sizeof($enrolled));
+
+    if(!sizeof($enrolled))
+    {
+        $stud_cour=new StudentCourse;
+         $stud_cour->student_id=$user_id;
+         $stud_cour->course_id=$course;
+         $stud_cour->save();
+
+    }
+    
     return redirect(route('viewcourse', $course));
-});
+})->name('enroll')->middleware("auth");
+
+
+
+
+
+
+
+
 
 Route::get('/admin/feedback', function () {
     return view('admin.feedbacks');
