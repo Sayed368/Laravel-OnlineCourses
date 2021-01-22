@@ -312,7 +312,7 @@ $feedbacks=$feedback->all();
                     </div>
                     <div class="blog_title">
                         <span>LeaderShip Development</span>  
-                        <h3><a href="#" title="">Students work together to <br>solve a problem.</a></h3> 
+                        <h3><a href="#" title="">Students work together to <br>solve a problem...</a></h3> 
                         <div class="post_bloger">
                             <span>15/02/2018 - By </span> <span class="bloger_name"> Jhon Deo</span>
                         </div>               
