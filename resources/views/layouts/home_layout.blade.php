@@ -103,7 +103,7 @@ $categories= Category::all();
 						{{-- <li class="nav-item"><a href="/course" class="nav-link">Categories</a>
                              
                         </li> --}}
-                        <li class="nav-item"><a href="/team" class="nav-link">Categories</a>
+                        <li class="nav-item"><a href="#" class="nav-link">Categories</a>
                               <ul class="navbar-nav nav mx-auto">
 
 
@@ -384,7 +384,7 @@ $categories= Category::all();
 							<li><a href="/course">COUSRSES</a></li>
 							<li><a href="/team">INSTRACTORS</a></li>
 							<li><a href="/blog">BLOG</a></li>
-							<li><a href="/about">ABOUT US</a></li>
+							<li><a href="/about">ABOUT US</a></li>    
 						</ul>
 					</div>
 				</div>
