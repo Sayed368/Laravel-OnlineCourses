@@ -539,16 +539,13 @@ div#preloader {
 
 /*=========== {  Pagination Style} ===========*/
 .pagination_blog {
-  display: -webkit-box;
-  display: -ms-flexbox;
+
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
+ 
           justify-content: center;
   width: 100%; }
   .pagination_blog ul {
-    display: -webkit-box;
-    display: -ms-flexbox;
+
     display: flex; }
     .pagination_blog ul li {
       margin: 0 7px;

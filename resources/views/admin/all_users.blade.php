@@ -27,7 +27,7 @@
                 <div class="col-xs-12 sub">
                     <div class="row">
                         <div class="col-xs-12">
-                            <h3><span class="fa fa-users"></span> Users <button class="btn btn-success m-l-15"><span class="fa fa-plus"></span> <a style="text-decoration: none ; color: white;" href="/users/create">Add User</a></button></h3>
+                            <h3><span class="fa fa-users"></span> Users <button class="btn btn-success m-l-15"><span class="fa fa-plus"></span> <a style="text-decoration: none ; color: white;" href="{{route("users.create")}}">Add User</a></button></h3>
                             
                         </div>
                         <!-- <div class="col-xs-12 col-sm-6 ">
@@ -74,7 +74,7 @@
                                        
                                         <td>
                                     
-                    <img src="{{$user['profile_photo_path'] }}" class="rounded-circle" width="60" height="50" /></td>
+                    <img src="{{asset($user['profile_photo_path'] )}}" class="rounded-circle" width="60" height="50" /></td>
                     <img src="{{ asset($user['profile_photo_path']) }}" class="rounded-circle" width="60" height="50" /></td>
                                         <td>{{$user["role"]}}</td>
                                         <td>{{$user["gender"]}}</td>

@@ -1,3 +1,5 @@
+{{-- @can('isAdmin') --}}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +8,7 @@
  
   <title>Admin</title>
 
+  <link rel="shortcut icon" href="{{asset('images/favicon.ico')}}" type="image/x-icon">
   <!-- Google Font: Source Sans Pro --> 
 
 
@@ -140,9 +143,16 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-          <i class="fas fa-th-large"></i>
-        </a>
+
+      <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+    
       </li>
     </ul>
   </nav>
@@ -187,7 +197,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="/users" class="nav-link ">
+            <a href="{{route('users.index')}}" class="nav-link ">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 all users
@@ -197,7 +207,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="/categories" class="nav-link">
+            <a href="{{route('categories.index')}}" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 All categeries
@@ -208,7 +218,7 @@
           
           
           <li class="nav-item">
-            <a href="/courses" class="nav-link">
+            <a href="{{route('courses.index')}}" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                  All courses
@@ -218,7 +228,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="/users/create" class="nav-link ">
+            <a href="{{route('users.create')}}" class="nav-link ">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Add user
@@ -229,7 +239,7 @@
           
           
           <li class="nav-item">
-            <a href="/categories/create" class="nav-link">
+            <a href="{{route('categories.create')}}" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                  Add categery
@@ -250,7 +260,7 @@
 
 
           <li class="nav-item">
-            <a href="/courses/create" class="nav-link">
+            <a href="{{route('courses.create')}}" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                  Add course
@@ -260,7 +270,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="{{url('admin/feedback')}}" class="nav-link">
+            <a href="{{route('feedback.index')}}" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                  Feedbacks
@@ -269,7 +279,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{url('admin/member_request')}}" class="nav-link">
+            <a href="{{route('membersRequest')}}" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                  Members request
@@ -311,3 +321,5 @@
   <script src="{{asset('js/addfield.js')}}"></script>  
   </body>
 </html>
+
+{{-- @endcan --}}

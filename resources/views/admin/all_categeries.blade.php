@@ -26,7 +26,7 @@
                 <div class="col-xs-12 sub">
                     <div class="row">
                         <div class="col-xs-12">
-                            <h3><span class="fa fa-users"></span> categories <button class="btn btn-success m-l-15"><span class="fa fa-plus"></span><a style="text-decoration: none ; color: white;" href="/categories/create">Add categories</a></button></h3>
+                            <h3><span class="fa fa-users"></span> categories <button class="btn btn-success m-l-15"><span class="fa fa-plus"></span><a style="text-decoration: none ; color: white;" href="{{route("categories.create")}}">Add categories</a></button></h3>
                             
                         </div>
                         <div class="col-xs-12 col-sm-6 ">
@@ -57,7 +57,7 @@
                                         <td>{{$category["name"]}}</td>
                                         <td>
                                     
-                                    <img src="{{ $category['image'] }}" class="rounded-circle" width="60" height="50" /></td>
+                                    <img src="{{ asset($category['image']) }}" class="rounded-circle" width="60" height="50" /></td>
                                     </td>
                                         <td>
                                             <a href="{{route('categories.edit',$category)}}"><span class="fa fa-edit"></span></a>

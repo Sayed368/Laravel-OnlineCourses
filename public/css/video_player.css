@@ -207,6 +207,7 @@ video::-webkit-media-controls {
 .mdl-video-table > tbody > tr > td > a{
 font-family: 'Philosopher', sans-serif;
 font-size: 18px;
+text-transform: capitalize;
 }
 .mdl-video-table > tbody > tr{
 border-bottom: 2px solid #a6b6d570;
@@ -217,6 +218,7 @@ width: 100%;
 .mdl-video-table > tbody > tr:hover{
   cursor: pointer;
   background-color: #e9ecf2 !important;
+   
 }
 
 
@@ -236,4 +238,36 @@ width: 100%;
   font-family: 'Philosopher', sans-serif;
   font-size: 20px;
   margin-left: 3px;
+}
+
+
+
+.next{
+  background-color: #ff5a2c;
+  width: 120px;
+  padding: 7px;
+  color: #fff;
+  font-size: 20px;
+  transition: all 0.5s
+}
+
+.previous{
+  background-color: #ff5a2c;
+  width: 120px;
+  padding: 7px;
+  color: #fff;
+  font-size: 20px;
+  transition: all 0.5s
+}
+.next:hover{
+  background-color:rgb(3, 3, 59);
+  color: #fff;
+  transform: scale(1.1);
+
+}
+.previous:hover{
+  background-color:rgb(3, 3, 59);
+  color: #fff;
+  transform: scale(1.1);
+
 }
