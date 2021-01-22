@@ -13,54 +13,11 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ViewCourseController;
-
-<<<<<<< HEAD
 use App\Http\Controllers\AboutController;
-
-
-
-=======
-
-
-
-use App\Http\Controllers\AboutController;
->>>>>>> 505872f81bf2a7e18ba1823f5753c471ca172108
-
 use App\Http\Controllers\EnrollController;
-
 use App\Http\Controllers\UpdateStudentController;
-
-
-
 use App\Http\Controllers\MailController;
 use App\Mail\SendEmail;
-
-
-
-
-
-
-
-<<<<<<< HEAD
-
-
-
-
-
-=======
->>>>>>> 505872f81bf2a7e18ba1823f5753c471ca172108
-
-
-
-<<<<<<< HEAD
-
-
-
-
-
-
-=======
->>>>>>> 505872f81bf2a7e18ba1823f5753c471ca172108
 use App\Http\Middleware;
 
 
@@ -444,3 +401,5 @@ Route::get('/course/{course}/video/{id}', function ($course_id,$id) {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+
