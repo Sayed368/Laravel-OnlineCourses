@@ -55,20 +55,7 @@
                                    <a href="{{route('enroll', $course['id'])}}" title="">Start Now</a>
                                 </div>
 
-                            {{-- @if (Route::has('login'))
-                            @auth
-                            <form method="post" action="/enroll">
-                           {{ csrf_field() }}
-                           <input type="hidden"  name="student_id" value="{{Auth::id()}}">
-                           <input type="hidden" name="course_id" value="{{$course['id']}}">
-                           
-                           <button class="btn btn-primary btn-lg" type="submit">Start Now</button>
-                           </form>
-                           
-                            @else
-                            <a href="{{ route('login') }}" title="">login to Enroll this course</a>
-                           @endauth
-                            @endif --}}
+                             
 
 
                             </div>
