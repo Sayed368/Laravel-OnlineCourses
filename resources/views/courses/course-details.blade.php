@@ -47,23 +47,33 @@
                                 <span>Price</span>
                                 <span class="courses_price">Free</span>
                             </div>
+
+                            
                             <div class="buy_btn single_items">
-                            @if (Route::has('login'))
+
+                                <div class="buy_btn single_items">
+                                   <a href="{{route('enroll', $course['id'])}}" title="">Start Now</a>
+                                </div>
+
+                            {{-- @if (Route::has('login'))
                             @auth
                             <form method="post" action="/enroll">
                            {{ csrf_field() }}
                            <input type="hidden"  name="student_id" value="{{Auth::id()}}">
                            <input type="hidden" name="course_id" value="{{$course['id']}}">
-                           <button class="btn btn-primary" type="submit">Start Now</button>
+                           
+                           <button class="btn btn-primary btn-lg" type="submit">Start Now</button>
                            </form>
-                           <div class="buy_btn single_items">
-                                <!-- <a href="{{route('viewcourse', $course['id'])}}" title="">Start Now</a> -->
-                            </div>
+                           
                             @else
                             <a href="{{ route('login') }}" title="">login to Enroll this course</a>
                            @endauth
-                    @endif
+                            @endif --}}
+
+                            
                             </div>
+
+
                         </div>
                         <div class="details-img-bxo">
                             <img style="width:700px; height:300px;" src="{{asset($course['image'])}}" alt="" class="img-fluid">
