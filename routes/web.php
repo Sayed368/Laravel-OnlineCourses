@@ -32,14 +32,11 @@ use App\Http\Controllers\UpdateStudentController;
 
 
 
-<<<<<<< HEAD
-=======
 
 
 
 
 
->>>>>>> 450b90673e1fc8a2556efac94b42a5886145cf98
 use App\Http\Controllers\MailController;
 use App\Mail\SendEmail;
 
