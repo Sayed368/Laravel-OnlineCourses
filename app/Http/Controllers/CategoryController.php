@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
+    public function __construct(){
+           
+        $this->middleware("is_admin");
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +18,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories= Category::all();
+        $categories= Category::paginate(5);
          
         return view('admin.all_categeries',["categories"=>$categories]);
     }

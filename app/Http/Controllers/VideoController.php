@@ -10,6 +10,10 @@ use Illuminate\Support\facades\Auth;
 
 class VideoController extends Controller
 {
+    public function __construct(){
+           
+        $this->middleware("is_admin");
+    }
     /**
      * Display a listing of the resource.
      *

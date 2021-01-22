@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 class UserController extends Controller
 {
+
+    public function __construct(){
+           
+        $this->middleware("is_admin");
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +19,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users=User::all();
+        $users=User::paginate(5);
 
         return view("admin.all_users",["users"=>$users]);
     }

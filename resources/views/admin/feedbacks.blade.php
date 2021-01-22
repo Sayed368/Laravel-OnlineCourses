@@ -42,7 +42,7 @@
 
                         use App\Models\feedback;
                         $feedback=new feedback;
-                        $feedbacks=$feedback->all();  
+                        $feedbacks=$feedback->paginate(5);  
                                              ?>
                         <div class="col-xs-12">
                             <table class="table table-responsive table-hover table-condensed">
@@ -70,6 +70,9 @@
                                     @endforeach 
                                 </tbody>
                             </table>
+                            <div class="container">  
+                        {{ $feedbacks->links() }} 
+                        </div> 
                         </div>
                     </div>
                 </div>            

@@ -8,6 +8,10 @@ use App\Models\User;
 class UpdateStudentController extends Controller
 
 {
+    public function __construct(){
+           
+        $this->middleware("auth");
+    }
     function edit($id){
         $user=new User;
         $users=$user->find($id);
