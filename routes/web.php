@@ -23,12 +23,9 @@ use App\Http\Controllers\AboutController;
 
 
 
+
 use App\Http\Controllers\EnrollController;
-
 use App\Http\Controllers\UpdateStudentController;
-
-
-
 use App\Http\Controllers\MailController;
 use App\Mail\SendEmail;
 
@@ -98,14 +95,7 @@ Route::get('/search', function () {
         return view('courses.search',["data"=>$courses]);
        
     });
-// Route::get('/course-details', function () {
-//     return view('courses.course-details');
-// });
-
-// Route::get('/courses', function () {
-//     return view('courses.about');
-// });
-
+ 
 Route::get('/blog', function () {
     return view('courses.blog');
 });
@@ -127,19 +117,7 @@ Route::post('/contact', function () {
     $feedback->save();
     return redirect()->back()->with('message', 'Thanks for your Feedback!');
 });
-
-// Route::post('/enroll', function () {
-//      $stud_cour=new StudentCourse;
-//     $stud_cour->student_id=request("student_id");
-//     $stud_cour->course_id=request("course_id");
-//     $stud_cour->save();
-
-//     $course=request("course_id");
-
-   
-//     return redirect(route('viewcourse', $course));
-// })->middleware("auth");
-
+ 
 
 Route::any('course/{id}/enroll', function ($course) {
     $enrolled = new StudentCourse;
@@ -208,17 +186,7 @@ Route::get('/category/{id}/courses', function ($id) {
 })->name("categorycourses.show");
 
 
-
-
-
-
-
-
-
-
-// Route::get('/teacher-profile', function () {
-//     return view('courses.teacher-profile');
-// });
+ 
 
 Route::get('/team', function () {
     return view('courses.team');
@@ -231,120 +199,14 @@ Route::get('/become-a-teacher', function () {
     return view('courses.become-a-teacher');
 });
 
-
-
-// Route::get('/player', function () {
-//     return view('courses.video_player');
-// });
-
-
-
-
-// end test routs
-//Route::get('/courses/{id}', 'App\Http\Controllers\VideoController@index');
-
 Route::resource("admin/courses",CourseController::class);
 Route::resource("admin/videos" , App\Http\Controllers\VideoController::class);
 Route::resource("Viewcourses",ViewCourseController::class);
-// Route::get('/admin', function () {
-//     return view('admin.all_users');
-// });
-
-// Route::get('/admin/adduser', function () {
-//     return view('admin.add_user');
-// });
-
-// Route::get('/admin/allusers', function () {
-//     return view('admin.all_users');
-// });
-
-// // Route::get('/admin/allcourses', function () {
-// //     return view('admin.all_courses');
-// // });
-
-
-// // Route::get('/admin/addcourse', function () {
-// //     return view('admin.add_course');
-// // });
-
-// Route::get('/admin/allcategeries', function () {
-//     return view('admin.all_categeries');
-// Route::get('/admin/allcourses', function () {
-//     return view('admin.all_courses');
-// });
-
-// Route::get('/admin/addcourse', function () {
-//     return view('admin.add_course');
-// });
-
-// Route::get('/admin/allcategeries', function () {
-//     return view('admin.all_categeries');
-// });
-
-// Route::get('/admin/addcategery', function () {
-//     return view('admin.add_categeries');
-// });
-
-// Route::get('/admin/addcategery', function () {
-//     return view('admin.add_categeries');
-// });
-
-
-// Route::get('/admin/edituser', function () {
-//     return view('admin.edit_user');
-// });
-
-// // Route::get('/admin/editcourse', function () {
-// //     return view('admin.edit_course');
-// // });
-// Route::get('/admin/edituser', function () {
-//     return view('admin.edit_user');
-// });
-
-// Route::get('/admin/editcourse', function () {
-//     return view('admin.edit_course');
-// });
-
-// Route::get('/admin/editcategery', function () {
-//     return view('admin.edit_categeries');
-// });
-
-// Route::get('/admin/editcategery', function () {
-//     return view('admin.edit_categeries');
-// });
-
-
-// Route::get('/admin/viewuser', function () {
-//     return view('admin.viewuser');
-// });
-
-// // Route::get('/admin/viewcourse', function () {
-// //     return view('admin.viewcourse');
-// // });
-
-// Route::get('/admin/viewuser', function () {
-//     return view('admin.viewuser');
-// });
-
-// Route::get('/admin/viewcourse', function () {
-//     return view('admin.viewcourse');
-// });
-
-// Route::get('/admin/viewcateg', function () {
-//     return view('admin.viewcateg');
-// });
-
+ 
 
 Route::resource("admin/categories",CategoryController::class);
 
-// Route::resource("enroll",EnrollController::class);
-// // resource routes
 
-//         // Route::resource('user', Usercontroller::class);
-
-//         // Route::resource('user', CourseController::class);
-
-//         // Route::resource('user', CategoryController::class);
 
 Route::resource('admin/users', Usercontroller::class);
 
@@ -436,3 +298,5 @@ Route::get('/course/{course}/video/{id}', function ($course_id,$id) {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+

@@ -38,7 +38,7 @@
                            <li>
                                <h4 class="info_title">Our E-mails :</h4>
                                <ul class="list-unstyled">
-                                   <li>support@eduwais.com</li>                                    
+                                   <li>support@educavo.com</li>                                    
                                </ul>
                            </li>                      
                        </ul>

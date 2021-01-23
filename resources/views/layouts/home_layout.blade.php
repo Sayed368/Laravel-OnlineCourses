@@ -59,9 +59,11 @@
 						<div class="login_info">
                             @if (Route::has('login'))
                             @auth
+                            @if (Auth::user()->role == "student")
   <a id="navbarDropdown" class="sign_up sign-in" href="/profile" >
                                   Hello:{{ Auth::user()->name }}
     </a>&nbsp;
+    @endif
     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

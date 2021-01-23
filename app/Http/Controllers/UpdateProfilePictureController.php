@@ -6,7 +6,11 @@ use Illuminate\Http\Request;
 
 class UpdateProfilePictureController extends Controller
 {
-    //
+    public function __construct(){
+           
+        $this->middleware("auth");
+         
+    }
   
    
     function update(Request $request , $id, User $user){

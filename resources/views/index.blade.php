@@ -67,16 +67,13 @@ $courses= Course::all();
 					<h2>Doing The Right Thing At The Right Time.</h2>
 					<div class="step_services">
 						<h3><span>01.</span>Exprerience</h3>
-						<p>Our Online Learning Resource Center has tips, tricks and inspiring stories to help you learn while staying home.</p>  
+						<p>Discover the fastest, most effective way to gain job-ready expertise for the careers of the future.</p>  
 					</div>                    
 					<div class="step_services">
 						<h3><span>02.</span>Education</h3>
 						<p>Our Online Learning Resource Center has tips, tricks and inspiring stories to help you learn while staying home.</p>   
 					</div>                   
-					 <div class="step_services">
-						<h3><span>03.</span>Certificate</h3>
-						<p>Our Online Learning Resource Center has tips, tricks and inspiring stories to help you learn while staying home.</p>  
-					</div>
+					
 				 </div>
 			</div>
 		</div>
@@ -91,7 +88,7 @@ $courses= Course::all();
 			<div class="col-12 col-sm-12 col-md-12 col-lg-12">
 				<div class="sub_title">
 					<h2>Our Popular Courses</h2>
-					<p>Our Online Learning Resource Center has tips, tricks and inspiring stories to help you learn while staying home.</p>  
+					<p>most popular courses demonstrate a continued demand for AI-related content across professions and lifestyles. Employers and employees alike are realizing the crucial role technical skills will have</p>  
 				</div><!-- ends: .section-header -->
 			</div>
 			
@@ -130,68 +127,7 @@ $courses= Course::all();
 
 
 
-
-
-{{-- 
-<section class="video_online">
-	<div class="container">
-		<div class="row">
-			<div class="col-12 col-sm-12 col-md-12 col-lg-12">
-				<div class="sub_title">
-					<h2>Watch Online Video</h2>
-				</div>
-			</div>
-			<div class="col-12 col-sm-12 col-md-12 col-lg-12">
-				<div class="video_wrapper">
-				   <div class="video_banner">
-					   <img src="images/banner/video_mockup.png" alt="">
-						<div class="video_view_btn">
-							<a href="https://www.youtube.com/watch?v=zoQ8C0r6Djw" class="video-iframe"><i class="flaticon-play-button"></i></a>
-						</div>
-				   </div>
-				   <div class="shape_video">
-				   		<img src="images/shapes/video_1.png" alt="" class="shape_1"> 
-				   		<img src="images/shapes/video_2.png" alt="" class="shape_2">        
-				   </div>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-6 col-sm-6 col-md-3 col-lg-3 counter_single_wrapper">
-				<div class="section count_single">
-					<div class="project-count counter">7096</div>
-					<span>Active students</span>
-				</div>
-			</div>
-
-			<div class="col-6 col-sm-6 col-md-3 col-lg-3 counter_single_wrapper">
-				<div class="section count_single">
-					<div class="project-count counter">508</div>
-					<span>Online Courses</span>
-				</div>  
-			</div>  
-
-			<div class="col-6 col-sm-6 col-md-3 col-lg-3 counter_single_wrapper">
-				<div class="section count_single">
-					<div class="project-count"><span class="counter">100</span><span class="count_icon">%</span></div>
-					<span>Satisfaction</span>
-				</div>
-			</div>
-
-			<div class="col-6 col-sm-6 col-md-3 col-lg-3 counter_single_wrapper">
-				<div class="section count_single">
-					<div class="project-count counter">70</div>
-					<span>Fraduates</span>
-				</div>  
-			</div>  
-		</div>
-	</div>
-	<div class="bg_shapes">
-	</div>
-</section>End ONline Video  --}}
-
-
-
+ 
 
 <?php
 use App\Models\feedback;
@@ -206,7 +142,9 @@ $feedbacks=$feedback->all();
 			<div class="col-12 col-sm-12 col-md-12 col-lg-12">
 				<div class="sub_title">
 					<h2>Student Say About Us</h2>
-					<p>Our Online Learning Resource Center has tips, tricks and inspiring stories to help you learn while staying home.</p>  
+					<p>Read our student profiles to discover first-hand what it's like to study with us.
+
+.</p>  
 				</div><!-- ends: .section-header -->
 			</div>
 		</div>
@@ -243,7 +181,7 @@ $feedbacks=$feedback->all();
 				<div class="meet_team_wrapper">  
 					<div class="sub_title">
 						<h2>Meet Our Instractor</h2>
-						<p>Our Online Learning Resource Center has tips, tricks and inspiring stories to help you learn while staying home.</p>  
+						<p>Meet Your Instructor and ask all about yo need...</p>  
 					</div><!-- ends: .section-header -->
 					<div class="envent_all_view">
 						<a href="/team" title="">View All</a>
@@ -252,7 +190,7 @@ $feedbacks=$feedback->all();
 			</div>
 		</div>      
 		<div class="row">
-@foreach ($users->slice(0,6) as $user)
+@foreach ($users->slice(0,7) as $user)
 @if($user['role']=='instructor')
 			<div class="col-12 col-sm-6 col-md-6 col-lg-4">
 				<div class="testimonial_single">
@@ -287,7 +225,9 @@ $feedbacks=$feedback->all();
             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="sub_title">
                     <h2>Our Latest Blog</h2>
-                    <p>Our Online Learning Resource Center has tips, tricks and inspiring stories to help you learn while staying home.</p>  
+                    <p>Read about important educational news, career information, and student experiences..
+
+</p>  
                 </div><!-- ends: .section-header -->
             </div>
             <div class="col-12 col-sm-6 col-md-4 col-lg-4">
@@ -311,7 +251,7 @@ $feedbacks=$feedback->all();
                     </div>
                     <div class="blog_title">
                         <span>LeaderShip Development</span>  
-                        <h3><a href="#" title="">Students work together to <br>solve a problem.</a></h3> 
+                        <h3><a href="#" title="">Students work together to <br>solve a problem...</a></h3> 
                         <div class="post_bloger">
                             <span>15/02/2018 - By </span> <span class="bloger_name"> Jhon Deo</span>
                         </div>               
